@@ -1,0 +1,15 @@
+{
+	"id": "jokes_of_a_feather",
+	"name": "Jokes of a Feather",
+	"author": ["Doctor Ducko", "no one"],
+	"description": "WIP Content Mod",
+	"prefix": "joaf",
+	"main_file": "JokesOfAFeather.lua",
+	"priority": 0,
+	"badge_colour": "FF9900",
+	"badge_text_colour": "FFFF",
+	"display_name": "Jokes of a Feather",
+	"version": "0.0.0~dev",
+	"dependencies": [],
+	"dump_loc": false
+}
