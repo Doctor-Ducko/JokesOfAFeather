@@ -1,97 +1,162 @@
--- Creates an atlas for the cards
 SMODS.Atlas {
-    -- Key to find it.
     key = "JOAFJokers",
-    -- filename
     path = "joaf_jokers.png",
-	-- Width of each sprite in 1x size
 	px = 71,
-	-- Height of each sprite in 1x size
 	py = 95
 }
 
-
 SMODS.Joker {
-	-- Identifier
 	key = 'meg_griffin',
-	-- loc_text is the actual name and description that show in-game for the card.
 	loc_txt = {
 		name = 'Meg Griffin',
 		text = {
 			--[[
-			The #1# is a variable that's stored in config, and is put into loc_vars.
-			The {C:} is a color modifier, and uses the color "mult" for the "+#1# " part, and then the empty {} is to reset all formatting, so that Mult remains uncolored.
-				There's {X:}, which sets the background, usually used for XMult.
-				There's {s:}, which is scale, and multiplies the text size by the value, like 0.8
-				There's one more, {V:1}, but is more advanced, and is used in Castle and Ancient Jokers. It allows for a variable to dynamically change the color. You can find an example in the Castle joker if needed.
-				Multiple variables can be used in one space, as long as you separate them with a comma. {C:attention, X:chips, s:1.3} would be the yellow attention color, with a blue chips-colored background,, and 1.3 times the scale of other text.
-				You can find the vanilla joker descriptions and names as well as several other things in the localization files.
-				]]
-			"{C:mult}+#1# {} Mult"
+				{C:} 	- color modifier
+				{} 		- reset all formatting
+				{X:}	- sets the background, usually used for XMult.
+				{s:}	- scale, and multiplies the text size by the value, like 0.8
+				{V:1}	-It allows for a variable to dynamically change the color. You can find an example in the Castle joker if needed.
+			]]
+			"All Heart Cards score {C:chips}+#1#{} Chips"
 		}
 	},
-	--[[
-		Config sets all the variables for your card, you want to put all numbers here.
-		This is really useful for scaling numbers, but should be done with static numbers -
-		If you want to change the static value, you'd only change this number, instead
-		of going through all your code to change each instance individually.
-		]]
-	config = { extra = { mult = 40 } },
+	config = {
+		extra = {
+			chips = 200
+		}
+	},
+
 	-- loc_vars gives your loc_text variables to work with, in the format of #n#, n being the variable in order.
-	-- #1# is the first variable in vars, #2# the second, #3# the third, and so on.
-	-- It's also where you'd add to the info_queue, which is where things like the negative tooltip are.
 	loc_vars = function(self, info_queue, card)
-		return { vars = { card.ability.extra.mult } }
+		return {
+			vars = {
+				card.ability.extra.chips
+			}
+		}
 	end,
-	-- Sets rarity. 1 common, 2 uncommon, 3 rare, 4 legendary.
-	rarity = 1,
-	-- Which atlas key to pull from.
+	rarity = 4, -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	atlas = 'JOAFJokers',
-	-- This card's position on the atlas, starting at {x=0,y=0} for the very top left.
-	pos = { x = 1, y = 0 },
-	-- Cost of card in shop.
-	cost = -12,
-	-- The functioning part of the joker, looks at context to decide what step of scoring the game is on, and then gives a 'return' value if something activates.
+	pos = { x = 1, y = 0 }, -- works on a +1 increment, not based off of pixels
+	cost = 2,
 	calculate = function(self, card, context)
-		-- Tests if context.joker_main == true.
-		-- joker_main is a SMODS specific thing, and is where the effects of jokers that just give +stuff in the joker area area triggered, like Joker giving +Mult, Cavendish giving XMult, and Bull giving +Chips.
 		if context.joker_main then
-			-- Tells the joker what to do. In this case, it pulls the value of mult from the config, and tells the joker to use that variable as the "mult_mod".
 			return {
-				mult_mod = card.ability.extra.mult,
-				-- This is a localize function. Localize looks through the localization files, and translates it. It ensures your mod is able to be translated. I've left it out in most cases for clarity reasons, but this one is required, because it has a variable.
-				-- This specifically looks in the localization table for the 'variable' category, specifically under 'v_dictionary' in 'localization/en-us.lua', and searches that table for 'a_mult', which is short for add mult.
-				-- In the localization file, a_mult = "+#1#". Like with loc_vars, the vars in this message variable replace the #1#.
-				message = localize { type = 'variable', key = 'a_mult', vars = { card.ability.extra.mult } }
-				-- Without this, the mult will stil be added, but it'll just show as a blank red square that doesn't have any text.
+				chip_mod = card.ability.extra.chip,
+				message = localize{
+					type = 'variable',
+					key = 'a_chip',
+					vars = {card.ability.extra.chip}
+				}
 			}
 		end
 	end
 }
 
---[[SMODS.Back{
-    name = "Meg's Deck",
-    key = "megdeck",
+SMODS.Joker {
+	key = "straight_line",
+
+	loc_txt = {
+		name = "Straight Line",
+		text = {
+			"Gains {X:mult,C:white} X#2# {} Mult",
+			"if played hand",
+			"contains a {C:attention}Straight{}",
+			"{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult)"
+		}
+	},
+
+	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	atlas = 'JOAFJokers',
+	pos = { x = 2, y = 0 }, -- works on a +1 increment, not based off of pixels
+	cost = 2,
+
+	config = {
+		extra = {
+			Xmult = 1,
+			Xmult_gain = 0.15
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.Xmult, card.ability.extra.Xmult_gain } }
+	end,
+
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				Xmult_mod = card.ability.extra.Xmult,
+				message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } }
+			}
+		end
+		if context.before and next(context.poker_hands['Straight']) and not context.blueprint then
+			card.ability.extra.Xmult = card.ability.extra.Xmult + card.ability.extra.Xmult_gain
+			return {
+				message = 'Upgraded!',
+				colour = G.C.XMULT,
+				card = card
+			}
+		end
+	end
+}
+
+SMODS.Joker {
+	key = "misplaced",
+
+	loc_txt = {
+		name = "Misplaced",
+		text = {
+			"Gain {C:blue}+#1#{} hand",
+			"per round"
+		}
+	},
+
+	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	atlas = 'JOAFJokers',
+	pos = { x = 5, y = 0 }, -- works on a +1 increment, not based off of pixels
+	cost = 7,
+
+	config = {
+		extra = {
+			hand_size = 1,
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return { vars = { card.ability.extra.hand_size } }
+	end,
+
+	add_to_deck = function(self, card, from_debuff)
+		G.GAME.round_resets.hands = G.GAME.round_resets.hands + card.ability.extra.hand_size
+	end,
+	-- Inverse of above function.
+	remove_from_deck = function(self, card, from_debuff)
+		G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_size
+	end
+}
+
+SMODS.Back{
+    name = "Test Deck",
+    key = "test_deck",
     pos = {x = 0, y = 3},
-    config = {polyglass = true},
+    config = {},
     loc_txt = {
-        name = "Meg's Deck",
+        name = "Test Deck",
         text ={
-            "Start with Meg"
+            "Test"
         },
     },
-    apply = function()
+	apply = function(self, back)
+		delay(0.4)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				if G.jokers then
-					--function create_card(_type, area, legendary, _rarity, skip_materialize, soulable, forced_key, key_append)
-					local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "meg_griffin", "")
-					card:add_to_deck()
-					card:start_materialize()
-					G.jokers:emplace(card)
-					return true
-				end
+				local dna_card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_meg_griffin", "deck")
+				dna_card:set_edition({ negative = true }, true)
+
+				dna_card:add_to_deck()
+				G.jokers:emplace(dna_card)
+				dna_card:start_materialize()
+				return true
 			end,
 		}))
-    end
-}]]
+	end
+}
