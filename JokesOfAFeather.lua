@@ -1,59 +1,121 @@
+--[[
+WELCOME TO THE PETRIFYING SOURCE CODE OF THIS MOD !!
+====================================================
+Please make sure to have a canister of bleach to your
+immediate left and/or right incase of visual interaction
+with programming based war crimes.
+]]
+
+SMODS.Keybind {
+	key = "Restart Game",
+	key_pressed = "r",
+	action = function(self)
+		SMODS.restart_game()
+	end,
+	held_keys = {"lctrl"},
+	event = "released"
+}
+
+
+--[[SPRITES/ATLAS SECTION]]
 SMODS.Atlas {
     key = "JOAFJokers",
-    path = "joaf_jokers.png",
+    path = "DuckJokers.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
+    key = "JOAFDecks",
+    path = "DuckDecks.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
+    key = "JOAFEnhance",
+    path = "DuckEnhancements.png",
 	px = 71,
 	py = 95
 }
 
-SMODS.Joker {
-	key = 'meg_griffin',
+
+--[[
+RARITIES SECTION
+
+Currently Added:
+	Family Guy
+]]
+SMODS.Rarity({
+	key = "family",
 	loc_txt = {
-		name = 'Meg Griffin',
-		text = {
-			--[[
-				{C:} 	- color modifier
-				{} 		- reset all formatting
-				{X:}	- sets the background, usually used for XMult.
-				{s:}	- scale, and multiplies the text size by the value, like 0.8
-				{V:1}	-It allows for a variable to dynamically change the color. You can find an example in the Castle joker if needed.
-			]]
-			"All Heart Cards score {C:chips}+#1#{} Chips"
-		}
+		name = "Family Guy"
 	},
-	config = {
-		extra = {
-			chips = 200
+	badge_colour = HEX("3b9c14"),
+	default_weight = 0.003,
+	pools = {
+		["Joker"] = true
+	},
+})
+
+
+--[[
+JOKERS SECTION
+
+Currently Added:
+	Binary Joker 	Common
+	Meg Griffin		Legendary
+	Straight Line	Uncommon
+	Misplaced		Uncommon
+]]
+SMODS.Joker {
+	key = 'binary_joker',
+	atlas = 'JOAFJokers',
+	pos = { x = 3, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = 1, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 4,
+	blueprint_compat = true,
+
+	loc_txt = {
+		name = 'Binary Joker',
+		text = {
+			"Each played {C:attention}Ace{} or {C:attention}2",
+			"gives {C:mult}+#1#{} Mult when scored"
 		}
 	},
 
-	-- loc_vars gives your loc_text variables to work with, in the format of #n#, n being the variable in order.
+	config = {
+		extra = {
+			mult = 10
+		}
+	},
+
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.chips
+				card.ability.extra.mult
 			}
 		}
 	end,
-	rarity = 4, -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	atlas = 'JOAFJokers',
-	pos = { x = 1, y = 0 }, -- works on a +1 increment, not based off of pixels
-	cost = 2,
+
 	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				chip_mod = card.ability.extra.chip,
-				message = localize{
-					type = 'variable',
-					key = 'a_chip',
-					vars = {card.ability.extra.chip}
+		if context.individual and context.cardarea == G.play then
+			--Jack is 11, Queen is 12, King is 13, and Ace is 14.
+			if context.other_card:get_id() == 14 or context.other_card:get_id() == 2 then
+				return {
+					mult = card.ability.extra.mult,
+					card = context.other_card
 				}
-			}
+			end
 		end
 	end
 }
 
 SMODS.Joker {
 	key = "straight_line",
+	atlas = 'JOAFJokers',
+	pos = { x = 2, y = 0 },
+	rarity = 2,
+	cost = 7,
+	blueprint_compat = true,
 
 	loc_txt = {
 		name = "Straight Line",
@@ -64,11 +126,6 @@ SMODS.Joker {
 			"{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult)"
 		}
 	},
-
-	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	atlas = 'JOAFJokers',
-	pos = { x = 2, y = 0 }, -- works on a +1 increment, not based off of pixels
-	cost = 2,
 
 	config = {
 		extra = {
@@ -101,6 +158,10 @@ SMODS.Joker {
 
 SMODS.Joker {
 	key = "misplaced",
+	atlas = 'JOAFJokers',
+	pos = { x = 5, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 7,
 
 	loc_txt = {
 		name = "Misplaced",
@@ -109,11 +170,6 @@ SMODS.Joker {
 			"per round"
 		}
 	},
-
-	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	atlas = 'JOAFJokers',
-	pos = { x = 5, y = 0 }, -- works on a +1 increment, not based off of pixels
-	cost = 7,
 
 	config = {
 		extra = {
@@ -134,29 +190,234 @@ SMODS.Joker {
 	end
 }
 
-SMODS.Back{
-    name = "Test Deck",
-    key = "test_deck",
-    pos = {x = 0, y = 3},
-    config = {},
-    loc_txt = {
-        name = "Test Deck",
+SMODS.Joker {
+	key = 'lois_griffin',
+	atlas = 'JOAFJokers',
+	pos = { x = 10, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 20,
+	blueprint_compat = true,
+
+	loc_txt = {
+		name = 'Lois Griffin',
+		text={
+			"Earn {C:money}$#1#{} at",
+			"end of round",
+		},
+	},
+
+	config = {
+		extra = {
+			money = 15
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.money
+			}
+		}
+	end,
+
+	calc_dollar_bonus = function(self, card)
+		local bonus = card.ability.extra.money
+		if bonus > 0 then return bonus end
+	end
+}
+
+SMODS.Joker {
+	key = 'chris_griffin',
+	atlas = 'JOAFJokers',
+	pos = { x = 8, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 20,
+	blueprint_compat = true,
+
+	loc_txt = {
+		name = 'Chris Griffin',
+		text = {
+			--[[
+				{C:} 	- color modifier
+				{} 		- reset all formatting
+				{X:}	- sets the background, usually used for XMult.
+				{s:}	- scale, and multiplies the text size by the value, like 0.8
+				{V:1}	- allows for a variable to dynamically change the color
+			]]
+			"{C:attention}+#1# Joker{} slots"
+		}
+	},
+
+	config = {
+		extra = {
+			joker_slots = 3
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.joker_slots
+			}
+		}
+	end,
+
+	add_to_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.joker_slots
+	end,
+}
+
+SMODS.Joker {
+	key = 'meg_griffin',
+	atlas = 'JOAFJokers',
+	pos = { x = 1, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 20,
+
+	loc_txt = {
+		name = 'Meg Griffin',
+		text = {
+			--[[
+				{C:} 	- color modifier
+				{} 		- reset all formatting
+				{X:}	- sets the background, usually used for XMult.
+				{s:}	- scale, and multiplies the text size by the value, like 0.8
+				{V:1}	- allows for a variable to dynamically change the color
+			]]
+			"All {C:hearts}Heart{} cards score",
+			"{C:chips}+#1#{} Chips"
+		}
+	},
+
+	config = {
+		extra = {
+			chips = 200,
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.chips
+			}
+		}
+	end,
+
+	calculate = function(self, card, context)
+		if context.individual and context.cardarea == G.play then
+			if context.other_card:is_suit("Hearts") then
+				return {
+					chips = card.ability.extra.chips,
+					card = context.other_card
+				}
+			end
+		end
+	end
+}
+
+--[[ENHANCEMENTS SECTION]]
+SMODS.Enhancement{
+    key = "combo",
+
+	loc_txt = {
+        name = "Combo Card",
         text ={
-            "Test"
+            "{C:chips}+20{} chips and",
+            "{C:mult}+3{} Mult",
+        },
+	},
+
+	atlas = 'JOAFEnhance',
+	pos = {x = 0, y = 0},
+	config = {
+		bonus = 20,
+        mult = 3
+	}
+}
+
+SMODS.Enhancement{
+    key = "chipped",
+
+	loc_txt = {
+        name = "Chipped Card",
+        text ={
+            "{X:chips,C:white}X1.5{} chips",
+			"when scored"
+        },
+	},
+
+	atlas = 'JOAFEnhance',
+	pos = {x = 1, y = 0},
+	config = {
+		x_chips = 20
+	}
+}
+
+--[[DECK SECTION]]
+SMODS.Back{
+    key = "family_deck",
+	atlas = 'JOAFDecks',
+    pos = {x = 0, y = 0},
+    config = { joker_slot = 1 },
+    loc_txt = {
+        name = "Family Deck",
+        text ={
+            "Start with all",
+			"{C:attention}Eternal Family Jokers{}",
+			"and {C:attention}+1{} Joker Slot"
         },
     },
 	apply = function(self, back)
 		delay(0.4)
 		G.E_MANAGER:add_event(Event({
 			func = function()
-				local dna_card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_meg_griffin", "deck")
-				dna_card:set_edition({ negative = true }, true)
+				local lois = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_lois_griffin", "deck")
+				local chris = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_chris_griffin", "deck")
+				local meg = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_meg_griffin", "deck")
 
-				dna_card:add_to_deck()
-				G.jokers:emplace(dna_card)
-				dna_card:start_materialize()
+				lois:set_eternal(true)
+				chris:set_eternal(true)
+				meg:set_eternal(true)
+
+				lois:add_to_deck()
+				chris:add_to_deck()
+				meg:add_to_deck()
+
+				G.jokers:emplace(lois)
+				G.jokers:emplace(chris)
+				G.jokers:emplace(meg)
+				
+				lois:start_materialize()
+				chris:start_materialize()
+				meg:start_materialize()
 				return true
 			end,
 		}))
 	end
+}
+
+SMODS.Back{
+    key = "chipped_deck",
+	atlas = 'JOAFDecks',
+    pos = {x = 0, y = 0},
+    config = {},
+    loc_txt = {
+        name = "Chipped Deck",
+        text ={
+            "all cards are chipped"
+        },
+    },
+    apply = function()
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for i = #G.playing_cards, 1, -1 do
+                    G.playing_cards[i]:set_ability("chipped")
+                end
+                return true
+            end
+        }))
+    end
 }
