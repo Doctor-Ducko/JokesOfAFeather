@@ -16,26 +16,31 @@ Binary Joker
 ### Uncommon
 Straight Line
 * Gains X0.15 Mult if played hand contains a Straight
+
 Misplaced
 * Gain +1 hand per round
 
 ### Family Guy
 Lois Griffin
 * Earn $15 when the round ends
+
 Chris Griffin
 * +3 Joker slots
+
 Meg Griffin
 * All Heart cards score +200 chips
 
 ## Decks
 Family Deck
 * Start with all Eternal Family Jokers and +1 Joker slot
+
 Chipped Deck
 * All cards start as Chipped
 
 ## Enhancements
 Combo Card
 * +20 chips and +3 Mult
+
 Chipped Card
 * X1.5 chips
 
