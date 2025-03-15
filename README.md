@@ -20,6 +20,10 @@ Straight Line
 Misplaced
 * Gain +1 hand per round
 
+### Rare
+Photographer
+* Gains bonus chips according to the base chip value of a scored card
+
 ### Family Guy
 Lois Griffin
 * Earn $15 when the round ends

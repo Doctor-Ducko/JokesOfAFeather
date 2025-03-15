@@ -36,14 +36,15 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+SMODS.Atlas {
+    key = "JOAFItems",
+    path = "DuckItems.png",
+	px = 71,
+	py = 95
+}
 
 
---[[
-RARITIES SECTION
-
-Currently Added:
-	Family Guy
-]]
+--[[RARITIES SECTION]]
 SMODS.Rarity({
 	key = "family",
 	loc_txt = {
@@ -57,15 +58,7 @@ SMODS.Rarity({
 })
 
 
---[[
-JOKERS SECTION
-
-Currently Added:
-	Binary Joker 	Common
-	Meg Griffin		Legendary
-	Straight Line	Uncommon
-	Misplaced		Uncommon
-]]
+--[[JOKERS SECTION]]
 SMODS.Joker {
 	key = 'binary_joker',
 	atlas = 'JOAFJokers',
@@ -188,6 +181,69 @@ SMODS.Joker {
 	remove_from_deck = function(self, card, from_debuff)
 		G.GAME.round_resets.hands = G.GAME.round_resets.hands - card.ability.extra.hand_size
 	end
+}
+
+SMODS.Joker {
+	key = "photographer",
+	atlas = 'JOAFJokers',
+	pos = { x = 1, y = 1 },
+	rarity = 3,
+	cost = 7,
+	blueprint_compat = true,
+
+	loc_txt = {
+		name = "Photographer",
+		text = {
+			"Gains bonus chips",
+			"according to the base",
+			"chip value of a scored card",
+			"{C:inactive}(Currently {C:chips}+#1#{}{C:inactive} chips)"
+		}
+	},
+
+	config = {
+		extra = {
+			chips = 0,
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.chips
+			}
+		}
+	end,
+
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				chips = card.ability.extra.chips,
+			}
+		end
+		if context.individual and context.cardarea == G.play then
+			local bonus = context.other_card:get_id()
+
+			-- someone please tell me there's a better way to do this, this sucks ass
+			if bonus >= 11 and bonus <= 13 then
+				bonus = 10
+			elseif bonus == 14 then
+				bonus = 11
+			end
+
+			if context.other_card.ability.effect == "Stone Card" then
+				bonus = 50
+			end
+
+			card.ability.extra.chips = card.ability.extra.chips + bonus
+			return {
+				message = '+'..tostring(bonus),
+				colour = G.C.CHIPS,
+				card = card
+			}
+		end
+	end
+
 }
 
 SMODS.Joker {
@@ -352,8 +408,54 @@ SMODS.Enhancement{
 	atlas = 'JOAFEnhance',
 	pos = {x = 1, y = 0},
 	config = {
-		x_chips = 20
+		x_chips = 1.5
 	}
+}
+
+--[[CONSUMABLES SECTION]]
+--[[SMODS.Consumable{
+	key = "balance",
+	set = "Tarot",
+	loc_txt = {
+		name = "Balance",
+		text = "does something i think",
+	},
+
+	atlas = "JOAFItems",
+	pos = {x=0,y=0},
+	cost = 4,
+}]]
+
+SMODS.Consumable {
+    -- `self`: The object this function is being called on (the card prototype)
+    -- `info_queue`: A table that stores tooltips to be displayed alongside the description
+    -- `card`: The card being described. If no card is available because this is for a tooltip,
+    -- a fake table that looks like a card will be provided (See: duck typing)
+    -- NOTE: card may belong to a different class depending on what object this is defined on;
+    -- e.g. a `Tag` is passed if this is defined on a `SMODS.Tag` object.
+    loc_vars = function(self, info_queue, card)
+        -- Add tooltips by appending to info_queue
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone -- Add a description of the Stone enhancement
+        info_queue[#info_queue+1] = G.P_CENTERS.j_stone -- Add a description of Stone Joker
+        -- all keys in this return table are optional
+        return {
+            vars = {
+                card.ability.extra.mult, -- replace #1# in the description with this value
+                card.ability.extra.mult_gain, -- replace #2# in the description with this value
+                colours = {
+                    G.C.SECONDARY_SET.Tarot, -- colour text formatted with {V:1}
+                    HEX(card.ability.extra.colour_string), -- colour text formatted with {V:2}
+                },
+            },
+            key = self.key..'_alt', -- Use an alternate description key (pulls from G.localization.descriptions[self.set][key])
+            set = 'Spectral', -- Use an alternate description set (G.localization.descriptions[set][key or self.key])
+            scale = 1.2, -- Change the base text scale of the description
+            text_colour = G.C.RED, -- Change the default text colour (when no other colour is being specified)
+            background_colour = G.C.BLACK, -- Change the default background colour
+            main_start = nil, -- Table of UIElements inserted before the main description (-> "Building a UI")
+            main_end = nil, -- Table of UIElements inserted after the main description
+        }
+    end,
 }
 
 --[[DECK SECTION]]
@@ -414,7 +516,7 @@ SMODS.Back{
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i = #G.playing_cards, 1, -1 do
-                    G.playing_cards[i]:set_ability("chipped")
+                    G.playing_cards[i]:set_ability("m_joaf_chipped")
                 end
                 return true
             end

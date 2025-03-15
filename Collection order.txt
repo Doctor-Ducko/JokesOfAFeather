@@ -4,12 +4,13 @@ Common
     Binary Joker
 
 Uncommon
-    Mirrored Joker
+    Straight Line
     Dr. Pepper
+    Mirrored Joker
     Misplaced
 
 Rare
-    Straight Line
+    Photographer
     EVIL JOKER
 
 Family
