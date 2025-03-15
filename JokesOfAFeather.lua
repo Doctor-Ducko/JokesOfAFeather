@@ -201,8 +201,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Lois Griffin',
 		text={
-			"Earn {C:money}$#1#{} at",
-			"end of round",
+			"Earn {C:money}$#1#{} when",
+			"the round ends",
 		},
 	},
 
@@ -288,7 +288,7 @@ SMODS.Joker {
 				{V:1}	- allows for a variable to dynamically change the color
 			]]
 			"All {C:hearts}Heart{} cards score",
-			"{C:chips}+#1#{} Chips"
+			"{C:chips}+#1#{} chips"
 		}
 	},
 
