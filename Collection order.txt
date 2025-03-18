@@ -1,11 +1,13 @@
 just for draftin poirpoises
 
 Common
+    Joker?
     Binary Joker
+    Sunflower Joker
 
 Uncommon
-    Straight Line
     Dr. Pepper
+    Straight Line
     Mirrored Joker
     Misplaced
 
