@@ -1,0 +1,29 @@
+Jokes of a Feather - Ideas
+
+Jokers
+
+Standard Jokers (Common, Uncommon, Rare)
+	Chip Damage:	Gains +40 chips for every destroyed playing card
+	Ace in Face:	All Ace cards count as face cards
+	Ice Cube:		+100 Chips, -10 chips after every round
+	Cracked Glass:	All Glass cards score x3 mult but have a 1 in 3 chance of being destroyed
+	Joker Face:		Creates a random Face card when a blind is selected
+
+	EVIL JOKER:		x666 Mult if hand played is three 6's
+	Mr. Saturn:		Create a Saturn Planet Card after every played Straight
+	Recruiter:		+5 Chips per card in total deck
+	Jack is Back:	Retrigger all Jacks twice
+	
+Special Jokers	(Legendary, Family)
+	Legendary:
+		Mother's Grace:	All scored cards gain +7 mult
+	
+Seals
+	Green Seal:		Adds an extra card to your hand on discard
+	Navy Seal:		Creates a Spectral card on discard
+	
+Traits
+	Patient:		Gains +10 chips when held in hand
+	Confident:		Gains +10 chips on score
+	Perseverant:	Gains +10 chips on discard
+	Kind:			Gains +20 chips if scored in a pair

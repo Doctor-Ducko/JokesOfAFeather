@@ -2,6 +2,7 @@ just for draftin poirpoises
 
 Common
     Joker?
+    JokerekoJ
     Binary Joker
     Sunflower Joker
 
@@ -12,6 +13,7 @@ Uncommon
     Misplaced
 
 Rare
+    Jokr
     Photographer
     EVIL JOKER
 
