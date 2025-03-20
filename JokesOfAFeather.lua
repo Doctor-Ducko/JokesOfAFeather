@@ -834,7 +834,6 @@ SMODS.Enhancement{
 
 --[[SEALS SECTION]]
 SMODS.Seal {
-    name = "my-Seal",
     key = "pink_seal",
     badge_colour = HEX("eb6abd"),
 	config = {x_mult = 2},
@@ -864,6 +863,40 @@ SMODS.Seal {
         end
     end,
 }
+
+SMODS.Seal {
+    key = "green_seal",
+    badge_colour = G.C.GREEN,
+	config = {extra_cards = 2},
+    loc_txt = {
+        label = 'Green Seal',
+        -- Tooltip description
+        name = 'Green Seal',
+        text = {
+            'Draw {C:attention}#1#{} extra cards',
+			'on discard',
+			"{C:inactive}(May or may not be",
+			"{C:inactive}kind of janky)"
+        }
+    },
+    loc_vars = function(self, info_queue)
+        return { vars = {self.config.extra_cards, } }
+    end,
+    atlas = "JOAFEnhance",
+    pos = {x=3, y=0},
+
+    -- self - this seal prototype
+    -- card - card this seal is applied to
+    calculate = function(self, card, context)
+        if context.discard and context.other_card == card then
+			G.FUNCS.draw_from_deck_to_hand(self.config.extra_cards + 1)
+            return {
+                card = card
+            }
+        end
+    end
+}
+
 
 --[[CONSUMABLES SECTION]]
 --[[SMODS.Consumable{
@@ -905,6 +938,46 @@ SMODS.Consumable {
     cost = 4,
     atlas = "JOAFItems",
     pos = {x=2, y=0},
+    use = function(self, card, area, copier)
+        for i = 1, math.min(#G.hand.highlighted, card.ability.max_highlighted) do
+            G.E_MANAGER:add_event(Event({func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true end }))
+            
+            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
+                G.hand.highlighted[i]:set_seal(card.ability.extra, nil, true)
+                return true end }))
+            
+            delay(0.5)
+        end
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2,func = function() G.hand:unhighlight_all(); return true end }))
+    end
+}
+
+SMODS.Consumable {
+    set = "Spectral",
+    key = "duplicate_spectral",
+	config = {
+        max_highlighted = 2,
+        extra = 'joaf_green_seal',
+    },
+    loc_vars = function(self, info_queue, card)
+        -- Handle creating a tooltip with seal args.
+        info_queue[#info_queue+1] = G.P_SEALS[(card.ability or self.config).extra]
+        -- Description vars
+        return {vars = {(card.ability or self.config).max_highlighted}}
+    end,
+    loc_txt = {
+        name = 'Duplicate',
+        text = {
+            "Select {C:attention}#1#{} cards to",
+            "apply {C:green}Green Seal{} to"
+        }
+    },
+    cost = 4,
+    atlas = "JOAFItems",
+    pos = {x=3, y=0},
     use = function(self, card, area, copier)
         for i = 1, math.min(#G.hand.highlighted, card.ability.max_highlighted) do
             G.E_MANAGER:add_event(Event({func = function()

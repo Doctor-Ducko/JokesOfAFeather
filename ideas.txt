@@ -8,6 +8,7 @@ Standard Jokers (Common, Uncommon, Rare)
 	Ice Cube:		+100 Chips, -10 chips after every round
 	Cracked Glass:	All Glass cards score x3 mult but have a 1 in 3 chance of being destroyed
 	Joker Face:		Creates a random Face card when a blind is selected
+	Simple Joker:	All non-face cards gain +8 mult on score
 
 	EVIL JOKER:		x666 Mult if hand played is three 6's
 	Mr. Saturn:		Create a Saturn Planet Card after every played Straight
@@ -22,8 +23,7 @@ Seals
 	Green Seal:		Adds an extra card to your hand on discard
 	Navy Seal:		Creates a Spectral card on discard
 	
-Traits
+Trinkets (In-Round consumables)
 	Patient:		Gains +10 chips when held in hand
 	Confident:		Gains +10 chips on score
 	Perseverant:	Gains +10 chips on discard
-	Kind:			Gains +20 chips if scored in a pair
