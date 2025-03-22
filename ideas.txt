@@ -18,12 +18,23 @@ Standard Jokers (Common, Uncommon, Rare)
 Special Jokers	(Legendary, Family)
 	Legendary:
 		Mother's Grace:	All scored cards gain +7 mult
-	
+
 Seals
 	Green Seal:		Adds an extra card to your hand on discard
 	Navy Seal:		Creates a Spectral card on discard
 	
+Spectral
+	Assimilation:	Sacrifice 4 jokers for one random Family Card
+
 Trinkets (In-Round consumables)
-	Patient:		Gains +10 chips when held in hand
-	Confident:		Gains +10 chips on score
-	Perseverant:	Gains +10 chips on discard
+	Trash Bag:			Gain an extra discard
+	Glove:				Gain an extra hand
+	Potato Chips:		Add 1000 chips to your current round score
+	Expansion Pack:		Draw 5 extra cards
+	Wallet:				Gain +$5
+	Comical Comic:		Summon a random Joker
+	Stargazing Guide:	Summon a random Planet card
+	Psychic Hotline:	Summon a random Tarot card
+	Seance Protocol:	Summon a random Spectral card
+	Trinket:			Summon a random Trinket card
+	

@@ -1,7 +1,7 @@
 {
 	"id": "jokes_of_a_feather",
 	"name": "Jokes of a Feather",
-	"author": ["Doctor Ducko", "no one"],
+	"author": ["Doctor Ducko", "Chilli"],
 	"description": "WIP Content Mod",
 	"prefix": "joaf",
 	"main_file": "JokesOfAFeather.lua",
@@ -9,7 +9,7 @@
 	"badge_colour": "FF9900",
 	"badge_text_colour": "FFFF",
 	"display_name": "J.O.A.F.",
-	"version": "0.3.0~dev",
+	"version": "0.4.0~dev",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0312b)"
 	],
