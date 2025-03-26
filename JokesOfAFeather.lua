@@ -14,9 +14,11 @@ local jokers = {
 	"dr_pepper",
 	"straight_line",
 	"misplaced",
+	"mia_joker",
 	"jokr",
 	"jramp",
 	"photographer",
+	"evil_joker",
 	"peter_griffin",
 	"lois_griffin",
 	"chris_griffin",
@@ -28,26 +30,28 @@ local jokers = {
 
 local enhancements = {
 	"combo",
-	"chipped"
+	"chipped",
 }
 
 local seals = {
 	"pink",
-	"green"
+	"green",
 }
 
 local spectral = {
 	"multiply",
-	"duplicate"
+	"duplicate",
 }
 
 local trinket = {
-	"test"
+	"trash_bag",
+	"gloves",
+	--"potato_chips",
 }
 
 local decks = {
 	"family",
-	"chipped"
+	"chipped",
 }
 
 SMODS.Keybind {
@@ -87,7 +91,7 @@ SMODS.Atlas {
 
 SMODS.ConsumableType {
 	key = "Trinkets",
-	collection_rows = {2, 2},
+	collection_rows = {5, 3},
 	primary_colour = HEX("FFFFFF"),
 	secondary_colour = HEX("D66B1B"),
 	loc_txt = {

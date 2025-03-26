@@ -1,0 +1,56 @@
+SMODS.Joker {
+	key = 'mia_joker',			-- Object ID, acessed with j_joaf_[key]
+	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
+	pos = {x = 0, y = 0},		-- works on a +1 increment, not based off of pixels
+	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	cost = 5,					-- shop price
+
+	blueprint_compat = true,	-- Cosmetic only, define in calculate function
+	eternal_compat = true,		-- Self Explanatory
+	perishable_compat = true,
+
+	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
+	discovered = true,
+
+	-- Display text
+	loc_txt = {
+		name = 'MIA Joker',
+		text = {
+			"{C:attention}+1{} Joker slot",
+			"{C:inactive}(Is, is that really it?){}",
+		}
+	},
+
+	-- Variables used in loc_vars and calculate
+	config = {
+		extra = {
+			joker_slots = 1,
+			random_events = 1,
+		}
+	},
+	-- Variables to be used in the loc_txt area
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.joker_slots
+			}
+		}
+	end,
+
+	add_to_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots
+	end,
+	remove_from_deck = function(self, card, from_debuff)
+		G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.joker_slots
+	end,
+
+	-- look at wiki for info i aint writing it down here
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				message = 'Template',
+				colour = G.C.WHITE
+			}
+		end
+	end
+}

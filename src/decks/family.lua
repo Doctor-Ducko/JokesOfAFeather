@@ -16,40 +16,22 @@ SMODS.Back{
 		G.E_MANAGER:add_event(Event({
 			func = function()
 				-- someone please tell me if theres a better way to do this
-				local peter = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_peter_griffin", "deck")
-				local lois = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_lois_griffin", "deck")
-				local chris = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_chris_griffin", "deck")
-				local meg = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_meg_griffin", "deck")
-				local stewie = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_stewie_griffin", "deck")
-				local brian = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_brian_griffin", "deck")
+				local cards = {
+					"peter_griffin",
+					"lois_griffin",
+					"chris_griffin",
+					"meg_griffin",
+					"stewie_griffin",
+					"brian_griffin",
+				}
 
-				peter:set_eternal(true)
-				lois:set_eternal(true)
-				chris:set_eternal(true)
-				meg:set_eternal(true)
-				stewie:set_eternal(true)
-				brian:set_eternal(true)
-
-				peter:add_to_deck()
-				lois:add_to_deck()
-				chris:add_to_deck()
-				meg:add_to_deck()
-				stewie:add_to_deck()
-				brian:add_to_deck()
-
-				G.jokers:emplace(peter)
-				G.jokers:emplace(lois)
-				G.jokers:emplace(chris)
-				G.jokers:emplace(meg)
-				G.jokers:emplace(stewie)
-				G.jokers:emplace(brian)
-				
-				peter:start_materialize()
-				lois:start_materialize()
-				chris:start_materialize()
-				meg:start_materialize()
-				stewie:start_materialize()
-				brian:start_materialize()
+				for i,v in ipairs(cards) do
+					local card = create_card("Joker", G.jokers, nil, nil, nil, nil, "j_joaf_" .. v, "deck")
+					card:set_eternal(true)
+					card:add_to_deck()
+					G.jokers:emplace(card)
+					card:start_materialize()
+				end
 				return true
 			end,
 		}))

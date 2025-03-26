@@ -3,7 +3,7 @@ SMODS.Consumable {
     key = "duplicate",
 	config = {
         max_highlighted = 2,
-        extra = 'joaf_green_seal',
+        extra = 'joaf_green',
     },
     loc_vars = function(self, info_queue, card)
         -- Handle creating a tooltip with seal args.

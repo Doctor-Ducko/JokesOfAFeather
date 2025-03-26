@@ -37,7 +37,7 @@ SMODS.Joker {
 	end,
 
 	calculate = function(self, card, context)
-		if context.joker_main then
+		if context.before then
 			return {
 				level_up = card.ability.extra.level_ups,
 				card = card
