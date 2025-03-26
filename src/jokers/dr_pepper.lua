@@ -37,7 +37,7 @@ SMODS.Joker {
 				card = card
 			}
 		end
-		if context.end_of_round and context.cardarea == G.jokers then
+		if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
 			card.ability.extra.mult = card.ability.extra.mult - card.ability.extra.mult_loss
 			local value = card.ability.extra.mult
 			if value <= 0 then
