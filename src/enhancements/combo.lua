@@ -13,6 +13,6 @@ SMODS.Enhancement{
 	pos = {x = 0, y = 0},
 	config = {
 		bonus = 20,
-        mult = 3
+        	mult = 3,
 	}
 }
