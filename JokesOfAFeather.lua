@@ -12,6 +12,7 @@ local jokers = {
 	"binary_joker",
 	"simple_joker",
 	"sunflower_joker",
+	"tinkerer_joker",
 	"joker_face",
 	"dr_pepper",
 	"straight_line",
