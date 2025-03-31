@@ -1,5 +1,5 @@
 SMODS.Consumable {
-    key = "_template",          -- Object ID, acessed with j_joaf_[key]
+    key = "_template",          -- Object ID, acessed with c_joaf_[key]
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
     pos = {x=5, y=0},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix

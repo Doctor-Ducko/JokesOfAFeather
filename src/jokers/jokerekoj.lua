@@ -10,8 +10,8 @@ SMODS.Joker {
 		name = "JokerekoJ",
 		text = {
 			"Scores bonus chips",
-			"according to the base",
-			"chip value of the scored card"
+			"according to the {C:attention}base",
+			"{C:attention}chip value of the scored card"
 		}
 	},
 

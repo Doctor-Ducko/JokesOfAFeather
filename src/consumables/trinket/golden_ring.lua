@@ -1,7 +1,7 @@
 SMODS.Consumable {
-    key = "potato_chips",       -- Object ID, acessed with c_joaf_[key]
+    key = "golden_ring",       -- Object ID, acessed with c_joaf_[key]
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=2, y=1},           -- works on a +1 increment per sprite, not based off of pixels
+    pos = {x=4, y=1},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 5,                   -- shop price
 
@@ -9,23 +9,23 @@ SMODS.Consumable {
 	discovered = true,
 
     loc_txt = {
-        name = 'Potato Chips',
+        name = 'Golden Ring',
         text = {
-            "Adds {C:chips}+#1#{} bonus chips to",
+            "Adds a {C:money}+$#1#{} bonus to",
             "{C:attention}#2#{} selected cards",
             "{C:inactive}(Can be stacked){}"
         }
     },
 
 	config = {
-        perma_chips = 15,
+        perma_money = 4,
         max_highlighted = 3,
     },
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                self.config.perma_chips,
+                self.config.perma_money,
                 self.config.max_highlighted,
             }
         }
@@ -47,7 +47,7 @@ SMODS.Consumable {
                 return true end }))
             
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
-                G.hand.highlighted[i].ability.perma_bonus = G.hand.highlighted[i].ability.perma_bonus + card.ability.perma_chips
+                G.hand.highlighted[i].ability.perma_p_dollars = G.hand.highlighted[i].ability.perma_p_dollars + card.ability.perma_money
                 return true end }))
             
             delay(0.5)

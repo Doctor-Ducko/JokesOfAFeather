@@ -10,11 +10,14 @@ local jokers = {
 	"joker_qm",
 	"jokerekoj",
 	"binary_joker",
+	"simple_joker",
 	"sunflower_joker",
+	"joker_face",
 	"dr_pepper",
 	"straight_line",
 	"misplaced",
 	"mia_joker",
+	"picture_frame",
 	"jokr",
 	"jramp",
 	"photographer",
@@ -38,20 +41,26 @@ local seals = {
 	"green",
 }
 
-local spectral = {
+local spectrals = {
 	"multiply",
 	"duplicate",
 }
 
-local trinket = {
+local trinkets = {
 	"trash_bag",
 	"gloves",
-	--"potato_chips",
+	"potato_chips",
+	"math_book",
+	"golden_ring",
 }
 
 local decks = {
 	"family",
 	"chipped",
+}
+
+local vouchers = {
+	"trinket_merchant"
 }
 
 SMODS.Keybind {
@@ -63,6 +72,13 @@ SMODS.Keybind {
 	held_keys = {"lctrl"},
 	event = "released"
 }
+
+SMODS.Atlas({
+    key = "modicon",
+    path = "icon.png",
+    px = 34,
+    py = 34
+  })
 
 SMODS.Atlas {
     key = "JOAFJokers",
@@ -88,6 +104,12 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+SMODS.Atlas {
+    key = "JOAFVouchers",
+    path = "DuckVouchers.png",
+	px = 71,
+	py = 95
+}
 
 SMODS.ConsumableType {
 	key = "Trinkets",
@@ -105,18 +127,20 @@ SMODS.ConsumableType {
 }
 
 SMODS.Rarity({
-	key = "family",
+	key = "family",					-- ID, indexed with joaf_[key]
 	loc_txt = {
 		name = "Family Guy"
 	},
-	badge_colour = HEX("3b9c14"),
-	default_weight = 0.003,
+	badge_colour = HEX("3b9c14"),	-- Color of the badge
+	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.5]
 	pools = {
 		["Joker"] = true
 	},
 })
 
 --[[LOADING SECTION]]
+assert(SMODS.load_file("./src/duck_globals.lua"))()
+
 for i,v in ipairs(jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
 end
@@ -129,14 +153,18 @@ for i,v in ipairs(seals) do
 	assert(SMODS.load_file("./src/seals/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(spectral) do
+for i,v in ipairs(spectrals) do
 	assert(SMODS.load_file("./src/consumables/spectral/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(trinket) do
+for i,v in ipairs(trinkets) do
 	assert(SMODS.load_file("./src/consumables/trinket/" .. v .. ".lua"))()
 end
 
 for i,v in ipairs(decks) do
 	assert(SMODS.load_file("./src/decks/" .. v .. ".lua"))()
+end
+
+for i,v in ipairs(vouchers) do
+	assert(SMODS.load_file("./src/vouchers/" .. v .. ".lua"))()
 end

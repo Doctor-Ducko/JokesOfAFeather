@@ -4,16 +4,14 @@ Jokers
 
 Standard Jokers (Common, Uncommon, Rare)
 	Chip Damage:	Gains +40 chips for every destroyed playing card
-	Ace in Face:	All Ace cards count as face cards
+	Ace Face:		All Ace cards count as face cards
 	Ice Cube:		+100 Chips, -10 chips after every round
 	Cracked Glass:	All Glass cards score x3 mult but have a 1 in 3 chance of being destroyed
-	Joker Face:		Creates a random Face card when a blind is selected
-	Simple Joker:	All non-face cards gain +8 mult on score
 
-	EVIL JOKER:		x666 Mult if hand played is three 6's
 	Mr. Saturn:		Create a Saturn Planet Card after every played Straight
-	Recruiter:		+5 Chips per card in total deck
+	Recruiter:		+3 Chips per card in total deck
 	Jack is Back:	Retrigger all Jacks twice
+	Green Needle:	Copies the ability of the rightmost joker
 	
 Special Jokers	(Legendary, Family)
 	Legendary:
@@ -27,7 +25,6 @@ Spectral
 	Assimilation:	Sacrifice 4 jokers for one random Family Card
 
 Trinkets (In-Round consumables)
-	Potato Chips:		Add 1000 chips to your current round score
 	Expansion Pack:		Draw 5 extra cards
 	Wallet:				Gain +$5
 	Comical Comic:		Summon a random Joker

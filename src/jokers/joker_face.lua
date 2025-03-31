@@ -1,9 +1,9 @@
 SMODS.Joker {
-	key = 'mia_joker',			-- Object ID, acessed with j_joaf_[key]
+	key = 'joker_face',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
-	pos = {x = 0, y = 0},		-- works on a +1 increment, not based off of pixels
+	pos = {x = 2, y = 1},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 5,					-- shop price
+	cost = 6,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
@@ -14,44 +14,43 @@ SMODS.Joker {
 
 	-- Display text
 	loc_txt = {
-		name = 'M.I.A. Joker',
+		name = 'Joker Face',
 		text = {
-			"{C:attention}+1{} Joker slot",
-			"{C:inactive}(Is, is that really it?){}",
-			"{s:0.75,C:inactive}(No){}",
+			"When round begins,",
+			"add a random {C:attention}face card{}",
+			"to your hand",
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			joker_slots = 1,
-			random_events = 1,
+
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.joker_slots
+				--card.ability.extra.variable_name
 			}
 		}
 	end,
 
-	add_to_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots
-	end,
-	remove_from_deck = function(self, card, from_debuff)
-		G.jokers.config.card_limit = G.jokers.config.card_limit - card.ability.extra.joker_slots
-	end,
-
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				message = 'Template',
-				colour = G.C.WHITE
-			}
+		if context.first_hand_drawn then
+			G.E_MANAGER:add_event(Event({
+				func = function() 
+					local _card = create_playing_card({
+						front = pseudorandom_element(P_FACE_CARDS), 
+						center = G.P_CENTERS.c_base}, G.hand, nil, nil, {G.C.SECONDARY_SET.Enhanced})
+					G.GAME.blind:debuff_card(_card)
+					G.hand:sort()
+					return true
+				end}))
+			playing_card_joker_effects({true})
+			return {}
 		end
 	end
 }

@@ -10,8 +10,8 @@ SMODS.Joker {
 		name = "Photographer",
 		text = {
 			"Gains bonus chips",
-			"according to the base",
-			"chip value of a scored card",
+			"according to the {C:attention}base",
+			"{C:attention}chip value of a scored card",
 			"{C:inactive}(Currently {C:chips}+#1#{}{C:inactive} chips)"
 		}
 	},
