@@ -5,6 +5,7 @@ Please make sure to have a canister of bleach to your
 immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
+SMODS = SMODS
 
 JOAF = SMODS.current_mod
 
@@ -25,6 +26,7 @@ JOAF.load_jokers = {
 	"jramp",
 	"photographer",
 	"evil_joker",
+	"flug",
 	"peter_griffin",
 	"lois_griffin",
 	"chris_griffin",
