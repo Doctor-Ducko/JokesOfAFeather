@@ -25,7 +25,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			mult = 0,
-			mult_increase = 1,
+			mult_increase = 0.5,
 		}
 	},
 

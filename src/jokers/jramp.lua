@@ -24,6 +24,9 @@ SMODS.Joker {
 		}
 	},
 
+	set_badges = function(self, card, badges)
+		credit_badge(card, badges, "Chilli", G.C.CHILLI)
+	end,
 	
 	calculate_x_mult = function()
 		local ante = G.GAME.round_resets.ante

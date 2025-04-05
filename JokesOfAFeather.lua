@@ -6,7 +6,9 @@ immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
 
-local jokers = {
+JOAF = SMODS.current_mod
+
+JOAF.load_jokers = {
 	"joker_qm",
 	"jokerekoj",
 	"binary_joker",
@@ -32,22 +34,22 @@ local jokers = {
 	--"",
 }
 
-local enhancements = {
+JOAF.load_enhancements = {
 	"combo",
 	"chipped",
 }
 
-local seals = {
+JOAF.load_seals = {
 	"pink",
 	"green",
 }
 
-local spectrals = {
+JOAF.load_spectrals = {
 	"multiply",
 	"duplicate",
 }
 
-local trinkets = {
+JOAF.load_trinkets = {
 	"trash_bag",
 	"gloves",
 	"potato_chips",
@@ -55,12 +57,12 @@ local trinkets = {
 	"golden_ring",
 }
 
-local decks = {
+JOAF.load_decks = {
 	"family",
-	"chipped",
+	"starlight",
 }
 
-local vouchers = {
+JOAF.load_vouchers = {
 	"trinket_merchant"
 }
 
@@ -142,30 +144,30 @@ SMODS.Rarity({
 --[[LOADING SECTION]]
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 
-for i,v in ipairs(jokers) do
+for i,v in ipairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(enhancements) do
+for i,v in ipairs(JOAF.load_enhancements) do
 	assert(SMODS.load_file("./src/enhancements/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(seals) do
+for i,v in ipairs(JOAF.load_seals) do
 	assert(SMODS.load_file("./src/seals/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(spectrals) do
+for i,v in ipairs(JOAF.load_spectrals) do
 	assert(SMODS.load_file("./src/consumables/spectral/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(trinkets) do
+for i,v in ipairs(JOAF.load_trinkets) do
 	assert(SMODS.load_file("./src/consumables/trinket/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(decks) do
+for i,v in ipairs(JOAF.load_decks) do
 	assert(SMODS.load_file("./src/decks/" .. v .. ".lua"))()
 end
 
-for i,v in ipairs(vouchers) do
+for i,v in ipairs(JOAF.load_vouchers) do
 	assert(SMODS.load_file("./src/vouchers/" .. v .. ".lua"))()
 end

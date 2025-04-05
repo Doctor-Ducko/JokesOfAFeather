@@ -2,15 +2,34 @@ SMODS.Back{
     key = "family",
 	atlas = 'JOAFDecks',
     pos = {x = 0, y = 0},
-    config = { joker_slot = 1 },
+    config = {
+		hands = -2,
+		discards = -1,
+		joker_slot = -1,
+		ante_scaling = 8,
+		no_interest = true,
+	},
     loc_txt = {
         name = "Family Deck",
         text ={
-            "Start with all",
-			"{C:attention}Eternal Family Jokers{}",
-			"and {C:attention}+1{} Joker Slot"
+            "{s:0.9}Start with all",
+			"{s:0.9}{C:attention}Eternal Family Jokers{},",
+			"{s:0.9}{C:attention}#3#{} Joker Slot",
+			"{s:0.9}{C:blue}#1#{} hands, {C:red}#2#{} discard",
+			"{s:0.9}{C:red}X#4#{} base Blind size",
+            "{s:0.9}Earn no {C:attention}Interest{}",
         },
     },
+	loc_vars = function(self, info_queue, card)
+        return {
+			vars = {
+				self.config.hands,
+				self.config.discards,
+				self.config.joker_slot,
+				self.config.ante_scaling,
+			}
+		}
+    end,
 	apply = function(self, back)
 		delay(0.4)
 		G.E_MANAGER:add_event(Event({

@@ -23,7 +23,7 @@ SMODS.Joker {
 
 	config = {
 		extra = {
-			chips = 200,
+			chips = 100,
 		}
 	},
 
