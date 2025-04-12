@@ -61,9 +61,10 @@ P_NUMBER_CARDS = {
 }
 
 -- Dev Colors
-G.C.DOCTOR_DUCKO = HEX('923EE6')
+G.C.DOCTOR_DUCKO = HEX('F5A742')
 G.C.CHILLI = HEX('E02D2D')
 G.C.HYDROP0X = HEX('0DBD1C')
+G.C.ALPINE488 = HEX('923EE6')
 
 function credit_badge(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
