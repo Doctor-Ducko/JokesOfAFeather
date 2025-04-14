@@ -1,4 +1,4 @@
-P_FACE_CARDS = {
+JOAF.P_FACE_CARDS = {
     G.P_CARDS.H_J,  -- Jack of Hearts
     G.P_CARDS.H_Q,  -- Queen of Hearts
     G.P_CARDS.H_K,  -- King of Hearts
@@ -13,7 +13,7 @@ P_FACE_CARDS = {
     G.P_CARDS.S_K,  -- King of Spades
 }
 
-P_NUMBER_CARDS = {
+JOAF.P_NUMBER_CARDS = {
     -- Hearts
     G.P_CARDS.H_2,
     G.P_CARDS.H_3,
@@ -66,6 +66,32 @@ G.C.CHILLI = HEX('E02D2D')
 G.C.HYDROP0X = HEX('0DBD1C')
 G.C.ALPINE488 = HEX('923EE6')
 
-function credit_badge(card, badges, name, color)
+JOAF.credit_badge = function(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
+end
+
+JOAF.count_jokers_of_rarity = function(rarity)
+    local x = 0
+    for i = 1, #G.jokers.cards do
+        if G.jokers.cards[i].ability.set == 'Joker' and G.jokers.cards[i].config.center.rarity == rarity then
+            x = x + 1
+        end
+    end
+    return x
+end
+
+JOAF.get_chip_value = function(id, enhancement)
+    local chip_value = id
+
+    if id >= 11 and id <= 13 then
+        chip_value = 10
+    elseif id == 14 then
+        chip_value = 11
+    end
+
+    if enhancement == "Stone Card" then
+        chip_value = 50
+    end
+
+    return chip_value
 end

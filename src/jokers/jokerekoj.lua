@@ -29,18 +29,7 @@ SMODS.Joker {
 
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
-			local bonus = context.other_card:get_id()
-
-			-- someone please tell me there's a better way to do this, this sucks ass
-			if bonus >= 11 and bonus <= 13 then
-				bonus = 10
-			elseif bonus == 14 then
-				bonus = 11
-			end
-
-			if context.other_card.ability.effect == "Stone Card" then
-				bonus = 50
-			end
+			local bonus = JOAF.get_chip_value(context.other_card:get_id(), context.other_card.ability.effect)
 			return {
 				chips = bonus,
 				card = card

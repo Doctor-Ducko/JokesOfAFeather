@@ -9,14 +9,14 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Binary Joker',
 		text = {
-			"Each played {C:attention}Ace{} or {C:attention}2",
-			"gives {C:mult}+#1#{} Mult when scored"
+			"{C:mult}+#1#{} Mult if played card",
+			"is an {C:attention}Ace{} or a {C:attention}2",
 		}
 	},
 
 	config = {
 		extra = {
-			mult = 10
+			mult = 8
 		}
 	},
 
@@ -34,7 +34,7 @@ SMODS.Joker {
 			if context.other_card:get_id() == 14 or context.other_card:get_id() == 2 then
 				return {
 					mult = card.ability.extra.mult,
-					card = context.other_card
+					card = card
 				}
 			end
 		end

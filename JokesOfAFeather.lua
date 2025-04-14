@@ -6,7 +6,7 @@ immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
 SMODS = SMODS
-
+G = G
 JOAF = SMODS.current_mod
 
 JOAF.load_jokers = {
@@ -15,6 +15,7 @@ JOAF.load_jokers = {
 	"binary_joker",
 	"simple_joker",
 	"sunflower_joker",
+	"abundant_joker",
 	"tinkerer_joker",
 	"joker_face",
 	"jimbo_jpg",
@@ -23,11 +24,13 @@ JOAF.load_jokers = {
 	"straight_line",
 	"misplaced",
 	"mia_joker",
+	"novel_joker",
 	"picture_frame",
 	"jokr",
 	"jramp",
 	"photographer",
 	"evil_joker",
+	"precious_joker",
 	"monster",
 	"money_smart",
 	"flug",
@@ -47,17 +50,16 @@ JOAF.load_enhancements = {
 
 JOAF.load_seals = {
 	"pink",
-	"green",
 }
 
 JOAF.load_spectrals = {
 	"multiply",
-	"duplicate",
 }
 
 JOAF.load_trinkets = {
 	"trash_bag",
 	"gloves",
+	"wallet",
 	"potato_chips",
 	"math_book",
 	"golden_ring",
@@ -66,10 +68,12 @@ JOAF.load_trinkets = {
 JOAF.load_decks = {
 	"family",
 	"starlight",
+	"hikers",
 }
 
 JOAF.load_vouchers = {
-	"trinket_merchant"
+	"trinket_merchant",
+	"trinket_tycoon",
 }
 
 SMODS.Keybind {
@@ -78,7 +82,7 @@ SMODS.Keybind {
 	action = function(self)
 		SMODS.restart_game()
 	end,
-	held_keys = {"lctrl"},
+	held_keys = {"lalt"},
 	event = "released"
 }
 
@@ -125,6 +129,7 @@ SMODS.ConsumableType {
 	collection_rows = {5, 3},
 	primary_colour = HEX("FFFFFF"),
 	secondary_colour = HEX("D66B1B"),
+	shop_rate = 2,
 	loc_txt = {
 		name = 'Trinket', -- used on card type badges
 		collection = 'Trinket Cards', -- label for the button to access the collection
@@ -132,7 +137,7 @@ SMODS.ConsumableType {
 			name = 'Temp',
 			text = { 'Temp' },
 		},
-	}
+	},
 }
 
 SMODS.Rarity({

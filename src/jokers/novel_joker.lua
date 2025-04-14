@@ -1,9 +1,9 @@
 SMODS.Joker {
-	key = 'jimbo_jpg',			-- Object ID, acessed with j_joaf_[key]
+	key = 'novel_joker',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
-	pos = {x = 2, y = 2},		-- works on a +1 increment, not based off of pixels
+	pos = {x = 8, y = 2},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 7,					-- shop price
+	cost = 9,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
@@ -14,40 +14,39 @@ SMODS.Joker {
 
 	-- Display text
 	loc_txt = {
-		name = 'jimbo.jpg',
+		name = 'Novel Joker',
 		text = {
-			"Scored cards lose {C:blue}#1#{} chip",
-			"and gain {C:mult}+#2#{} bonus Mult",
-			"when scored",
+			"Scores {C:mult}+#1#{} Mult for",
+			"every {C:green}Uncommon{} Joker",
+			"you have",
+			"{C:inactive}(Including this Joker)"
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			perma_chips = -1,
-			perma_mult = 1,
+			mult_per = 7,
+			mult = 7,
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.perma_chips * -1,
-				card.ability.extra.perma_mult,
+				card.ability.extra.mult_per,
 			}
 		}
 	end,
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play then
-			context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.perma_chips
-			context.other_card.ability.perma_mult = context.other_card.ability.perma_mult + card.ability.extra.perma_mult
-			return {
-				message = 'Trade-off',
-				colour = G.C.MULT,
-				card = card
+		if context.pre_joker then
+			card.ability.extra.mult = JOAF.count_jokers_of_rarity(2) * card.ability.extra.mult_per
+		end
+		if context.joker_main then
+			return	{
+				mult = card.ability.extra.mult
 			}
 		end
 	end

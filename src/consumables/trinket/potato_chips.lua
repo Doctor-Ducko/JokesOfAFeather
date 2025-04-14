@@ -18,7 +18,7 @@ SMODS.Consumable {
     },
 
 	config = {
-        perma_chips = 15,
+        perma_chips = 10,
         max_highlighted = 3,
     },
 
@@ -32,7 +32,7 @@ SMODS.Consumable {
     end,
 
     can_use = function(self, card)
-        if G.GAME.blind ~= nil and G.GAME.blind.blind_set  then
+        if (#G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted) then
             return true
         else 
             return false
@@ -48,6 +48,7 @@ SMODS.Consumable {
             
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.1,func = function()
                 G.hand.highlighted[i].ability.perma_bonus = G.hand.highlighted[i].ability.perma_bonus + card.ability.perma_chips
+                G.hand.highlighted[i]:juice_up(0.3,0.5)
                 return true end }))
             
             delay(0.5)
