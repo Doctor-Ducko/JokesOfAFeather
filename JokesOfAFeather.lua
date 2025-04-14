@@ -76,6 +76,13 @@ JOAF.load_vouchers = {
 	"trinket_tycoon",
 }
 
+JOAF.load_boosters = {
+	"trinket_normal_1",
+	"trinket_normal_2",
+	"trinket_jumbo_1",
+	"trinket_mega_1",
+}
+
 SMODS.Keybind {
 	key = "Restart Game",
 	key_pressed = "r",
@@ -120,6 +127,12 @@ SMODS.Atlas {
 SMODS.Atlas {
     key = "JOAFVouchers",
     path = "DuckVouchers.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
+    key = "JOAFBoosters",
+    path = "DuckBoosters.png",
 	px = 71,
 	py = 95
 }
@@ -181,4 +194,8 @@ end
 
 for i,v in ipairs(JOAF.load_vouchers) do
 	assert(SMODS.load_file("./src/vouchers/" .. v .. ".lua"))()
+end
+
+for i,v in ipairs(JOAF.load_boosters) do
+	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
 end
