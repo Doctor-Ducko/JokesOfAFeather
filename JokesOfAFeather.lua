@@ -44,8 +44,9 @@ JOAF.load_jokers = {
 }
 
 JOAF.load_enhancements = {
+	"stained",
+	"dynamite",
 	"combo",
-	"chipped",
 }
 
 JOAF.load_seals = {

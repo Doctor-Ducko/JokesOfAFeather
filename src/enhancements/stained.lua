@@ -1,11 +1,10 @@
 SMODS.Enhancement{
-    key = "chipped",
+    key = "stained",
 
 	loc_txt = {
-        name = "Chipped Card",
+        name = "Stained Card",
         text ={
             "{X:chips,C:white}X1.5{} chips",
-			"when scored"
         },
 	},
 

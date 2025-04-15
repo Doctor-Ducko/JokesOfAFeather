@@ -26,7 +26,6 @@ Spectral
 
 Trinkets (In-Round consumables)
 	Expansion Pack:		Draw 5 extra cards
-	Wallet:				Gain +$5
 	Comical Comic:		Summon a random Joker
 	Stargazing Guide:	Summon a random Planet card
 	Psychic Hotline:	Summon a random Tarot card
