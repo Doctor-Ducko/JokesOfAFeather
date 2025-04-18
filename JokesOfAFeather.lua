@@ -5,8 +5,11 @@ Please make sure to have a canister of bleach to your
 immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
+
+-- gets vs code to shut up im so sorry
 SMODS = SMODS
 G = G
+
 JOAF = SMODS.current_mod
 
 JOAF.load_jokers = {
@@ -200,3 +203,42 @@ end
 for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
 end
+
+SMODS.Joker {
+	key = 'no_wau',
+	atlas = 'JOAFJokers',
+	pos = { x = 0, y = 0 }, -- works on a +1 increment, not based off of pixels
+	rarity = 3, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 3,
+	blueprint_compat = true,
+
+	loc_txt = {
+		name = 'Catastrophic Joker',
+		text = {
+			"{X:mult,C:white}^^^#1#{} Mult"
+		}
+	},
+
+	config = {
+		extra = {
+			eee_mult = 2
+		}
+	},
+
+	loc_vars = function(self, info_queue, card)
+		return {
+			vars = {
+				card.ability.extra.eee_mult
+			}
+		}
+	end,
+
+	calculate = function(self, card, context)
+		if context.joker_main then
+			return {
+				eee_mult = card.ability.extra.eee_mult,
+				card = card
+			}
+		end
+	end
+}

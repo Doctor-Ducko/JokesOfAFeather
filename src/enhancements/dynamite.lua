@@ -34,14 +34,20 @@ SMODS.Enhancement{
 			card.dyna_turns = card.dyna_turns - 1
 			if card.dyna_turns == 0 then
 				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					delay = 0.2,
+					trigger = 'immediate',
 					func = function() 
+						card:start_dissolve()
 						card:remove()
-						--card:start_dissolve()
-					return true
-				end }))
+						return true
+					end
+				}))
 			end
+		end
+
+		if context.destroying_card and card.dyna_turns == 0 then
+			return {
+				remove = true
+			}
 		end
 	end
 }
