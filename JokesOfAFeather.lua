@@ -12,6 +12,13 @@ G = G
 
 JOAF = SMODS.current_mod
 
+-- Planned compatiblity for these mods
+
+-- The cryptid one might turn into its own expansion pack
+JOAF.has_talisman 		= next(SMODS.find_mod("Talisman")) -- Should always be true tbh
+JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
+JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
+
 JOAF.load_jokers = {
 	"joker_qm",
 	"jokerekoj",
@@ -31,10 +38,11 @@ JOAF.load_jokers = {
 	"picture_frame",
 	"jokr",
 	"jramp",
+	"joker_energy",
 	"photographer",
 	"evil_joker",
 	"precious_joker",
-	"monster",
+	--"emperor",
 	"money_smart",
 	"flug",
 	"peter_griffin",
@@ -85,6 +93,10 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
+}
+
+JOAF.load_sleeves = {
+	-- Again, just planned
 }
 
 SMODS.Keybind {
@@ -171,6 +183,7 @@ SMODS.Rarity({
 
 --[[LOADING SECTION]]
 assert(SMODS.load_file("./src/duck_globals.lua"))()
+assert(SMODS.load_file("./src/config_tab.lua"))()
 
 for i,v in ipairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
@@ -204,41 +217,46 @@ for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
 end
 
-SMODS.Joker {
-	key = 'no_wau',
-	atlas = 'JOAFJokers',
-	pos = { x = 0, y = 0 }, -- works on a +1 increment, not based off of pixels
-	rarity = 3, -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	cost = 3,
-	blueprint_compat = true,
 
-	loc_txt = {
-		name = 'Catastrophic Joker',
-		text = {
-			"{X:mult,C:white}^^^#1#{} Mult"
-		}
-	},
+-- secret !!
+if JOAF.has_cryptid then
+	SMODS.Joker {
+		key = 'catastrophic_joker',
+		atlas = 'JOAFJokers',
+		pos = { x = 0, y = 0 }, -- works on a +1 increment, not based off of pixels
+		rarity = 3, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+		cost = 3,
+		blueprint_compat = true,
 
-	config = {
-		extra = {
-			eee_mult = 2
-		}
-	},
-
-	loc_vars = function(self, info_queue, card)
-		return {
-			vars = {
-				card.ability.extra.eee_mult
+		loc_txt = {
+			name = 'Catastrophic Joker',
+			text = {
+				"{X:mult,C:white,s:2}^^^^^#1#{} Mult",
+				"{C:inactive,s:0.9}(A Cryptid Exclusive!)"
 			}
-		}
-	end,
+		},
 
-	calculate = function(self, card, context)
-		if context.joker_main then
+		config = {
+			extra = {
+				hyper_mult = {5,2}
+			}
+		},
+
+		loc_vars = function(self, info_queue, card)
 			return {
-				eee_mult = card.ability.extra.eee_mult,
-				card = card
+				vars = {
+					card.ability.extra.hyper_mult[2]
+				}
 			}
+		end,
+
+		calculate = function(self, card, context)
+			if context.joker_main then
+				return {
+					hyper_mult = card.ability.extra.hyper_mult,
+					card = card
+				}
+			end
 		end
-	end
-}
+	}
+end
