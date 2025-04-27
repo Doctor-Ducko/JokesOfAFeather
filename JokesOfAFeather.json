@@ -9,10 +9,9 @@
 	"badge_colour": "FF9900",
 	"badge_text_colour": "FFFF",
 	"display_name": "J.O.A.F.",
-	"version": "0.5.0~dev",
+	"version": "0.6.0~dev",
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0312b)",
-		"Talisman (>=2.2.0~dev)"
+		"Steamodded (>=1.0.0~BETA-0312b)"
 	],
 	"dump_loc": false
 }

@@ -17,7 +17,7 @@ SMODS.Joker {
 		name = 'Abundant Joker',
 		text = {
 			"Scores {C:chips}+#1#{} chips for",
-			"every {C:blue}Common{C:attention} Joker",
+			"every {C:common}Common{C:attention} Joker",
 			"you have",
 			"{C:inactive}(Including this Joker)"
 		}

@@ -6,45 +6,52 @@ immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
 
--- gets vs code to shut up im so sorry
 SMODS = SMODS
 G = G
-
 JOAF = SMODS.current_mod
 
--- Planned compatiblity for these mods
-
--- The cryptid one might turn into its own expansion pack
-JOAF.has_talisman 		= next(SMODS.find_mod("Talisman")) -- Should always be true tbh
+JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
 JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
 
 JOAF.load_jokers = {
+	-- Common
 	"joker_qm",
 	"jokerekoj",
 	"binary_joker",
 	"simple_joker",
 	"sunflower_joker",
 	"abundant_joker",
+
+	-- Uncommon
 	"tinkerer_joker",
+	"lil_joker",
 	"joker_face",
 	"jimbo_jpg",
 	"irritating_joker",
 	"dr_pepper",
 	"straight_line",
 	"misplaced",
+	"slot_machine",
 	"mia_joker",
 	"novel_joker",
+
+	-- Rare
 	"picture_frame",
+	"comedian",
 	"jokr",
 	"jramp",
 	"joker_energy",
 	"photographer",
 	"evil_joker",
 	"precious_joker",
-	--"emperor",
+
+	-- Legendary
+	"emperor",
 	"money_smart",
 	"flug",
+
+	-- Family Guy
 	"peter_griffin",
 	"lois_griffin",
 	"chris_griffin",
@@ -55,9 +62,9 @@ JOAF.load_jokers = {
 }
 
 JOAF.load_enhancements = {
+	"combo",
 	"stained",
 	"dynamite",
-	"combo",
 }
 
 JOAF.load_seals = {
@@ -80,6 +87,7 @@ JOAF.load_trinkets = {
 JOAF.load_decks = {
 	"family",
 	"starlight",
+	"tinkerers",
 	"hikers",
 }
 
@@ -162,10 +170,6 @@ SMODS.ConsumableType {
 	loc_txt = {
 		name = 'Trinket', -- used on card type badges
 		collection = 'Trinket Cards', -- label for the button to access the collection
-		undiscovered = { -- description for undiscovered cards in the collection
-			name = 'Temp',
-			text = { 'Temp' },
-		},
 	},
 }
 
@@ -175,7 +179,7 @@ SMODS.Rarity({
 		name = "Family Guy"
 	},
 	badge_colour = HEX("3b9c14"),	-- Color of the badge
-	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.5]
+	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05]
 	pools = {
 		["Joker"] = true
 	},
@@ -231,7 +235,7 @@ if JOAF.has_cryptid then
 		loc_txt = {
 			name = 'Catastrophic Joker',
 			text = {
-				"{X:mult,C:white,s:2}^^^^^#1#{} Mult",
+				"{X:dark_edition,C:white,s:2}^^^^^#1#{} Mult",
 				"{C:inactive,s:0.9}(A Cryptid Exclusive!)"
 			}
 		},

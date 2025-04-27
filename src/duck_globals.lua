@@ -80,6 +80,20 @@ JOAF.count_jokers_of_rarity = function(rarity)
     return x
 end
 
+JOAF.get_poker_hand_stat = function(hand, stat)
+    stat = string.lower(stat)
+    local hand_stats = G.GAME.hands[hand]
+    if stat == "chips" then
+        return hand_stats.chips
+    elseif stat == "mult" then
+        return hand_stats.mult
+    elseif stat == "level" then
+        return hand_stats.level
+    else
+        return -1
+    end
+end
+
 JOAF.get_chip_value = function(id, enhancement)
     local chip_value = id
 
