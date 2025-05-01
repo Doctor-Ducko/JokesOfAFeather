@@ -6,20 +6,24 @@ immediate left and/or right incase of visual interaction
 with programming based war crimes.
 ]]
 
+--[[VARIABLE INITS]]--
 SMODS = SMODS
 G = G
 JOAF = SMODS.current_mod
 
+--[[COMPATABILITY VARS]]--
 JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
 JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
 
+--[[LOAD LISTS]]--
 JOAF.load_jokers = {
 	-- Common
 	"joker_qm",
 	"jokerekoj",
 	"binary_joker",
 	"sunflower_joker",
+	"recycling_bin",
 	"simple_joker",
 	"picture_frame",
 	"misplaced",
@@ -107,6 +111,7 @@ JOAF.load_sleeves = {
 	-- Again, just planned
 }
 
+--[[KEYBINDS]]--
 SMODS.Keybind {
 	key = "Restart Game",
 	key_pressed = "r",
@@ -117,6 +122,7 @@ SMODS.Keybind {
 	event = "released"
 }
 
+--[[ATLASES]]--
 SMODS.Atlas({
     key = "modicon",
     path = "icon.png",
@@ -161,6 +167,20 @@ SMODS.Atlas {
 	py = 95
 }
 
+--[[SOUNDS]]--
+if not JOAF.has_talisman then
+	SMODS.Sound({
+		key = "echip",
+		path = "ExponentialChips.wav"
+	})
+
+	SMODS.Sound({
+		key = "emult",
+		path = "ExponentialMult.wav"
+	})
+end
+
+--[[CONSUMABLES & RARITIES]]--
 SMODS.ConsumableType {
 	key = "Trinkets",
 	collection_rows = {5, 3},
@@ -185,9 +205,13 @@ SMODS.Rarity({
 	},
 })
 
---[[LOADING SECTION]]
+--[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 assert(SMODS.load_file("./src/config_tab.lua"))()
+
+if not JOAF.has_talisman then
+	assert(SMODS.load_file("./src/exponent_stuff.lua"))()
+end
 
 for i,v in ipairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()

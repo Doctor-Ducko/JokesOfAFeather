@@ -17,8 +17,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Emperor',
 		text = {
-			"Gains {X:dark_edition,C:white}^#1#{} Mult when a",
-			"face card is scored",
+			"Gives {X:dark_edition,C:white}^#1#{} Mult",
+			"for each {C:attention}round{} played",
 			"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{}{C:inactive} Mult)",
 		}
 	},
@@ -26,10 +26,15 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			e_mult_increase = 0.025,
+			e_mult_increase = 0.02,
 			e_mult = 1,
 		}
 	},
+
+	add_to_deck = function(self, card, from_debuff)
+		card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
+	end,
+
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
@@ -42,20 +47,13 @@ SMODS.Joker {
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play and not context.blueprint then
-			local face = context.other_card:is_face()
-			if face then
-				card.ability.extra.e_mult = card.ability.extra.e_mult + card.ability.extra.e_mult_increase
-				return {
-					message = "Upgrade!",
-					colour = G.C.MULT
-				}
-			end
-		end
 		if context.joker_main then
 			return {
 				e_mult = card.ability.extra.e_mult
 			}
+		end
+		if context.setting_blind then
+			card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
 		end
 	end
 }

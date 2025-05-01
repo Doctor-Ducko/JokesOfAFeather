@@ -3,7 +3,7 @@ SMODS.Joker {
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 11, y = 2},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 7,					-- shop price
+	cost = 5,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
@@ -45,7 +45,6 @@ SMODS.Joker {
 			if context.other_card:get_id() == 7 then
 				if pseudorandom('slot_machine') < G.GAME.probabilities.normal / card.ability.extra.odds then
 					return {
-						message = 'Payout!',
 						dollars = card.ability.extra.payout,
 						colour = G.C.MONEY
 					}

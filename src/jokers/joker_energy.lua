@@ -16,43 +16,73 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Joker Energy',
 		text = {
-			"Gives {X:mult,C:white}X#1#{} Mult",
-			"for each {C:attention}round{} played",
-			"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
+			"Gains {X:mult,C:white}X#1#{} Mult",
+			"after every {C:attention}round{}",
+			"{C:attention}Self-destructs{} at {X:mult,C:white}X#2#{} Mult",
+			"{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)",
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			x_mult_increase = 0.1,
-			-- please work
+			x_mult_increase = 0.2,
+			x_mult_max = 3,
 			x_mult = 1,
 		}
 	},
-
-	add_to_deck = function(self, card, from_debuff)
-		card.ability.extra.x_mult = (G.GAME.round * card.ability.extra.x_mult_increase) + 1
-	end,
 
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
 				card.ability.extra.x_mult_increase,
+				card.ability.extra.x_mult_max,
 				card.ability.extra.x_mult,
 			}
 		}
 	end,
 
 	calculate = function(self, card, context)
+		if context.pre_joker then
+			card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_increase
+			return {
+				message = 'Upgraded!',
+				colour = G.C.RED
+			}
+		end
 		if context.joker_main then
 			return {
 				x_mult = card.ability.extra.x_mult
 			}
 		end
-		if context.setting_blind then
-			card.ability.extra.x_mult = (G.GAME.round * card.ability.extra.x_mult_increase) + 1
+		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
+			if card.ability.extra.x_mult == card.ability.extra.x_mult_max then
+				G.E_MANAGER:add_event(Event({
+					func = function()
+						play_sound('tarot1')
+						card.T.r = -0.2
+						card:juice_up(0.3, 0.4)
+						card.states.drag.is = true
+						card.children.center.pinch.x = true
+						G.E_MANAGER:add_event(Event({
+							trigger = 'after',
+							delay = 0.3,
+							blockable = false,
+							func = function()
+								G.jokers:remove_card(card)
+								card:remove()
+								card = nil
+								return true;
+							end
+						}))
+						return true
+					end
+				}))
+				return {
+					message = 'Caffeinated!'
+				}
+			end
 		end
 	end
 }
