@@ -45,6 +45,7 @@ JOAF.load_jokers = {
 	-- Rare
 	"comedian",
 	"jramp",
+	"57_leaf_clover",
 	"joker_energy",
 	"photographer",
 	"evil_joker",

@@ -70,6 +70,10 @@ JOAF.credit_badge = function(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
 end
 
+JOAF.experimental_badge = function(card, badges)
+    badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.8)
+end
+
 JOAF.count_jokers_of_rarity = function(rarity)
     local x = 0
     for i = 1, #G.jokers.cards do

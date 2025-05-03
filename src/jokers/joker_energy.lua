@@ -17,8 +17,9 @@ SMODS.Joker {
 		name = 'Joker Energy',
 		text = {
 			"Gains {X:mult,C:white}X#1#{} Mult",
-			"after every {C:attention}round{}",
+			"when selecting a {C:attention}Blind{}",
 			"{C:attention}Self-destructs{} at {X:mult,C:white}X#2#{} Mult",
+			"When the round ends",
 			"{C:inactive}(Currently {X:mult,C:white}X#3#{}{C:inactive} Mult)",
 		}
 	},
@@ -44,10 +45,10 @@ SMODS.Joker {
 	end,
 
 	calculate = function(self, card, context)
-		if context.pre_joker then
+		if context.setting_blind then
 			card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_increase
 			return {
-				message = 'Upgraded!',
+				message = 'Sip.',
 				colour = G.C.RED
 			}
 		end
@@ -57,7 +58,7 @@ SMODS.Joker {
 			}
 		end
 		if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
-			if card.ability.extra.x_mult == card.ability.extra.x_mult_max then
+			if card.ability.extra.x_mult >= card.ability.extra.x_mult_max then
 				G.E_MANAGER:add_event(Event({
 					func = function()
 						play_sound('tarot1')

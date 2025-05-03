@@ -74,7 +74,7 @@ Irritating Joker
 * Scored cards in the first played hand of round gain +9.9 bonus chips when scored
 
 Dr. Pepper
-* +20 Mult, -2 Mult per round
+* +50 Mult, -5 Mult per round
 
 Straight Line
 * Gains X0.15 Mult if played hand contains a Straight
