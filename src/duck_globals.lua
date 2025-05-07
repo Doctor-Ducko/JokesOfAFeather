@@ -66,29 +66,99 @@ G.C.CHILLI = HEX('E02D2D')
 G.C.HYDROP0X = HEX('0DBD1C')
 G.C.ALPINE488 = HEX('923EE6')
 
-JOAF.generate_joker_keys = function()
+JOAF.duckjoker_rarities = {
+	-- Common
+	["joker_qm"] 		= "Common",
+	["jokerekoj"]		= "Common",
+	["binary_joker"]	= "Common",
+	["sunflower_joker"]	= "Common",
+	["recycling_bin"]	= "Common",
+	["simple_joker"]	= "Common",
+	["picture_frame"]	= "Common",
+	["misplaced"]		= "Common",
+	["abundant_joker"]	= "Common",
+
+	-- Uncommon
+	["tinkerer_joker"]	= "Uncommon",
+	["jokr"]			= "Uncommon",
+	["lil_joker"]		= "Uncommon",
+	["joker_face"]		= "Uncommon",
+	["jimbo_jpg"]		= "Uncommon",
+	["irritating_joker"]= "Uncommon",
+	["dr_pepper"]		= "Uncommon",
+	["straight_line"]	= "Uncommon",
+	["slot_machine"]	= "Uncommon",
+	["mia_joker"]		= "Uncommon",
+	["novel_joker"]		= "Uncommon",
+
+	-- Rare
+	["comedian"]		= "Rare",
+	["jramp"]			= "Rare",
+	["57_leaf_clover"]	= "Rare",
+	["joker_energy"]	= "Rare",
+	["photographer"]	= "Rare",
+	["evil_joker"]		= "Rare",
+	["precious_joker"]	= "Rare",
+
+	-- Legendary
+	["emperor"] 		= "Legendary",
+	["money_smart"] 	= "Legendary",
+	["flug"] 			= "Legendary",
+	
+	-- Family
+	["peter_griffin"]	= "Family",
+	["lois_griffin"]	= "Family",
+	["chris_griffin"]	= "Family",
+	["meg_griffin"]		= "Family",
+	["stewie_griffin"]	= "Family",
+	["brian_griffin"]	= "Family",
+}
+
+-- Specifically for the object type thingy
+JOAF.generate_duck_joker_dict = function(rarities)
+    local rarities = rarities or {"Legendary", "Family"}
     local dict = {}
-    for i, joker in pairs(JOAF.load_jokers) do
-        dict["j_joaf_" .. joker] = true
+    -- Loops over every joker in the game
+    for joker, joker_rarity in pairs(JOAF.duckjoker_rarities) do
+
+        -- Checks if the joker's rarity is in the blacklist table
+        local include = true
+        for i,rarity in pairs(rarities) do
+            if joker_rarity == rarity then
+                include = not include
+            end
+        end
+
+        if include then
+            dict["j_joaf_" .. joker] = true
+        end
     end
     return dict
 end
 
-JOAF.generate_legendary_joker_keys = function()
-    local dict = {}
-    for i, joker in pairs(JOAF.load_legendary_jokers) do
-        dict["j_joaf_" .. joker] = true
-    end
-    return dict
-end
+-- These two functions are jank fuckin' city and i am praying to mother nature and big computer that this works :(
 
-JOAF.generate_family_joker_keys = function()
-    local dict = {}
-    for i, joker in pairs(JOAF.load_family_jokers) do
-        dict["j_joaf_" .. joker] = true
+--[[JOAF.generate_duck_joker_rate = function(rarities) -- Yeah i have no fucking clue how ObjectType rarities work
+    local rarities = rarities or {"Legendary", "Family"}
+    local rate_table = {}
+    -- Loops over every joker in the game
+    for joker, joker_rarity in pairs(JOAF.load_jokers) do
+
+        -- Checks if the joker's rarity is in the blacklist table
+        local include = true
+        for i,rarity in pairs(rarities) do
+            if joker_rarity == rarity then
+                include = not include
+            end
+        end
+
+        if include then
+            table.insert(rate_table, {key = "j_joaf_" .. joker})
+        end
+        --{key = "j_joaf_" .. joker, rate = JOAF.rarities_rate[joker_rarity]}
     end
-    return dict
-end
+    return rate_table
+end]]
 
 JOAF.credit_badge = function(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
@@ -109,7 +179,7 @@ JOAF.count_jokers_of_rarity = function(rarity)
 end
 
 JOAF.get_poker_hand_stat = function(hand, stat)
-    stat = string.lower(stat)
+    stat = string.lower(stat) or "chips"
     local hand_stats = G.GAME.hands[hand]
     if stat == "chips" then
         return hand_stats.chips

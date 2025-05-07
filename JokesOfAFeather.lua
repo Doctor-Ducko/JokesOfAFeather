@@ -50,16 +50,15 @@ JOAF.load_jokers = {
 	"photographer",
 	"evil_joker",
 	"precious_joker",
-	--"",
-}
 
-JOAF.load_legendary_jokers = {
+	-- Upgraded
+
+	-- Legendary
 	"emperor",
 	"money_smart",
 	"flug",
-}
 
-JOAF.load_family_jokers = {
+	-- Family
 	"peter_griffin",
 	"lois_griffin",
 	"chris_griffin",
@@ -209,6 +208,18 @@ SMODS.Rarity({
 	},
 })
 
+SMODS.Rarity({
+	key = "upgraded",					-- ID, indexed with joaf_[key]
+	loc_txt = {
+		name = "Upgraded"
+	},
+	badge_colour = G.C.GOLD,	-- Color of the badge
+	default_weight = 0,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05]
+	pools = {
+		["Joker"] = true
+	},
+})
+
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 assert(SMODS.load_file("./src/config_tab.lua"))()
@@ -217,15 +228,7 @@ if not JOAF.has_talisman then
 	assert(SMODS.load_file("./src/exponent_stuff.lua"))()
 end
 
-for i,v in ipairs(JOAF.load_jokers) do
-	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
-end
-
-for i,v in ipairs(JOAF.load_legendary_jokers) do
-	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
-end
-
-for i,v in ipairs(JOAF.load_family_jokers) do
+for i,v in pairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
 end
 
@@ -260,9 +263,9 @@ end
 --[[OBJECT TYPE FOR CUSTOM JIMBO-RINOS]]--
 -- Credits to TheOneGoofAli for using this system :)
 SMODS.ObjectType {
-	key = "JOAF_NormalJokers",
-	default = "j_joaf_joker_qm",
-	cards = JOAF.generate_joker_keys()
+	key = 		"JOAF_NormalJokers",
+	default = 	"j_joaf_joker_qm",
+	cards = 	JOAF.generate_duck_joker_dict(),
 }
 
 -- secret !!
