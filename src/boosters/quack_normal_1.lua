@@ -1,27 +1,28 @@
 SMODS.Booster {
-    key = "_template",           -- Class prefix of p, for pack probably
+    key = "quack_normal_1",           -- Class prefix of p, for pack probably
     atlas = "JOAFBoosters",
-    pos = {x=0,y=0},
+    pos = {x=0,y=1},
 	discovered = true,
-    kind = "template",      -- Used for multiple packs of the same variety
+    kind = "quack",      -- Used for multiple packs of the same variety
     
-    select_card="consumeables",
+    select_card="jokers",
     cost = 4,
-    weight = 1,
+    weight = 1.2,
 
     config = { extra = 3, choose = 1 },      -- Extra is the amount of cards, and choose is the amount of cards that can be picked
 
     loc_txt = {
-		name = 'Template',
-        group_name = "Template",
+		name = 'Quack Pack',
+        group_name = "Quack Pack",
 		text = {
-			"Replace with description",
+			"Testing",
 		}
 	},
 
     create_card = function(self, card)
+        --('TOGAJKR', G.pack_cards, nil, nil, nil, nil, nil, 'toga')
 		return SMODS.create_card({
-            set="Trinkets",
+            set="JOAF_NormalJokers",
             area=G.pack_cards,
             skip_materialize=true,
             soulable=true

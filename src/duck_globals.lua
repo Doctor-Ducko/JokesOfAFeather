@@ -66,6 +66,30 @@ G.C.CHILLI = HEX('E02D2D')
 G.C.HYDROP0X = HEX('0DBD1C')
 G.C.ALPINE488 = HEX('923EE6')
 
+JOAF.generate_joker_keys = function()
+    local dict = {}
+    for i, joker in pairs(JOAF.load_jokers) do
+        dict["j_joaf_" .. joker] = true
+    end
+    return dict
+end
+
+JOAF.generate_legendary_joker_keys = function()
+    local dict = {}
+    for i, joker in pairs(JOAF.load_legendary_jokers) do
+        dict["j_joaf_" .. joker] = true
+    end
+    return dict
+end
+
+JOAF.generate_family_joker_keys = function()
+    local dict = {}
+    for i, joker in pairs(JOAF.load_family_jokers) do
+        dict["j_joaf_" .. joker] = true
+    end
+    return dict
+end
+
 JOAF.credit_badge = function(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
 end

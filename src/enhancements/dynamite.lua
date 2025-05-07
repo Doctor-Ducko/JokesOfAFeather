@@ -13,7 +13,7 @@ SMODS.Enhancement{
 	pos = {x = 5, y = 0},
 	config = {
 		x_mult = 2.5,
-		turns_left = 1,
+		turns_left = 3,
 	},
 
 	set_ability = function(self, card, initial, delay_sprites)

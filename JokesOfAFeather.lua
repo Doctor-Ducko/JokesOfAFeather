@@ -50,20 +50,22 @@ JOAF.load_jokers = {
 	"photographer",
 	"evil_joker",
 	"precious_joker",
+	--"",
+}
 
-	-- Legendary
+JOAF.load_legendary_jokers = {
 	"emperor",
 	"money_smart",
 	"flug",
+}
 
-	-- Family Guy
+JOAF.load_family_jokers = {
 	"peter_griffin",
 	"lois_griffin",
 	"chris_griffin",
 	"meg_griffin",
 	"stewie_griffin",
 	"brian_griffin",
-	--"",
 }
 
 JOAF.load_enhancements = {
@@ -106,6 +108,7 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
+	"quack_normal_1",
 }
 
 JOAF.load_sleeves = {
@@ -218,6 +221,14 @@ for i,v in ipairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
 end
 
+for i,v in ipairs(JOAF.load_legendary_jokers) do
+	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
+end
+
+for i,v in ipairs(JOAF.load_family_jokers) do
+	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
+end
+
 for i,v in ipairs(JOAF.load_enhancements) do
 	assert(SMODS.load_file("./src/enhancements/" .. v .. ".lua"))()
 end
@@ -246,6 +257,13 @@ for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
 end
 
+--[[OBJECT TYPE FOR CUSTOM JIMBO-RINOS]]--
+-- Credits to TheOneGoofAli for using this system :)
+SMODS.ObjectType {
+	key = "JOAF_NormalJokers",
+	default = "j_joaf_joker_qm",
+	cards = JOAF.generate_joker_keys()
+}
 
 -- secret !!
 if JOAF.has_cryptid then
