@@ -11,8 +11,7 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
-
+	discovered = false,
 	-- Display text
 	loc_txt = {
 		name = 'Emperor',
@@ -52,7 +51,7 @@ SMODS.Joker {
 				e_mult = card.ability.extra.e_mult
 			}
 		end
-		if context.setting_blind then
+		if context.setting_blind and not context.blueprint then
 			card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
 		end
 	end

@@ -1,9 +1,9 @@
 SMODS.Joker {
-	key = 'slot_machine',			-- Object ID, acessed with j_joaf_[key]
-	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
-	pos = {x = 11, y = 2},		-- works on a +1 increment, not based off of pixels
+	key = "hands_of_steel",		-- Object ID, acessed with j_joaf_[key]
+	atlas = "JOAFJokers",		-- Spritesheet to use, initalized in main script
+	pos = {x = 7, y = 3},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 5,					-- shop price
+	cost = 6,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
@@ -14,27 +14,24 @@ SMODS.Joker {
 
 	-- Display text
 	loc_txt = {
-		name = 'Slot Machine',
+		name = "Hands of Steel",
 		text = {
-			"Scored {C:attention}7{}'s have a {C:green}#1# in #2#{}",
-			"chance to score {C:money}$#3#{}"
+			"Scored {C:attention}Steel Cards{} give",
+			"{X:chips,C:white}X#1#{} Chips"
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			odds = 7,
-			payout = 20,
+			x_chips = 1.5
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				G.GAME.probabilities.normal,
-				card.ability.extra.odds,
-				card.ability.extra.payout,
+				card.ability.extra.x_chips
 			}
 		}
 	end,
@@ -42,13 +39,10 @@ SMODS.Joker {
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
-			if context.other_card:get_id() == 7 then
-				if pseudorandom('slot_machine') < G.GAME.probabilities.normal / card.ability.extra.odds then
-					return {
-						dollars = card.ability.extra.payout,
-						colour = G.C.MONEY
-					}
-				end
+			if context.other_card.ability.effect == "Steel Card" then
+				return {
+					x_chips = card.ability.extra.x_chips
+				}
 			end
 		end
 	end

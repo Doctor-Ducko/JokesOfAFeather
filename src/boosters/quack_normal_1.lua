@@ -2,7 +2,6 @@ SMODS.Booster {
     key = "quack_normal_1",           -- Class prefix of p, for pack probably
     atlas = "JOAFBoosters",
     pos = {x=0,y=1},
-	discovered = true,
     kind = "quack",      -- Used for multiple packs of the same variety
     
     select_card="jokers",

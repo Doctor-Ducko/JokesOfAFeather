@@ -31,6 +31,7 @@ JOAF.load_jokers = {
 
 	-- Uncommon
 	"tinkerer_joker",
+	"colorful_joker",
 	"jokr",
 	"lil_joker",
 	"joker_face",
@@ -38,6 +39,7 @@ JOAF.load_jokers = {
 	"irritating_joker",
 	"dr_pepper",
 	"straight_line",
+	"hands_of_steel",
 	"slot_machine",
 	"mia_joker",
 	"novel_joker",
@@ -50,8 +52,6 @@ JOAF.load_jokers = {
 	"photographer",
 	"evil_joker",
 	"precious_joker",
-
-	-- Upgraded
 
 	-- Legendary
 	"emperor",
@@ -71,6 +71,7 @@ JOAF.load_enhancements = {
 	"combo",
 	"stained",
 	"dynamite",
+	"lightweight",
 }
 
 JOAF.load_seals = {
@@ -91,10 +92,10 @@ JOAF.load_trinkets = {
 }
 
 JOAF.load_decks = {
-	"family",
-	"starlight",
 	"tinkerers",
+	"starlight",
 	"hikers",
+	"family",
 }
 
 JOAF.load_vouchers = {
@@ -107,7 +108,7 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
-	"quack_normal_1",
+	--"quack_normal_1",
 }
 
 JOAF.load_sleeves = {
@@ -193,6 +194,15 @@ SMODS.ConsumableType {
 	loc_txt = {
 		name = 'Trinket', -- used on card type badges
 		collection = 'Trinket Cards', -- label for the button to access the collection
+		undiscovered = { -- description for undiscovered cards in the collection
+ 			name = 'Not Discovered',
+ 			text = {
+				"Purchase or use",
+                "this card in an",
+                "unseeded run to",
+                "learn what it does"
+			},
+ 		},
 	},
 }
 
@@ -208,21 +218,9 @@ SMODS.Rarity({
 	},
 })
 
-SMODS.Rarity({
-	key = "upgraded",					-- ID, indexed with joaf_[key]
-	loc_txt = {
-		name = "Upgraded"
-	},
-	badge_colour = G.C.GOLD,	-- Color of the badge
-	default_weight = 0,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05]
-	pools = {
-		["Joker"] = true
-	},
-})
-
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
-assert(SMODS.load_file("./src/config_tab.lua"))()
+--assert(SMODS.load_file("./src/config_tab.lua"))()
 
 if not JOAF.has_talisman then
 	assert(SMODS.load_file("./src/exponent_stuff.lua"))()
@@ -260,13 +258,28 @@ for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
 end
 
---[[OBJECT TYPE FOR CUSTOM JIMBO-RINOS]]--
--- Credits to TheOneGoofAli for using this system :)
-SMODS.ObjectType {
-	key = 		"JOAF_NormalJokers",
-	default = 	"j_joaf_joker_qm",
-	cards = 	JOAF.generate_duck_joker_dict(),
-}
+--[[HOOKS]]--
+local igo = Game.init_game_object
+function Game:init_game_object()
+	local ret = igo(self)
+	ret.current_round.colorful_joker = { suit = 'Spades' }
+	return ret
+end
+
+function SMODS.current_mod.reset_game_globals(run_start)
+	-- The suit changes every round, so we use reset_game_globals to choose a suit.
+	G.GAME.current_round.colorful_joker = { suit = 'Spades' }
+	local valid_colorful_cards = {}
+	for _, v in ipairs(G.playing_cards) do
+		if not SMODS.has_no_suit(v) then -- Abstracted enhancement check for jokers being able to give cards additional enhancements
+			valid_colorful_cards[#valid_colorful_cards + 1] = v
+		end
+	end
+	if valid_colorful_cards[1] then
+		local colorful_joker = pseudorandom_element(valid_colorful_cards, pseudoseed('colorful_joker' .. G.GAME.round_resets.ante))
+		G.GAME.current_round.colorful_joker.suit = colorful_joker.base.suit
+	end
+end
 
 -- secret !!
 if JOAF.has_cryptid then
