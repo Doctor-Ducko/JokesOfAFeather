@@ -78,6 +78,14 @@ JOAF.load_seals = {
 	"pink",
 }
 
+JOAF.load_tarots = {
+	"balance",
+	"legacy",
+	--"recession",
+	"explosion",
+	"feather",
+}
+
 JOAF.load_spectrals = {
 	"multiply",
 }
@@ -236,6 +244,10 @@ end
 
 for i,v in ipairs(JOAF.load_seals) do
 	assert(SMODS.load_file("./src/seals/" .. v .. ".lua"))()
+end
+
+for i,v in ipairs(JOAF.load_tarots) do
+	assert(SMODS.load_file("./src/consumables/tarot/" .. v .. ".lua"))()
 end
 
 for i,v in ipairs(JOAF.load_spectrals) do
