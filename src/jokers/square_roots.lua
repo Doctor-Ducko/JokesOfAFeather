@@ -1,12 +1,12 @@
 SMODS.Joker {
-	key = 'meg_griffin',
+	key = 'square_roots',
 	atlas = 'JOAFJokers',
-	pos = { x = 1, y = 0 }, -- works on a +1 increment, not based off of pixels
-	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	cost = 20,
+	pos = { x = 11, y = 3 }, -- works on a +1 increment, not based off of pixels
+	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 5,
 
 	loc_txt = {
-		name = 'Meg Griffin',
+		name = 'Square Roots',
 		text = {
 			--[[
 				{C:} 	- color modifier
@@ -15,31 +15,30 @@ SMODS.Joker {
 				{s:}	- scale, and multiplies the text size by the value, like 0.8
 				{V:1}	- allows for a variable to dynamically change the color
 			]]
-			"All {C:hearts}Heart{} cards score",
-			"{C:chips}+#1#{} chips",
-			"{C:inactive,s:0.9}(And sex on TV)",
+			"Played {C:attention}Aces{}, {C:attention}4s{}, and {C:attention}9s{}",
+			"score {X:mult,C:white}X#1#{} Mult",
 		}
 	},
 
 	config = {
 		extra = {
-			chips = 100,
+			x_mult = 1.5,
 		}
 	},
 
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.chips
+				card.ability.extra.x_mult
 			}
 		}
 	end,
 
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play then
-			if context.other_card:is_suit("Hearts") then
+			if context.other_card:get_id() == 14 or context.other_card:get_id() == 4 or context.other_card:get_id() == 9 then
 				return {
-					chips = card.ability.extra.chips
+					x_mult = card.ability.extra.x_mult
 				}
 			end
 		end

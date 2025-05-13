@@ -39,6 +39,7 @@ JOAF.load_jokers = {
 	"irritating_joker",
 	"dr_pepper",
 	"straight_line",
+	"square_roots",
 	"hands_of_steel",
 	"slot_machine",
 	"mia_joker",
@@ -47,6 +48,7 @@ JOAF.load_jokers = {
 	-- Rare
 	"comedian",
 	"jramp",
+	"card_belt",
 	"57_leaf_clover",
 	"joker_energy",
 	"photographer",
@@ -276,6 +278,19 @@ function Game:init_game_object()
 	local ret = igo(self)
 	ret.current_round.colorful_joker = { suit = 'Spades' }
 	return ret
+end
+
+local cfbs = G.FUNCS.check_for_buy_space
+G.FUNCS.check_for_buy_space = function(card)
+	-- this fucking sucks
+	if type(card.ability.extra) == "table" then
+		if (card.ability.extra.joker_slots ~= nil) then
+			if card.ability.extra.joker_slots >= 1 then
+				return true
+			end
+		end
+	end
+	return cfbs(card)
 end
 
 function SMODS.current_mod.reset_game_globals(run_start)
