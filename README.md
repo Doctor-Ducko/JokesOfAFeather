@@ -10,18 +10,19 @@
 This mod is still in development and things are obviously subject to change, yadda yadda yadda
 
 Currently added:
-* 35 Jokers
+* 41 Jokers
     * 9 Common
     * 11 Uncommon
     * 6 Rare
     * 3 Legendary
     * 6 Family Guy
 * 4 Decks
-* 1 Spectral Card
+* 6 Tarot Cards
+* 4 Spectral Cards
 * 6 Trinket Cards
 * 2 Vouchers
-* 3 Enhancements
-* 1 Seal
+* 5 Enhancements
+* 4 Seals
 * 4 Booster Packs
 
 # Additions
@@ -38,6 +39,9 @@ Binary Joker
 
 Sunflower Joker
 * Earn $1 when the round ends, increases by 1 when the round ends, maxes out at $5
+
+Irritating Joker
+* Scored cards in the first played hand of round gain +9.9 bonus chips when scored
 
 Recycling Bin
 * Gain $1 every 5 cards discarded
@@ -58,6 +62,12 @@ Abundant Joker
 Tinkerer Joker
 * Create a random Trinket card at the start of a blind
 
+Colorful Joker
+* Retrigger all scored cards of a specific suit, changes at the end of the round
+
+Lunar Joker
+* +2 Mult per level on all discovered poker hands
+
 Jokr
 * +20 Mult if the scored card does not contain an "E" in it's name or number
 
@@ -70,14 +80,17 @@ Joker Face
 jimbo.jpg
 * Scored cards lose 1 chip and gain +1 bonus Mult when scored
 
-Irritating Joker
-* Scored cards in the first played hand of round gain +9.9 bonus chips when scored
-
 Dr. Pepper
 * +50 Mult, -5 Mult per round
 
 Straight Line
 * Gains X0.15 Mult if played hand contains a Straight
+
+Square Roots
+* Played Aces, 4s, and 9s score X1.5 Mult
+
+Hands of Steel
+* Scored Steel Cards give X1.5 Chips
 
 Slot Machine
 * Scored 7's have a 1 in 7 chance to score $20
@@ -91,10 +104,16 @@ Novel Joker
 
 ### Rare
 Comedian
-* TBD
+* Upgrades a random stat by a random amount when a random poker hand is played
 
 Jramp
 * Gives X-Mult equal to half of the current Ante unless Ante is less than 2
+
+Card Belt
+* +6 hand size, -2 hands per round
+
+57 Leaf Clover
+* Triples all listed probabilities
 
 Joker Energy
 * Gains X0.2 Mult after every round, Self-destructs at X3 Mult
@@ -138,39 +157,101 @@ Brian Griffin
 * Increases Mult by 0.5 for every card discarded
 
 ## Decks
-Family Deck
-* Start with all Eternal Family Jokers, -1 Joker slot, -2 hands, -1 discard, X8 base Blind Size, Earn no Interest
+Tinkerer's Deck
+* Start with a Tinkerer Joker, +2 consumable slots
 
 Starlight Deck
 * Start run with all Gold Cards, Earn no Interest
 * Credit: Chilli
 
-Tinkerer's Deck
-* Start with a Tinkerer Joker, +2 consumable slots
-
 Hiker's Deck
 * Start with Overstock, Crystal Ball, Seed Money, and Paint Brush. +2 Joker slots, hands, and discards, Winning Ante is 16
 
+Family Deck
+* Start with all Eternal Family Jokers, -1 Joker slot, -2 hands, -1 discard, X8 base Blind Size, Earn no Interest
 
 ## Consumables
+### Tarot Cards
+The Balance
+* Enhances 2 cards into Combo Cards
+
+The Legacy
+* Enhances 1 card into a Stained Card
+
+The Explosion
+* Enhances 2 cards into Dynamite Cards
+
+The Feather
+* Enhances 3 cards into Lightweight Cards
+
+The Inventor
+* Create a random Trinket card
+
+The Flip
+* Enhances 1 card into a Swap Card
+
 ### Spectral Cards
 Multiply
 * Select 1 card to apply Pink Seal to
+
+Recreate
+* Select 1 card to apply Navy Seal to
+
+Development
+* Select 1 card to apply Orange Seal to
+
+Chance
+* Select 2 cards to apply Lucky Seal to
+
+### Trinket Cards
+Trash Bag
+* +2 Discards in a round
+
+Gloves
+* +2 hands in a round
+
+Wallet
+* Gain between $2 and $8
+
+Potato Chips
+* Add +10 permanent chips to 3 cards
+
+Math Book
+* Add +3 permanent Mult to 2 cards
+
+Golden Ring
+* Add +$2 permanently to 2 cards
 
 ## Enhancements
 Combo Card
 * +20 chips and +3 Mult
 
-Chipped Card
+Stained Card
 * X1.5 chips
+
+Dynamite Card
+* X2.5 Mult, destroyed after 3 hands
+
+Lightweight Card
+* +30 Chips, always scores
+
+Swap Card
+* Swaps chips and Mult
 
 ## Seals
 Pink Seal
 * X2 Mult on score
 
+Navy Seal
+* Create a Spectral Card on discard
 
-# Planned Features
-To be assessed
+Orange Seal
+* Create a Trinket Card when scored
+
+Lucky Seal
+* 1 in 5 chance for +20 Mult
+* 1 in 3 chance for +30 chips
+* 1 in 15 chance for 2 retriggers
 
 # Credits
 Doctor Ducko - Programmer, Artist
