@@ -23,6 +23,7 @@ JOAF.load_jokers = {
 	"jokerekoj",
 	"binary_joker",
 	"sunflower_joker",
+	"irritating_joker",
 	"recycling_bin",
 	"simple_joker",
 	"picture_frame",
@@ -32,11 +33,11 @@ JOAF.load_jokers = {
 	-- Uncommon
 	"tinkerer_joker",
 	"colorful_joker",
+	"lunar_joker",
 	"jokr",
 	"lil_joker",
 	"joker_face",
 	"jimbo_jpg",
-	"irritating_joker",
 	"dr_pepper",
 	"straight_line",
 	"square_roots",
@@ -74,10 +75,14 @@ JOAF.load_enhancements = {
 	"stained",
 	"dynamite",
 	"lightweight",
+	"swap",
 }
 
 JOAF.load_seals = {
 	"pink",
+	"navy",
+	"orange",
+	"lucky",
 }
 
 JOAF.load_tarots = {
@@ -90,6 +95,9 @@ JOAF.load_tarots = {
 
 JOAF.load_spectrals = {
 	"multiply",
+	"recreate",
+	"development",
+	"chance",
 }
 
 JOAF.load_trinkets = {

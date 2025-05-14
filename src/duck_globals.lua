@@ -94,6 +94,8 @@ JOAF.get_poker_hand_stat = function(hand, stat)
         return hand_stats.mult
     elseif stat == "level" then
         return hand_stats.level
+    elseif stat == "visible" then
+        return hand_stats.visible
     else
         return -1
     end
@@ -113,4 +115,15 @@ JOAF.get_chip_value = function(id, enhancement)
     end
 
     return chip_value
+end
+
+JOAF.get_valid_poker_hands = function(current_hand)
+    local valid_hands = {}
+    for hand, stats in pairs(G.GAME.hands) do
+        if stats.visible and hand ~= current_hand then
+            valid_hands[#valid_hands+1] = hand
+        end
+    end
+
+    return valid_hands
 end
