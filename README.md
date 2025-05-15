@@ -18,8 +18,8 @@ Currently added:
     * 6 Family Guy
 * 4 Decks
 * 6 Tarot Cards
-* 4 Spectral Cards
-* 6 Trinket Cards
+* 5 Spectral Cards
+* 12 Trinket Cards
 * 2 Vouchers
 * 5 Enhancements
 * 4 Seals
@@ -257,3 +257,6 @@ Lucky Seal
 Doctor Ducko - Programmer, Artist
 Chilli - Ideas
 Hydrop0x - Ideas
+The Several Public Resources for code refrences
+* Example mods from the wiki
+* Vanilla Remade by nh6574 and the-Astra on github

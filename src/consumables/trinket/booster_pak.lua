@@ -1,7 +1,7 @@
 SMODS.Consumable {
-    key = "trash_bag",          -- Object ID, acessed with c_joaf_[key]
+    key = "booster_pak",          -- Object ID, acessed with c_joaf_[key]
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=5, y=0},           -- works on a +1 increment per sprite, not based off of pixels
+    pos = {x=7, y=0},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 4,                   -- shop price
 
@@ -9,21 +9,21 @@ SMODS.Consumable {
 	discovered = false,
 
     loc_txt = {
-        name = 'Trash Bag',
+        name = 'Booster Pak',
         text = {
-            "Gain {C:attention}+#1#{} discards",
+            "Draw {C:attention}#1#{} cards",
             "during a blind"
         }
     },
 
 	config = {
-        discards = 2,
+        draw_count = 5,
     },
 
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                self.config.discards
+                self.config.draw_count
             }
         }
     end,
@@ -39,7 +39,7 @@ SMODS.Consumable {
 
     use = function(self, card, area)
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
-            ease_discard(card.ability.discards)
+            G.FUNCS.draw_from_deck_to_hand(self.config.draw_count)
         return true end }))
     end
 }

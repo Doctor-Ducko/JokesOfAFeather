@@ -3,7 +3,7 @@ SMODS.Consumable {
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
     pos = {x=4, y=1},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
-    cost = 5,                   -- shop price
+    cost = 4,                   -- shop price
 
 	unlocked = true,			
 	discovered = false,

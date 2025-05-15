@@ -98,12 +98,19 @@ JOAF.load_spectrals = {
 	"recreate",
 	"development",
 	"chance",
+	"inverter",
 }
 
 JOAF.load_trinkets = {
 	"trash_bag",
 	"gloves",
+	"booster_pak",
 	"wallet",
+	"comic_book",
+	"stargazing_guide",
+	"psychic_reading",
+	"specter",
+	"trinkets",
 	"potato_chips",
 	"math_book",
 	"golden_ring",
@@ -205,7 +212,7 @@ end
 --[[CONSUMABLES & RARITIES]]--
 SMODS.ConsumableType {
 	key = "Trinkets",
-	collection_rows = {5, 3},
+	collection_rows = {6, 6},
 	primary_colour = HEX("FFFFFF"),
 	secondary_colour = HEX("D66B1B"),
 	shop_rate = 2,
