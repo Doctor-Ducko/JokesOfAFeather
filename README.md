@@ -5,21 +5,10 @@
 ## Overview
 Jokes of a Feather adds new Jokers, Decks, Enhancements, Seals, and a whole new Consumable type (Trinkets) to Balatro!
 
-<p align="center" width="100%">
 <img src="art/github/jokers_1.png" alt="The first 15 Jokers" width="50%" />
-</p>
-
-<p align="center" width="100%">
 <img src="art/github/jokers_2.png" alt="The second 15 Jokers" width="50%" />
-</p>
-
-<p align="center" width="100%">
 <img src="art/github/jokers_3.png" alt="The last 15 Jokers" width="50%" />
-</p>
-
-<p align="center" width="100%">
 <img src="art/github/trinkets_1.png" alt="Trinket Cards" width="50%" />
-</p>
 
 Currently added:
 * 45 Jokers
