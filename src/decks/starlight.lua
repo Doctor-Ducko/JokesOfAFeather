@@ -4,7 +4,7 @@ SMODS.Back{
     pos = {x = 1, y = 0},               -- pos on atlas
     
     loc_txt = {
-        name = "Starlight Deck",
+        name = "Glimmering Deck",
         text ={
             "Start run with",
             "all {C:attention}Gold Cards{}",

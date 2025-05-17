@@ -2,19 +2,12 @@ Art:
     Jokers:
         Emperor
         Money Smart
-    Decks:
-        Tinkerer's Deck
-    Vouchers:
-        Trinket Tycoon
     Tarots:
         The Balance
         The Legacy
         The Explosion
         The Feather
-        The Inventor
         The Flip
-    Spectrals:
-        Development
 
 Coding:
     Jokers:
@@ -26,5 +19,11 @@ Coding:
         Photographer:
             Balance it
     Tarots:
-        The Inventor
         The Flip
+
+Other:
+    Finish the README
+    Take Screenshots
+    Delete unused folders/Cleanup
+    Make 2X scale sprites
+    Do the localization stuff
