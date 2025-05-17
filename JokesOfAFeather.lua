@@ -24,7 +24,9 @@ JOAF.load_jokers = {
 	"binary_joker",
 	"sunflower_joker",
 	"irritating_joker",
+	"frug",
 	"recycling_bin",
+	"long_fuse",
 	"simple_joker",
 	"picture_frame",
 	"misplaced",
@@ -32,8 +34,10 @@ JOAF.load_jokers = {
 
 	-- Uncommon
 	"tinkerer_joker",
+	"brainless_joker",
 	"colorful_joker",
 	"lunar_joker",
+	"the_witness",
 	"jokr",
 	"lil_joker",
 	"joker_face",

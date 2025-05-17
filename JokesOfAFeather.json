@@ -9,7 +9,7 @@
 	"badge_colour": "FF9900",
 	"badge_text_colour": "FFFF",
 	"display_name": "J.O.A.F.",
-	"version": "0.7.0~dev",
+	"version": "0.8.0~dev",
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0312b)"
 	],
