@@ -1,23 +1,35 @@
 # Jokes Of A Feather || Doctor Ducko
 
-## Update this sometime soon you gosh darn moron - sean 2025
-
-## A Work-in-Progress Balatro Content Mod with Semi-Decent Balance
+## A Balatro Mod adding a whole buncha stuffs
 
 ## Overview
-"Jokes of a Feather" adds a decent handful of new jokers, seals, enhancements, decks, and consumables with balance that only somewhat respects the original Balatro.
+Jokes of a Feather adds new Jokers, Decks, Enhancements, Seals, and a whole new Consumable type (Trinkets) to Balatro!
 
-This mod is still in development and things are obviously subject to change, yadda yadda yadda
+<p align="center" width="100%">
+<img src="art/github/jokers_1.png" alt="The first 15 Jokers" width="50%" />
+</p>
+
+<p align="center" width="100%">
+<img src="art/github/jokers_2.png" alt="The second 15 Jokers" width="50%" />
+</p>
+
+<p align="center" width="100%">
+<img src="art/github/jokers_3.png" alt="The last 15 Jokers" width="50%" />
+</p>
+
+<p align="center" width="100%">
+<img src="art/github/trinkets_1.png" alt="Trinket Cards" width="50%" />
+</p>
 
 Currently added:
-* 41 Jokers
-    * 9 Common
-    * 11 Uncommon
-    * 6 Rare
+* 45 Jokers
+    * 12 Common
+    * 16 Uncommon
+    * 8 Rare
     * 3 Legendary
     * 6 Family Guy
 * 4 Decks
-* 6 Tarot Cards
+* 5 Tarot Cards
 * 5 Spectral Cards
 * 12 Trinket Cards
 * 2 Vouchers
@@ -43,8 +55,16 @@ Sunflower Joker
 Irritating Joker
 * Scored cards in the first played hand of round gain +9.9 bonus chips when scored
 
+Frug
+* +1 Joker slot and +5 Mult
+* +1 Mult per copy and +X0.5 Mult per 5 copies
+* Multiple copies can appear in the shop
+
 Recycling Bin
 * Gain $1 every 5 cards discarded
+
+Long Fuse
+* Dynamite Cards have a 1 in 4 chance of not losing a turn
 
 Simple Joker
 * +3 Mult if scored card is not a face card
@@ -62,11 +82,18 @@ Abundant Joker
 Tinkerer Joker
 * Create a random Trinket card at the start of a blind
 
+Brainless Joker
+* Gains +X0.5 Mult when a Dynamite Card explodes
+
 Colorful Joker
 * Retrigger all scored cards of a specific suit, changes at the end of the round
 
 Lunar Joker
 * +2 Mult per level on all discovered poker hands
+
+The Witness
+* No cards are considered face cards
+* Has a higher priority than Paredolia
 
 Jokr
 * +20 Mult if the scored card does not contain an "E" in it's name or number
@@ -84,7 +111,7 @@ Dr. Pepper
 * +50 Mult, -5 Mult per round
 
 Straight Line
-* Gains X0.15 Mult if played hand contains a Straight
+* Gains X0.2 Mult if played hand contains a Straight
 
 Square Roots
 * Played Aces, 4s, and 9s score X1.5 Mult
@@ -160,7 +187,7 @@ Brian Griffin
 Tinkerer's Deck
 * Start with a Tinkerer Joker, +2 consumable slots
 
-Starlight Deck
+Glimmering Deck
 * Start run with all Gold Cards, Earn no Interest
 * Credit: Chilli
 
@@ -183,9 +210,6 @@ The Explosion
 
 The Feather
 * Enhances 3 cards into Lightweight Cards
-
-The Inventor
-* Create a random Trinket card
 
 The Flip
 * Enhances 1 card into a Swap Card
@@ -212,6 +236,21 @@ Gloves
 
 Wallet
 * Gain between $2 and $8
+
+Comic Book
+* Create a random Joker
+
+Stargazing Guide
+* Create a random Planet
+
+Psychic Reading
+* Create a random Tarot
+
+Specter
+* Create a random Spectral
+
+Trinkets
+* Create a random Trinket
 
 Potato Chips
 * Add +10 permanent chips to 3 cards
@@ -254,9 +293,12 @@ Lucky Seal
 * 1 in 15 chance for 2 retriggers
 
 # Credits
-Doctor Ducko - Programmer, Artist
-Chilli - Ideas
-Hydrop0x - Ideas
-The Several Public Resources for code refrences
+## Doctor Ducko
+* Programmer, Artist
+## Chilli
+* Ideas
+## Hydrop0x
+* Ideas
+## The Several Public Resources for code refrences
 * Example mods from the wiki
 * Vanilla Remade by nh6574 and the-Astra on github

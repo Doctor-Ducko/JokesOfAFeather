@@ -1,7 +1,4 @@
 Art:
-    Jokers:
-        Emperor
-        Money Smart
     Tarots:
         The Balance
         The Legacy
@@ -23,7 +20,6 @@ Coding:
 
 Other:
     Finish the README
-    Take Screenshots
     Delete unused folders/Cleanup
     Make 2X scale sprites
     Do the localization stuff
