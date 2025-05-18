@@ -250,6 +250,7 @@ SMODS.Rarity({
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 --assert(SMODS.load_file("./src/config_tab.lua"))()
+assert(SMODS.load_file("./src/credits_tab.lua"))()
 
 if not JOAF.has_talisman then
 	assert(SMODS.load_file("./src/exponent_stuff.lua"))()
