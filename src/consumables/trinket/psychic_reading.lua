@@ -11,7 +11,8 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Psychic Reading',
         text = {
-            "Create a random {C:tarot}Tarot{} card"
+            "Create a random",
+            "{C:tarot}Tarot{} card"
         }
     },
 

@@ -19,7 +19,8 @@ SMODS.Consumable {
         name = 'Inverter',
         text = {
             "Apply {C:dark_edition}Negative{} to",
-            "a selected {C:attention}Joker"
+            "a selected {C:attention}Joker",
+            "{C:attention}Can override current edition"
         }
     },
 
@@ -28,13 +29,15 @@ SMODS.Consumable {
     pos = {x=5, y=1},
 
     can_use = function(self, card)
-        local temp_pool = {}
-        for k, v in pairs(G.jokers.cards) do
-            if not v.edition then
-                temp_pool[#temp_pool + 1] = v
+        if #G.jokers.highlighted == 1 then
+            if not G.jokers.highlighted[1].edition then -- Jokers with no edition
+                return true
+            elseif G.jokers.highlighted[1].edition.key == "e_negative" then -- negative
+                return false
+            else -- jokers with an edition
+                return true
             end
         end
-        return next(temp_pool)
     end,
 
     use = function(card, area, copier)

@@ -11,7 +11,8 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Wallet',
         text = {
-            "Gain between {C:money}$#1#{} and {C:money}$#2#{}",
+            "Gain between",
+            "{C:money}$#1#{} and {C:money}$#2#{}",
         }
     },
 

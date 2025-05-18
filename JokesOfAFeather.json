@@ -13,5 +13,5 @@
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-0509c)"
 	],
-	"dump_loc": true
+	"dump_loc": false
 }

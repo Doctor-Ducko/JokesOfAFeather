@@ -11,7 +11,8 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Stargazing Guide',
         text = {
-            "Create a random {C:planet}Planet{} card"
+            "Create a random",
+            "{C:planet}Planet{} card"
         }
     },
 

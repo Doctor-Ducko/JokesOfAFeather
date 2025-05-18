@@ -1,9 +1,0 @@
-Issues that i found
-    Lil' Joker      causes compare num with table crash
-    Money Smart     causes compare num with table crash
-    Joker Face      causes bad arg to pairs
-
-To be tested
-    MIA
-    Comedian
-    Joker Energy

@@ -13,8 +13,9 @@ JOAF = SMODS.current_mod
 
 --[[COMPATABILITY VARS]]--
 JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
-JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
+JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
+JOAF.has_joaf_bp		= next(SMODS.find_mod("JokesOfAFeatherBoosterPak"))
 
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
@@ -122,7 +123,7 @@ JOAF.load_trinkets = {
 
 JOAF.load_decks = {
 	"tinkerers",
-	"starlight",
+	"glimmering",
 	"hikers",
 	"family",
 }
@@ -137,7 +138,6 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
-	--"quack_normal_1",
 }
 
 JOAF.load_sleeves = {
@@ -218,7 +218,7 @@ SMODS.ConsumableType {
 	key = "Trinkets",
 	collection_rows = {6, 6},
 	primary_colour = HEX("FFFFFF"),
-	secondary_colour = HEX("D66B1B"),
+	secondary_colour = HEX("D66B1B"), -- Remember to update the loc color in the globals file
 	shop_rate = 2,
 	loc_txt = {
 		name = 'Trinket', -- used on card type badges
