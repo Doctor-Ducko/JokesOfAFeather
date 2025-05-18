@@ -5,6 +5,8 @@ SMODS.Joker {
 	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 20,
 
+	blueprint_compat = true,
+
 	loc_txt = {
 		name = 'Stewie Griffin',
 		text = {

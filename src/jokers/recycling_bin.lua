@@ -5,7 +5,7 @@ SMODS.Joker {
 	rarity = 1,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 3,					-- shop price
 
-	blueprint_compat = true,	-- Cosmetic only, define in calculate function
+	blueprint_compat = false,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
 	perishable_compat = true,
 
@@ -47,7 +47,7 @@ SMODS.Joker {
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.discard then
+		if context.discard and not context.blueprint then
 			card.ability.extra.cards_left = card.ability.extra.cards_left - 1
 			if card.ability.extra.cards_left == 0 then
 				card.ability.extra.cards_left = card.ability.extra.cards_required

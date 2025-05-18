@@ -58,7 +58,7 @@ SMODS.Joker {
 				x_mult = card.ability.extra.x_mult
 			}
 		end
-		if context.pre_joker then
+		if context.pre_joker and not context.blueprint then
 			card.ability.extra.x_mult = (math.floor(G.GAME.dollars/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 		end
 	end

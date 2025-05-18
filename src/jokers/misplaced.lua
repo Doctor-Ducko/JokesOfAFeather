@@ -5,6 +5,8 @@ SMODS.Joker {
 	rarity = 1, -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 3,
 
+	blueprint_compat = false,
+
 	loc_txt = {
 		name = "Misplaced",
 		text = {

@@ -1,3 +1,5 @@
+
+
 SMODS.Joker {
 	key = 'mia_joker',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
@@ -5,7 +7,7 @@ SMODS.Joker {
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 5,					-- shop price
 
-	blueprint_compat = true,	-- Cosmetic only, define in calculate function
+	blueprint_compat = false,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
 	perishable_compat = true,
 
@@ -26,7 +28,8 @@ SMODS.Joker {
 	config = {
 		extra = {
 			joker_slots = 1,
-			random_events = 1,
+			random_events = 7,
+			current_event = 1
 		}
 	},
 	-- Variables to be used in the loc_txt area
@@ -47,11 +50,42 @@ SMODS.Joker {
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.joker_main then
-			return {
-				message = 'Template',
-				colour = G.C.WHITE
-			}
+		if not context.blueprint then
+			if context.ending_shop then
+				card.ability.extra.current_event = pseudorandom("j_joaf_mia_joker_random_event", 1, card.ability.extra.random_events)
+			end
+			if context.joker_main then
+				local event = card.ability.extra.current_event
+				if event == 1 then
+					return {
+						chips = 200
+					}
+				elseif event == 2 then
+					return {
+						mult = 25
+					}
+				elseif event == 3 then
+					return {
+						x_mult = 2.5
+					}
+				elseif event == 4 then
+					return {
+						x_chips = 3
+					}
+				elseif event == 5 then
+					return {
+						e_mult = 1.1
+					}
+				elseif event == 6 then
+					return {
+						e_chips = 1.2
+					}
+				elseif event == 7 then
+					return {
+						message = "Nothing?!"
+					}
+				end
+			end
 		end
 	end
 }

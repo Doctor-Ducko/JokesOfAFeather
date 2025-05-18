@@ -5,7 +5,7 @@ SMODS.Joker {
 	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 8,					-- shop price
 
-	blueprint_compat = true,	-- Cosmetic only, define in calculate function
+	blueprint_compat = false,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
 	perishable_compat = true,
 

@@ -5,6 +5,8 @@ SMODS.Joker {
 	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 7,
 	blueprint_compat = true,
+	eternal_compat = false,
+	perishable_compat = false,
 
 	loc_txt = {
 		name = 'Dr. Pepper',

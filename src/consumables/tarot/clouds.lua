@@ -1,5 +1,5 @@
 SMODS.Consumable {
-    key = "feather",          -- Object ID, acessed with c_joaf_[key]
+    key = "clouds",          -- Object ID, acessed with c_joaf_[key]
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
     pos = {x=8, y=1},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Tarot",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
@@ -9,7 +9,7 @@ SMODS.Consumable {
 	discovered = false,
 
     loc_txt = {
-        name = 'The Feather',
+        name = 'The Clouds',
         text = {
             "Enhances {C:attention}#1#{} selected",
             "cards into",

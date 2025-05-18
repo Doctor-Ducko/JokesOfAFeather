@@ -10,7 +10,7 @@ SMODS.Joker {
 		name = "Photographer",
 		text = {
 			"Gains bonus chips",
-			"according to the {C:attention}base",
+			"according to {C:attention}half the base",
 			"{C:attention}chip value of a scored card",
 			"{C:inactive}(Currently {C:chips}+#1#{}{C:inactive} chips)"
 		}
@@ -49,6 +49,8 @@ SMODS.Joker {
 			if context.other_card.ability.effect == "Stone Card" then
 				bonus = 50
 			end
+
+			bonus = math.ceil(bonus/2)
 
 			card.ability.extra.chips = card.ability.extra.chips + bonus
 			return {

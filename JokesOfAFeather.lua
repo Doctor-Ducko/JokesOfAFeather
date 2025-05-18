@@ -92,9 +92,9 @@ JOAF.load_seals = {
 JOAF.load_tarots = {
 	"balance",
 	"legacy",
-	--"recession",
 	"explosion",
-	"feather",
+	"clouds",
+	"flip",
 }
 
 JOAF.load_spectrals = {

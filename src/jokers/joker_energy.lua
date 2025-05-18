@@ -6,8 +6,8 @@ SMODS.Joker {
 	cost = 8,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
-	eternal_compat = true,		-- Self Explanatory
-	perishable_compat = true,
+	eternal_compat = false,		-- Self Explanatory
+	perishable_compat = false,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
 	discovered = false,
@@ -45,7 +45,7 @@ SMODS.Joker {
 	end,
 
 	calculate = function(self, card, context)
-		if context.setting_blind then
+		if context.setting_blind and not context.blueprint then
 			card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_increase
 			return {
 				message = 'Sip.',
