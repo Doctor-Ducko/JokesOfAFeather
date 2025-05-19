@@ -10,14 +10,14 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {
 		name = 'Abundant Joker',
 		text = {
 			"Scores {C:chips}+#1#{} chips for",
-			"every {C:blue}Common{C:attention} Joker",
+			"every {C:common}Common{C:attention} Joker",
 			"you have",
 			"{C:inactive}(Including this Joker)"
 		}

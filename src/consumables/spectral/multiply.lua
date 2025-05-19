@@ -14,8 +14,9 @@ SMODS.Consumable {
     loc_txt = {
         name = 'Multiply',
         text = {
-            "Select {C:attention}#1#{} card to",
-            "apply {C:attention}Pink Seal{}"
+            "Add a {C:pink}Pink Seal{}",
+            "to {C:attention}#1#{} selected",
+            "card in your hand"
         }
     },
     cost = 4,

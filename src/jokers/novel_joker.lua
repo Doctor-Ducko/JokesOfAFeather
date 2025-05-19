@@ -3,21 +3,21 @@ SMODS.Joker {
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 8, y = 2},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 9,					-- shop price
+	cost = 6,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {
 		name = 'Novel Joker',
 		text = {
 			"Scores {C:mult}+#1#{} Mult for",
-			"every {C:green}Uncommon{} Joker",
+			"every {C:uncommon}Uncommon{C:attention} Joker",
 			"you have",
 			"{C:inactive}(Including this Joker)"
 		}

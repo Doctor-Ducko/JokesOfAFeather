@@ -39,8 +39,7 @@ SMODS.Joker {
 		if context.individual and context.cardarea == G.play then
 			if context.other_card:is_suit("Hearts") then
 				return {
-					chips = card.ability.extra.chips,
-					card = context.other_card
+					chips = card.ability.extra.chips
 				}
 			end
 		end

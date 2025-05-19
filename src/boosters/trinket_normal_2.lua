@@ -2,7 +2,6 @@ SMODS.Booster {
     key = "trinket_normal_2",           -- Class prefix of p, for pack probably
     atlas = "JOAFBoosters",
     pos = {x=1,y=0},
-	discovered = true,
     kind = "trinket",      -- Used for multiple packs of the same variety
     
     select_card="consumeables",

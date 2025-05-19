@@ -10,14 +10,14 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {
 		name = 'Precious Joker',
 		text = {
 			"Scores an extra {X:mult,C:white}X#1#{} Mult",
-			"for every {C:red}Rare{} Joker",
+			"for every {C:rare}Rare{C:attention} Joker",
 			"you have, starting at {X:mult,C:white}X1{} Mult",
 			"{C:inactive}(Including this Joker)"
 		}

@@ -2,8 +2,10 @@ SMODS.Joker {
 	key = "misplaced",
 	atlas = 'JOAFJokers',
 	pos = { x = 5, y = 0 }, -- works on a +1 increment, not based off of pixels
-	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
-	cost = 7,
+	rarity = 1, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+	cost = 3,
+
+	blueprint_compat = false,
 
 	loc_txt = {
 		name = "Misplaced",

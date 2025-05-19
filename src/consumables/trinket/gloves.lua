@@ -3,10 +3,10 @@ SMODS.Consumable {
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
     pos = {x=6, y=0},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
-    cost = 7,                   -- shop price
+    cost = 4,                   -- shop price
 
-	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	unlocked = true,			
+	discovered = false,
 
     loc_txt = {
         name = 'Gloves',

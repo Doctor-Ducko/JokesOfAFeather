@@ -1,17 +1,17 @@
 {
-	"id": "jokes_of_a_feather",
+	"id": "JokesOfAFeather",
 	"name": "Jokes of a Feather",
 	"author": ["Doctor Ducko", "Chilli", "Hydrop0x"],
-	"description": "WIP Content Mod",
+	"description": "A Balatro Content Mod adding a whole buncha stuffs like Jokers, Consumables, Seals, and more!",
 	"prefix": "joaf",
 	"main_file": "JokesOfAFeather.lua",
 	"priority": 0,
 	"badge_colour": "FF9900",
 	"badge_text_colour": "FFFF",
 	"display_name": "J.O.A.F.",
-	"version": "0.4.0~dev",
+	"version": "1.0.0",
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0312b)"
+		"Steamodded (>=1.0.0~BETA-0509c)"
 	],
 	"dump_loc": false
 }

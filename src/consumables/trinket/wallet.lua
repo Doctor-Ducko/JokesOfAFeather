@@ -5,13 +5,14 @@ SMODS.Consumable {
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 4,                   -- shop price
 
-	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	unlocked = true,			
+	discovered = false,
 
     loc_txt = {
         name = 'Wallet',
         text = {
-            "Gain between {C:money}$#1#{} and {C:money}$#2#{}",
+            "Gain between",
+            "{C:money}$#1#{} and {C:money}$#2#{}",
         }
     },
 

@@ -2,7 +2,7 @@ SMODS.Joker {
 	key = 'irritating_joker',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 3, y = 2},		-- works on a +1 increment, not based off of pixels
-	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	rarity = 1,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 6,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
@@ -10,7 +10,7 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {

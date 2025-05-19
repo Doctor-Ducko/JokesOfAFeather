@@ -2,7 +2,7 @@ SMODS.Joker {
 	key = 'money_smart',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 4, y = 2},		-- works on a +1 increment, not based off of pixels
-	soul_pos = { x = 1, y = 2 },
+	soul_pos = { x = 6, y = 3 },
 	rarity = 4,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 20,					-- shop price
 
@@ -11,7 +11,7 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {
@@ -58,7 +58,7 @@ SMODS.Joker {
 				x_mult = card.ability.extra.x_mult
 			}
 		end
-		if context.pre_joker then
+		if context.pre_joker and not context.blueprint then
 			card.ability.extra.x_mult = (math.floor(G.GAME.dollars/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 		end
 	end

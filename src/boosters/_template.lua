@@ -7,7 +7,7 @@ SMODS.Booster {
     
     select_card="consumeables",
     cost = 4,
-    weight = 1 / 1, --1 base ÷ 1 for each identical pack
+    weight = 1,
 
     config = { extra = 3, choose = 1 },      -- Extra is the amount of cards, and choose is the amount of cards that can be picked
 

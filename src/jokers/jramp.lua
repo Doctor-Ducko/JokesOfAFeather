@@ -10,7 +10,7 @@ SMODS.Joker {
 	perishable_compat = true,
 
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-	discovered = true,
+	discovered = false,
 
 	-- Display text
 	loc_txt = {
@@ -66,7 +66,7 @@ SMODS.Joker {
 				x_mult = card.ability.extra.x_mult
 			}
 		end
-		if context.ending_shop then
+		if context.ending_shop and not context.blueprint then
 			card.ability.extra.x_mult = self.calculate_x_mult()
 			if card.ability.extra.x_mult ~= card.ability.extra.previous_x_mult then
 				card.ability.extra.previous_x_mult = card.ability.extra.x_mult

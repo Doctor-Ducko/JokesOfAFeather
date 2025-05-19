@@ -61,13 +61,25 @@ JOAF.P_NUMBER_CARDS = {
 }
 
 -- Dev Colors
-G.C.DOCTOR_DUCKO = HEX('F5A742')
-G.C.CHILLI = HEX('E02D2D')
-G.C.HYDROP0X = HEX('0DBD1C')
-G.C.ALPINE488 = HEX('923EE6')
+G.C.DOCTOR_DUCKO    = HEX('F5A742')
+G.C.CHILLI          = HEX('E02D2D')
+G.C.HYDROP0X        = HEX('0DBD1C')
+G.C.ALPINE488       = HEX('923EE6')
+G.C.PINK_MAGGIT     = HEX('EB85FF')
+
+-- Other Colors
+G.C.PINK        = HEX("EB6ABD")
+G.C.NAVY        = HEX("3849CF")
+G.C.DARK_GREEN  = HEX("21AA11")
+
+--[[IN TEXT COLORS ARE IN THE "misc_functions.toml" file]]
 
 JOAF.credit_badge = function(card, badges, name, color)
     badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
+end
+
+JOAF.experimental_badge = function(card, badges)
+    badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.8)
 end
 
 JOAF.count_jokers_of_rarity = function(rarity)
@@ -78,6 +90,22 @@ JOAF.count_jokers_of_rarity = function(rarity)
         end
     end
     return x
+end
+
+JOAF.get_poker_hand_stat = function(hand, stat)
+    stat = string.lower(stat) or "chips"
+    local hand_stats = G.GAME.hands[hand]
+    if stat == "chips" then
+        return hand_stats.chips
+    elseif stat == "mult" then
+        return hand_stats.mult
+    elseif stat == "level" then
+        return hand_stats.level
+    elseif stat == "visible" then
+        return hand_stats.visible
+    else
+        return -1
+    end
 end
 
 JOAF.get_chip_value = function(id, enhancement)
@@ -94,4 +122,15 @@ JOAF.get_chip_value = function(id, enhancement)
     end
 
     return chip_value
+end
+
+JOAF.get_valid_poker_hands = function(current_hand)
+    local valid_hands = {}
+    for hand, stats in pairs(G.GAME.hands) do
+        if stats.visible and hand ~= current_hand then
+            valid_hands[#valid_hands+1] = hand
+        end
+    end
+
+    return valid_hands
 end

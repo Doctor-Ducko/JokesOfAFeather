@@ -1,0 +1,23 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# another thank you to the smart people over buffoonery for being smart
+[[patches]]
+[patches.pattern]
+target = "functions/misc_functions.lua"
+pattern = "return G.ARGS.LOC_COLOURS[_c] or _default or G.C.UI.TEXT_DARK"
+position = "before"
+payload = '''
+G.ARGS.LOC_COLOURS.doctor_ducko = G.C.DOCTOR_DUCKO
+G.ARGS.LOC_COLOURS.chilli       = G.C.CHILLI
+G.ARGS.LOC_COLOURS.hydrop0x     = G.C.HYDROP0X
+G.ARGS.LOC_COLOURS.alpine488    = G.C.ALPINE488
+G.ARGS.LOC_COLOURS.orange       = G.C.ORANGE
+G.ARGS.LOC_COLOURS.pink         = G.C.PINK
+G.ARGS.LOC_COLOURS.navy         = G.C.NAVY
+G.ARGS.LOC_COLOURS.dark_green   = G.C.DARK_GREEN
+G.ARGS.LOC_COLOURS.trinket      = HEX("D66B1B")
+'''
+match_indent = true

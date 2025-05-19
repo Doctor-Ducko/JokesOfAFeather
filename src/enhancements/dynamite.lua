@@ -13,7 +13,7 @@ SMODS.Enhancement{
 	pos = {x = 5, y = 0},
 	config = {
 		x_mult = 2.5,
-		turns_left = 1,
+		turns_left = 3,
 	},
 
 	set_ability = function(self, card, initial, delay_sprites)
@@ -30,18 +30,41 @@ SMODS.Enhancement{
 	end,
 
 	calculate = function(self, card, context)
+		if context.main_scoring and context.cardarea == G.play then
+			local long_fuse = SMODS.find_card("j_joaf_long_fuse")[1]
+			if long_fuse then
+				if (pseudorandom('dyanmite_prevention_protocol') < G.GAME.probabilities.normal / long_fuse.ability.extra.odds) then
+					card.dyna_turns = card.dyna_turns
+					return {
+						message = "Safe!"
+					}
+				else
+					card.dyna_turns = card.dyna_turns - 1
+				end
+			else
+				card.dyna_turns = card.dyna_turns - 1
+			end
+			if card.dyna_turns == 0 then
+				card.exploding = true
+			end
+		end
 		if context.final_scoring_step and context.cardarea == G.play then
-			card.dyna_turns = card.dyna_turns - 1
 			if card.dyna_turns == 0 then
 				G.E_MANAGER:add_event(Event({
-					trigger = 'after',
-					delay = 0.2,
+					trigger = 'immediate',
 					func = function() 
+						card:start_dissolve()
 						card:remove()
-						--card:start_dissolve()
-					return true
-				end }))
+						return true
+					end
+				}))
 			end
+		end
+
+		if context.destroying_card and card.exploding then
+			return {
+				remove = true
+			}
 		end
 	end
 }
