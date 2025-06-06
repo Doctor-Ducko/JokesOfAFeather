@@ -25,11 +25,6 @@ JOAF.extra_tabs = function()
                                     }
                                 },
                                 {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
-                                nodes = {
-                                    {n = G.UIT.T, config = {text = "PinkMaggit - Exponential Mult/Chips Code", colour = G.C.PINK_MAGGIT, scale = 0.6, shadow = true}},
-                                }
-                                },
-                                {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
                                     nodes = {
                                         {n = G.UIT.T, config = {text = "Various Public Resources - Example Code", colour = G.C.WHITE, scale = 0.6, shadow = true}},
                                     }

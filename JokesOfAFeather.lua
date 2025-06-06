@@ -200,19 +200,6 @@ SMODS.Atlas {
 	py = 95
 }
 
---[[SOUNDS]]--
-if not JOAF.has_talisman then
-	SMODS.Sound({
-		key = "echip",
-		path = "ExponentialChips.wav"
-	})
-
-	SMODS.Sound({
-		key = "emult",
-		path = "ExponentialMult.wav"
-	})
-end
-
 --[[CONSUMABLES & RARITIES]]--
 SMODS.ConsumableType {
 	key = "Trinkets",
@@ -251,10 +238,6 @@ SMODS.Rarity({
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 --assert(SMODS.load_file("./src/config_tab.lua"))()
 assert(SMODS.load_file("./src/credits_tab.lua"))()
-
-if not JOAF.has_talisman then
-	assert(SMODS.load_file("./src/exponent_stuff.lua"))()
-end
 
 for i,v in pairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
@@ -334,7 +317,7 @@ if JOAF.has_cryptid then
 		key = 'catastrophic_joker',
 		atlas = 'JOAFJokers',
 		pos = { x = 0, y = 0 }, -- works on a +1 increment, not based off of pixels
-		rarity = 3, -- 1: common, 2: uncommon, 3: rare, 4: legendary
+		rarity = "cry_exotic", -- 1: common, 2: uncommon, 3: rare, 4: legendary
 		cost = 3,
 		blueprint_compat = true,
 
