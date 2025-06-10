@@ -16,8 +16,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Simple Joker',
 		text = {
-			"{C:mult}+#1#{} Mult if scored card",
-			"is {C:attention}not{} a face card",
+			"{C:attention}Non-face cards",
+			"score {C:mult}+#1#{} Mult"
 		}
 	},
 

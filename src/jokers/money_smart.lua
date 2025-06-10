@@ -38,7 +38,7 @@ SMODS.Joker {
 	},
 
 	add_to_deck = function(self, card, from_debuff)
-		card.ability.extra.x_mult = (math.floor(G.GAME.dollars/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
+		card.ability.extra.x_mult = (math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 	end,
 
 	-- Variables to be used in the loc_txt area
@@ -59,7 +59,7 @@ SMODS.Joker {
 			}
 		end
 		if context.pre_joker and not context.blueprint then
-			card.ability.extra.x_mult = (math.floor(G.GAME.dollars/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
+			card.ability.extra.x_mult = (math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 		end
 	end
 }

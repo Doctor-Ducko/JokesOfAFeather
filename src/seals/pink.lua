@@ -1,10 +1,9 @@
 SMODS.Seal {
     key = "pink",
     badge_colour = HEX("eb6abd"),
-	config = {x_mult = 2},
+	config = {x_mult = 1.5},
     loc_txt = {
         label = 'Pink Seal',
-        -- Tooltip description
         name = 'Pink Seal',
         text = {
             '{X:mult,C:white}X#1#{} Mult when this',

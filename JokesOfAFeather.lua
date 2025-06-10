@@ -276,6 +276,8 @@ for i,v in ipairs(JOAF.load_boosters) do
 end
 
 --[[HOOKS]]--
+to_big = to_big or function(x) return x end
+
 local igo = Game.init_game_object
 function Game:init_game_object()
 	local ret = igo(self)
