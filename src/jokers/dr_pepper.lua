@@ -12,7 +12,8 @@ SMODS.Joker {
 		name = 'Dr. Pepper',
 		text = {
 			"{C:mult}+#1#{} Mult",
-			"{C:mult}-#2#{} Mult per round"
+			"{C:mult}-#2#{} Mult per round",
+			"{C:inactive}(Not Sponsored)"
 		}
 	},
 

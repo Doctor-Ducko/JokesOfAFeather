@@ -4,8 +4,8 @@ SMODS.Joker {
 	key = 'mia_joker',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 0, y = 0},		-- works on a +1 increment, not based off of pixels
-	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 5,					-- shop price
+	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	cost = 7,					-- shop price
 
 	blueprint_compat = false,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory

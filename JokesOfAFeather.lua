@@ -48,11 +48,11 @@ JOAF.load_jokers = {
 	"square_roots",
 	"hands_of_steel",
 	"slot_machine",
-	"mia_joker",
 	"novel_joker",
-
+	
 	-- Rare
 	"comedian",
+	"mia_joker",
 	"jramp",
 	"card_belt",
 	"57_leaf_clover",
@@ -126,6 +126,7 @@ JOAF.load_decks = {
 	"glimmering",
 	"hikers",
 	"family",
+	"iconic",
 }
 
 JOAF.load_vouchers = {
@@ -228,7 +229,7 @@ SMODS.Rarity({
 		name = "Family Guy"
 	},
 	badge_colour = HEX("3b9c14"),	-- Color of the badge
-	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05]
+	default_weight = 0.02,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05] eval print(G.GAME["joaf_family_mod"])
 	pools = {
 		["Joker"] = true
 	},
@@ -236,7 +237,6 @@ SMODS.Rarity({
 
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
---assert(SMODS.load_file("./src/config_tab.lua"))()
 assert(SMODS.load_file("./src/credits_tab.lua"))()
 
 for i,v in pairs(JOAF.load_jokers) do
@@ -355,3 +355,4 @@ if JOAF.has_cryptid then
 		end
 	}
 end
+

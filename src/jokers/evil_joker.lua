@@ -19,6 +19,7 @@ SMODS.Joker {
 			"If scored hand is a",
 			"{C:attention}Three of a Kind{} with",
 			"{C:attention}3 6's{}, gain {X:mult,C:white}X#1#{} Mult",
+			"{C:inactive}(My new creepypasta! {X:red,C:white}JIMBO.exe{C:inactive})"
 		}
 	},
 

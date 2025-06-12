@@ -25,7 +25,7 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			e_mult_increase = 0.02,
+			e_mult_increase = 0.01,
 			e_mult = 1,
 		}
 	},
@@ -53,6 +53,10 @@ SMODS.Joker {
 		end
 		if context.setting_blind and not context.blueprint then
 			card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
+			return {
+				message = "Upgrade!",
+				colour = G.C.MULT
+			}
 		end
 	end
 }

@@ -11,6 +11,7 @@ SMODS.Joker {
 		text = {
 			"{C:mult}+#1#{} Mult if played card",
 			"is an {C:attention}Ace{} or a {C:attention}2",
+			"{C:inactive}(00111000){}"
 		}
 	},
 

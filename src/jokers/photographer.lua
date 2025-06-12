@@ -12,7 +12,8 @@ SMODS.Joker {
 			"Gains bonus chips",
 			"according to {C:attention}half the base",
 			"{C:attention}chip value of a scored card",
-			"{C:inactive}(Currently {C:chips}+#1#{}{C:inactive} chips)"
+			"{C:inactive}(Currently {C:chips}+#1#{}{C:inactive} chips)",
+			"{C:inactive}(Say... fuzzy pickles!)"
 		}
 	},
 

@@ -19,6 +19,7 @@ SMODS.Joker {
 			"Scored cards lose {C:blue}#1#{} chip",
 			"and gain {C:mult}+#2#{} bonus Mult",
 			"when scored",
+			"{C:attention}NOTICE{}: Chips can go negative, be careful!"
 		}
 	},
 

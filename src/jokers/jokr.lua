@@ -9,10 +9,11 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Jokr',
 		text = {
-			"Scored cards {C:attention}without{}",
+			"Playing cards {C:attention}without{}",
 			"an {C:attention}\"E\"{} in its rank",
-			"score {C:mult}+#1#{} Mult",
-			"{C:inactive}(2, 4, 6, Jack, King){}"
+			"hand out {C:mult}+#1#{} Mult",
+			"{C:inactive}(2, 4, 6, Jack, King){}",
+			"{C:inactive}(Avoid fifth glyph)"
 		}
 	},
 
