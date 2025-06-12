@@ -16,9 +16,8 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Recycling Bin",
 		text = {
-			"Gain {C:money}$#1#{} every #3#",
+			"Gain {C:money}$#1#{} every {C:attention}#3# {C:inactive}(#2#)",
 			"cards discarded",
-			"{C:inactive}(#2# left)",
 		}
 	},
 

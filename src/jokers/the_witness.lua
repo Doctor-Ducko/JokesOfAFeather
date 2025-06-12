@@ -17,7 +17,8 @@ SMODS.Joker {
 		name = "The Witness",
 		text = {
 			"{C:attention}No{} cards are considered",
-			"{C:attention}face cards"
+			"{C:attention}face cards",
+			"{C:inactive}(March 31st, 2006)"
 		}
 	},
 }

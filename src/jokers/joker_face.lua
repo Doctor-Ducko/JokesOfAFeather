@@ -38,19 +38,33 @@ SMODS.Joker {
 	end,
 
 	-- look at wiki for info i aint writing it down here
-	calculate = function(self, card, context)
-		if context.first_hand_drawn then
-			G.E_MANAGER:add_event(Event({
-				func = function() 
-					local _card = create_playing_card({
-						front = pseudorandom_element(P_FACE_CARDS), 
-						center = G.P_CENTERS.c_base}, G.hand, nil, nil, {G.C.SECONDARY_SET.Enhanced})
-					G.GAME.blind:debuff_card(_card)
-					G.hand:sort()
-					return true
-				end}))
-			playing_card_joker_effects({true})
-			return {}
-		end
+    calculate = function(self, card, context)
+        if context.first_hand_drawn then
+            local _card = create_playing_card({
+                front = pseudorandom_element(JOAF.P_FACE_CARDS, pseudoseed('joaf_joker_face')),
+                center = G.P_CENTERS.c_base
+            }, G.discard, true, nil, { G.C.SECONDARY_SET.Enhanced }, true)
+            return {
+                func = function()
+                    -- This is for retrigger purposes, Jokers need to return something to retrigger
+                    -- You can also do this outside the return and `return nil, true` instead
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.hand:emplace(_card)
+                            _card:start_materialize()
+                            G.GAME.blind:debuff_card(_card)
+                            G.hand:sort()
+                            if context.blueprint_card then
+                                context.blueprint_card:juice_up()
+                            else
+                                card:juice_up()
+                            end
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                end
+            }
+        end
 	end
 }

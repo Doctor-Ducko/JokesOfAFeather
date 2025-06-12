@@ -9,10 +9,11 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Jokr',
 		text = {
-			"{C:mult}+#1#{} Mult if the scored card ",
-			"does {C:attention}not{} contain an \"E\" in",
-			"it's name or number",
-			"{C:inactive}(2, 4, 6, Jack, King){}"
+			"Playing cards {C:attention}without{}",
+			"an {C:attention}\"E\"{} in its rank",
+			"hand out {C:mult}+#1#{} Mult",
+			"{C:inactive}(2, 4, 6, Jack, King){}",
+			"{C:inactive}(Avoid fifth glyph)"
 		}
 	},
 

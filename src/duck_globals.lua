@@ -65,7 +65,6 @@ G.C.DOCTOR_DUCKO    = HEX('F5A742')
 G.C.CHILLI          = HEX('E02D2D')
 G.C.HYDROP0X        = HEX('0DBD1C')
 G.C.ALPINE488       = HEX('923EE6')
-G.C.PINK_MAGGIT     = HEX('EB85FF')
 
 -- Other Colors
 G.C.PINK        = HEX("EB6ABD")
@@ -93,14 +92,19 @@ JOAF.count_jokers_of_rarity = function(rarity)
 end
 
 JOAF.get_poker_hand_stat = function(hand, stat)
-    stat = string.lower(stat) or "chips"
+    if hand ~= nil then
+        stat = string.lower(stat)
+    else
+        stat = "chips"
+    end
+    hand = hand or "High Card"
     local hand_stats = G.GAME.hands[hand]
     if stat == "chips" then
-        return hand_stats.chips
+        return to_number(hand_stats.chips)
     elseif stat == "mult" then
-        return hand_stats.mult
+        return to_number(hand_stats.mult)
     elseif stat == "level" then
-        return hand_stats.level
+        return to_number(hand_stats.level)
     elseif stat == "visible" then
         return hand_stats.visible
     else
@@ -108,6 +112,7 @@ JOAF.get_poker_hand_stat = function(hand, stat)
     end
 end
 
+-- TO DO: rewrite this
 JOAF.get_chip_value = function(id, enhancement)
     local chip_value = id
 

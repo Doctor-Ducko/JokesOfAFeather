@@ -11,7 +11,8 @@
 	"display_name": "J.O.A.F.",
 	"version": "1.0.0",
 	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-0509c)"
+		"Steamodded (>=1.0.0~BETA-0509c)",
+		"Talisman (>=2.2.0a)"
 	],
 	"dump_loc": false
 }

@@ -1,26 +1,3 @@
---[[
-I fucking hate lua so much
-so much of this code is purely because lua is just dumb
-example for getting the random stat
-
-i could do something like this in python
-
-	mylist = ["hello", "world"]
-
-	mylist.remove("hello")
-
-	print(mylist)
-
-but lua?
-
-nope
-
-fuck.
-this.
-language.
-
-]]
-
 SMODS.Joker {
 	key = 'comedian',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
@@ -88,6 +65,8 @@ SMODS.Joker {
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
+		-- ALL FOR INCREASING A STAT
+		-- FAWKING CHRIST
 		if context.before and context.main_eval and context.scoring_name == card.ability.extra.poker_hand and not context.blueprint then
 			-- So the stat we want to increase starts as a random acceptable stat
 			local increase_stat = pseudorandom_element(card.ability.extra.stats, pseudoseed("j_joaf_comedian_increase_stat"))
@@ -113,6 +92,8 @@ SMODS.Joker {
 				}
 			end
         end
+
+		-- Main scoring
 		if context.joker_main then
 			return {
 				chips	= card.ability.extra.chips,
@@ -121,6 +102,8 @@ SMODS.Joker {
 				x_mult 	= card.ability.extra.x_mult
 			}
 		end
+
+		-- Resets the hand needed
 		if context.end_of_round and context.main_eval and not context.blueprint then
 			card.ability.extra.poker_hand = pseudorandom_element(JOAF.get_valid_poker_hands(card.ability.extra.poker_hand), pseudoseed("j_joaf_comedian_new_poker_hand"))
 			return {

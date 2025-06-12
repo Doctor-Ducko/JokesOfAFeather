@@ -9,22 +9,24 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Peter Griffin',
 		text={
-			"{X:mult,C:white}X#1#{} Mult",
+			"Scores {X:mult,C:white}X#1#{} Mult",
+			"for every {C:joaf_family}Family Guy{C:attention} Joker",
+			"you have",
+			"{C:inactive}(Including this Joker)",
 			"{C:inactive,s:0.9}(It seems today)",
 		},
 	},
 
 	config = {
 		extra = {
-			Xmult = 5,
+			x_mult = 3,
 		}
 	},
 
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.Xmult,
-				card.ability.extra.Xchips
+				card.ability.extra.x_mult,
 			}
 		}
 	end,
@@ -32,8 +34,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				Xmult_mod = card.ability.extra.Xmult,
-				message = localize { type = 'variable', key = 'a_xmult', vars = { card.ability.extra.Xmult } }
+				x_mult = card.ability.extra.x_mult * JOAF.count_jokers_of_rarity("joaf_family"),
 			}
 		end
 	end

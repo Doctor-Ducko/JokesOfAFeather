@@ -13,7 +13,8 @@ SMODS.Joker {
 			"the round ends",
 			"Increases by {C:attention}#2#{} when",
 			"the round ends",
-			"Maxes out at {C:money}$#3#{}"
+			"Maxes out at {C:money}$#3#{}",
+			"{C:inactive}(There's a zombie on your lawn~)"
 		},
 	},
 

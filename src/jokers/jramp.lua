@@ -18,8 +18,7 @@ SMODS.Joker {
 		text = {
 			"Gives X-Mult equal to",
 			"{C:attention}half of the current Ante{}",
-			"unless Ante is less than 2",
-			"{C:inactive}(Updates after leaving the shop)",
+			"{C:inactive}(Cannot be less than {X:mult,C:white}X1{C:inactive})",
 			"{C:inactive}(Currently {X:mult,C:white}X#1#{}{C:inactive} Mult)",
 		}
 	},

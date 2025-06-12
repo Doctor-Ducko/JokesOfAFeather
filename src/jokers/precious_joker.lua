@@ -16,10 +16,11 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Precious Joker',
 		text = {
-			"Scores an extra {X:mult,C:white}X#1#{} Mult",
+			"Scores {X:mult,C:white}+X#1#{} Mult",
 			"for every {C:rare}Rare{C:attention} Joker",
-			"you have, starting at {X:mult,C:white}X1{} Mult",
-			"{C:inactive}(Including this Joker)"
+			"you have",
+			"{C:inactive}(Including this Joker)",
+			"{C:inactive}(Starting at {X:mult,C:white}X1{C:inactive})"
 		}
 	},
 

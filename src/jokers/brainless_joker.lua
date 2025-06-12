@@ -16,7 +16,7 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Brainless Joker",
 		text = {
-			"Gains {X:mult,C:white}+X#1#{} Mult when a",
+			"Gains {X:mult,C:white}X#1#{} Mult when a",
 			"{C:attention}Dynamite Card{} explodes",
 			"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)",
 			"{C:inactive,s:0.8}(hehe dynamite go boom boom)",

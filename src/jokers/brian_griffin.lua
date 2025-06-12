@@ -15,8 +15,8 @@ SMODS.Joker {
 				{s:}	- scale, and multiplies the text size by the value, like 0.8
 				{V:1}	- allows for a variable to dynamically change the color
 			]]
-			"Increases Mult by {C:mult}#2#",
-			"when a card is discarded",
+			"{C:mult}+#2#{} Mult after",
+			"discarding {C:attention}#4# {C:inactive}(#3#) cards",
 			"{C:inactive}(Currently {C:mult}+#1#{}{C:inactive} Mult)",
 			"{C:inactive,s:0.9}(On which we used to rely)",
 		}
@@ -25,7 +25,9 @@ SMODS.Joker {
 	config = {
 		extra = {
 			mult = 0,
-			mult_increase = 0.5,
+			mult_increase = 5,
+			cards_left = 5,
+			cards_required = 5,
 		}
 	},
 
@@ -34,6 +36,8 @@ SMODS.Joker {
 			vars = {
 				card.ability.extra.mult,
 				card.ability.extra.mult_increase,
+				card.ability.extra.cards_left,
+				card.ability.extra.cards_required,
 			}
 		}
 	end,
