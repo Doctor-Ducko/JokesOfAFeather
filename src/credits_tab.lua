@@ -11,17 +11,22 @@ JOAF.extra_tabs = function()
                             nodes = {
                                 {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
                                     nodes = {
-                                        {n = G.UIT.T, config = {text = "Doctor Ducko - Programmer, Artist", colour = G.C.DOCTOR_DUCKO, scale = 0.6, shadow = true}},
+                                        {n = G.UIT.T, config = {text = "Doctor Ducko - Programmer, Artist", colour = JOAF.dev_table.doctor_ducko[2], scale = 0.6, shadow = true}},
                                     }
                                 },
                                 {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
                                     nodes = {
-                                        {n = G.UIT.T, config = {text = "Chilli - Ideas", colour = G.C.CHILLI, scale = 0.6, shadow = true}},
+                                        {n = G.UIT.T, config = {text = "Chilli - Ideas", colour = JOAF.dev_table.chilli[2], scale = 0.6, shadow = true}},
                                     }
                                 },
                                 {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
                                     nodes = {
-                                        {n = G.UIT.T, config = {text = "Hydrop0x - Ideas", colour = G.C.HYDROP0X, scale = 0.6, shadow = true}},
+                                        {n = G.UIT.T, config = {text = "AltF4 - Ideas", colour = JOAF.dev_table.altf4[2], scale = 0.6, shadow = true}},
+                                    }
+                                },
+                                {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},
+                                    nodes = {
+                                        {n = G.UIT.T, config = {text = "Kawabae - Ideas", colour = JOAF.dev_table.kawabae[2], scale = 0.6, shadow = true}},
                                     }
                                 },
                                 {n = G.UIT.R, config = {align = "cm", minw = 1, minh = 1},

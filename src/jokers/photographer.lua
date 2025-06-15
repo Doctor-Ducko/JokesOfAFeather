@@ -17,6 +17,10 @@ SMODS.Joker {
 		}
 	},
 
+	set_badges = function(self, card, badges)
+		JOAF.reference_badge(card, badges, "earthbound")
+	end,
+
 	config = {
 		extra = {
 			chips = 0,

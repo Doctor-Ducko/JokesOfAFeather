@@ -18,21 +18,21 @@ SMODS.Joker {
 		text = {
 			"Scored cards in the {C:attention}first",
 			"{C:attention}played hand of round{} gain",
-			"{C:chips}+#1#{} bonus chips when scored",
+			"{C:mult}+#1#{} bonus Mult when scored",
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			perma_chips = 9.9,
+			perma_mult = 0.9,
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.perma_chips
+				card.ability.extra.perma_mult
 			}
 		}
 	end,
@@ -40,10 +40,10 @@ SMODS.Joker {
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
 		if context.individual and context.cardarea == G.play and G.GAME.current_round.hands_played == 0 then
-			context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.perma_chips
+			context.other_card.ability.perma_mult = context.other_card.ability.perma_mult + card.ability.extra.perma_mult
 			return {
 				message = 'Upgraded!',
-				colour = G.C.CHIPS,
+				colour = G.C.MULT,
 				card = card
 			}
 		end

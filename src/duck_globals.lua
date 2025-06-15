@@ -60,25 +60,42 @@ JOAF.P_NUMBER_CARDS = {
     G.P_CARDS.S_A,
 }
 
--- Dev Colors
-G.C.DOCTOR_DUCKO    = HEX('F5A742')
-G.C.CHILLI          = HEX('E02D2D')
-G.C.HYDROP0X        = HEX('0DBD1C')
-G.C.ALPINE488       = HEX('923EE6')
-
--- Other Colors
-G.C.PINK        = HEX("EB6ABD")
-G.C.NAVY        = HEX("3849CF")
-G.C.DARK_GREEN  = HEX("21AA11")
-
 --[[IN TEXT COLORS ARE IN THE "misc_functions.toml" file]]
+-- New Colors
+G.C.PINK                = HEX("EB6ABD")
+G.C.NAVY                = HEX("3849CF")
+G.C.DARK_GREEN          = HEX("21AA11")
 
-JOAF.credit_badge = function(card, badges, name, color)
-    badges[#badges+1] = create_badge("Idea: "..name, color, G.C.WHITE, 0.8)
+JOAF.reference_table = {
+                    --Name,             Color,        Text Color
+    earthbound      = {"EarthBound",    HEX('6b4eed'), G.C.WHITE},
+    toby_fox        = {"Toby Fox",      G.C.WHITE,     HEX("000000")},
+    deltarune       = {"deltarune",     HEX("11c1f7"), G.C.WHITE},
+    tf2             = {"TF2",           HEX("d8762b"), G.C.WHITE},
+    ror2            = {"Risk of Rain 2",HEX("0c5e49"), G.C.WHITE},
+}
+
+JOAF.dev_table = {
+                    --Name,             Color,        Text Color
+    doctor_ducko    = {"Doctor Ducko",  HEX('F5A742'), G.C.WHITE},
+    chilli          = {"Chilli",        HEX('E02D2D'), G.C.WHITE},
+    altf4           = {"AltF4",         HEX('0DBD1C'), G.C.WHITE},
+    alpine488       = {"Alpine488",     HEX('923EE6'), G.C.WHITE},
+    kawabae         = {"Kawabae",       HEX('fc83fa'), G.C.WHITE},
+}
+
+JOAF.credit_badge = function(card, badges, key)
+    local data = JOAF.dev_table[key]
+    badges[#badges+1] = create_badge("Idea: "..data[1], data[2],data[3], 0.9)
+end
+
+JOAF.reference_badge = function(card, badges, key)
+    local data = JOAF.reference_table[key]
+    badges[#badges+1] = create_badge("Refrence: "..data[1], data[2],data[3], 0.9)
 end
 
 JOAF.experimental_badge = function(card, badges)
-    badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.8)
+    badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.9)
 end
 
 JOAF.count_jokers_of_rarity = function(rarity)
@@ -138,4 +155,53 @@ JOAF.get_valid_poker_hands = function(current_hand)
     end
 
     return valid_hands
+end
+
+JOAF.plasma_balance = function()
+    local tot = hand_chips + mult
+
+			hand_chips = math.floor(tot/2)
+			mult = math.floor(tot/2)
+
+			update_hand_text({delay = 0}, {mult = mult, chips = hand_chips})
+
+			G.E_MANAGER:add_event(Event({
+				func = (function()
+					local text = localize('k_balanced')
+					play_sound('gong', 0.94, 0.3)
+					play_sound('gong', 0.94*1.5, 0.2)
+					play_sound('tarot1', 1.5)
+					ease_colour(G.C.UI_CHIPS, {0.8, 0.45, 0.85, 1})
+					ease_colour(G.C.UI_MULT, {0.8, 0.45, 0.85, 1})
+					attention_text({
+						scale = 1.4, text = text, hold = 2, align = 'cm', offset = {x = 0,y = -2.7},major = G.play
+					})
+					G.E_MANAGER:add_event(Event({
+						trigger = 'after',
+						blockable = false,
+						blocking = false,
+						delay =  4.3,
+						func = (function() 
+								ease_colour(G.C.UI_CHIPS, G.C.BLUE, 2)
+								ease_colour(G.C.UI_MULT, G.C.RED, 2)
+							return true
+						end)
+					}))
+					G.E_MANAGER:add_event(Event({
+						trigger = 'after',
+						blockable = false,
+						blocking = false,
+						no_delete = true,
+						delay =  6.3,
+						func = (function() 
+							G.C.UI_CHIPS[1], G.C.UI_CHIPS[2], G.C.UI_CHIPS[3], G.C.UI_CHIPS[4] = G.C.BLUE[1], G.C.BLUE[2], G.C.BLUE[3], G.C.BLUE[4]
+							G.C.UI_MULT[1], G.C.UI_MULT[2], G.C.UI_MULT[3], G.C.UI_MULT[4] = G.C.RED[1], G.C.RED[2], G.C.RED[3], G.C.RED[4]
+							return true
+						end)
+					}))
+					return true
+				end)
+			}))
+
+			delay(0.6)
 end

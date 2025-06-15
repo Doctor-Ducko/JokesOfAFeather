@@ -25,10 +25,13 @@ JOAF.load_jokers = {
 	"binary_joker",
 	"sunflower_joker",
 	"irritating_joker",
+	"ace_face",
 	"frug",
 	"recycling_bin",
+	"dark_candy",
 	"long_fuse",
 	"simple_joker",
+	"scissors",
 	"picture_frame",
 	"misplaced",
 	"abundant_joker",
@@ -41,9 +44,12 @@ JOAF.load_jokers = {
 	"the_witness",
 	"jokr",
 	"lil_joker",
+	"hardware_fault",
 	"joker_face",
 	"jimbo_jpg",
+	"really_misplaced",
 	"dr_pepper",
+	"darker_candy",
 	"straight_line",
 	"square_roots",
 	"hands_of_steel",
@@ -52,11 +58,14 @@ JOAF.load_jokers = {
 	
 	-- Rare
 	"comedian",
+	"house_like_carpet",
 	"mia_joker",
 	"jramp",
+	"blueprint_rotated",
 	"card_belt",
 	"57_leaf_clover",
 	"joker_energy",
+	"gutsy_bat",
 	"photographer",
 	"evil_joker",
 	"precious_joker",
@@ -132,6 +141,10 @@ JOAF.load_decks = {
 JOAF.load_vouchers = {
 	"trinket_merchant",
 	"trinket_tycoon",
+	"shopping_cart",
+	"delivery_truck",
+	"trash_bin",
+	"dumpster",
 }
 
 JOAF.load_boosters = {
@@ -234,6 +247,14 @@ SMODS.Rarity({
 		["Joker"] = true
 	},
 })
+
+
+SMODS.Sound {
+	key = "carpet",
+	path = {
+ 		['default'] = 'carpet.ogg',
+	}
+}
 
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()

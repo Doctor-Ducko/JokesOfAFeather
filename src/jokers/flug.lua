@@ -26,7 +26,7 @@ SMODS.Joker {
 	},
 
 	set_badges = function(self, card, badges)
-		JOAF.credit_badge(card, badges, "Hydrop0x", G.C.HYDROP0X)
+		JOAF.credit_badge(card, badges, "altf4")
 	end,
 
 	calculate_x_mult = function()

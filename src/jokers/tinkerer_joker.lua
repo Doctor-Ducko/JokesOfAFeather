@@ -22,18 +22,8 @@ SMODS.Joker {
 		}
 	},
 
-	-- Variables used in loc_vars and calculate
-	config = {
-		extra = {
-
-		}
-	},
-	-- Variables to be used in the loc_txt area
-	loc_vars = function(self, info_queue, card)
-		return {
-			vars = {
-			}
-		}
+	set_badges = function(self, card, badges)
+		JOAF.reference_badge(card, badges, "tf2")
 	end,
 
 	-- look at wiki for info i aint writing it down here

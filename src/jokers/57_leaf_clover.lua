@@ -23,8 +23,10 @@ SMODS.Joker {
 	},
 
 	set_badges = function(self, card, badges)
-		JOAF.credit_badge(card, badges, "Chilli", G.C.CHILLI)
+		JOAF.credit_badge(card, badges, "chilli")
+		JOAF.reference_badge(card, badges, "ror2")
 	end,
+	
 
 	-- Variables used in loc_vars and calculate
 	config = {

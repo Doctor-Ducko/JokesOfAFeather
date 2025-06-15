@@ -13,6 +13,9 @@ SMODS.Joker {
 		}
 	},
 
+	set_badges = function(self, card, badges)
+	end,
+
 	config = {
 		extra = {
 			chips = 50

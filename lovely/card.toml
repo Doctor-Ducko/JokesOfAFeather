@@ -6,11 +6,14 @@ priority = 0
 [[patches]]
 [patches.pattern]
 target = "card.lua"
-pattern = "function Card:is_face(from_boss)"
+pattern = "local id = self:get_id()"
 position = "after"
 payload = '''
 	if #SMODS.find_card("j_joaf_the_witness") > 0 then
 		return false
+	end
+	if (#SMODS.find_card("j_joaf_ace_face") > 0) and id == 14 then
+		return true
 	end
 '''
 match_indent = true
