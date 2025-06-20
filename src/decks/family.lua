@@ -3,7 +3,7 @@ SMODS.Back{
 	atlas = 'JOAFDecks',
     pos = {x = 0, y = 0},
     config = {
-        family_rate_multiplier = 10
+        family_rate_multiplier = 20
 	},
     loc_txt = {
         name = "Family Deck",

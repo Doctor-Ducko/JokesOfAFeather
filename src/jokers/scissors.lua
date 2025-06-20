@@ -43,9 +43,7 @@ SMODS.Joker {
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
 		if context.setting_blind then
-			-- Lower blind req
-			G.GAME.blind.chips = G.GAME.blind.chips * (card.ability.extra.percent_requirement / 100)
-			G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+			JOAF.change_blind_requirement(card.ability.extra.percent_requirement)
 
 			card.ability.extra.percent_requirement = card.ability.extra.percent_requirement + card.ability.extra.percent_increase
 

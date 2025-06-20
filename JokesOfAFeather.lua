@@ -20,55 +20,56 @@ JOAF.has_joaf_bp		= next(SMODS.find_mod("JokesOfAFeatherBoosterPak"))
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
 	-- Common
+	"abundant_joker",
 	"joker_qm",
 	"jokerekoj",
 	"binary_joker",
-	"sunflower_joker",
-	"irritating_joker",
-	"ace_face",
-	"frug",
-	"recycling_bin",
-	"dark_candy",
-	"long_fuse",
 	"simple_joker",
-	"scissors",
+	"sunflower_joker",
+	"ace_face",
+	"hardware_fault",
+	"frug",
+	"dark_candy",
+	"recycling_bin",
+	"long_fuse",
 	"picture_frame",
+	"scissors",
 	"misplaced",
-	"abundant_joker",
-
+	
 	-- Uncommon
+	"novel_joker",
 	"tinkerer_joker",
 	"brainless_joker",
 	"colorful_joker",
 	"lunar_joker",
+	"irritating_joker",
 	"the_witness",
 	"jokr",
 	"lil_joker",
-	"hardware_fault",
 	"joker_face",
 	"jimbo_jpg",
-	"really_misplaced",
 	"dr_pepper",
 	"darker_candy",
 	"straight_line",
 	"square_roots",
 	"hands_of_steel",
 	"slot_machine",
-	"novel_joker",
+	"really_misplaced",
 	
 	-- Rare
+	"precious_joker",
+	"photographer",
 	"comedian",
+	"evil_joker",
 	"house_like_carpet",
 	"mia_joker",
 	"jramp",
 	"blueprint_rotated",
-	"card_belt",
-	"57_leaf_clover",
 	"joker_energy",
+	"57_leaf_clover",
+	"uno_cards",
+	"card_belt",
 	"gutsy_bat",
-	"photographer",
-	"evil_joker",
-	"precious_joker",
 
 	-- Legendary
 	"emperor",
@@ -82,6 +83,7 @@ JOAF.load_jokers = {
 	"meg_griffin",
 	"stewie_griffin",
 	"brian_griffin",
+	"glenn_quagmire",
 }
 
 JOAF.load_enhancements = {
@@ -184,6 +186,12 @@ SMODS.Atlas {
 	py = 95
 }
 SMODS.Atlas {
+    key = "JOAFUNO",
+    path = "DuckUNO.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
     key = "JOAFDecks",
     path = "DuckDecks.png",
 	px = 71,
@@ -242,7 +250,7 @@ SMODS.Rarity({
 		name = "Family Guy"
 	},
 	badge_colour = HEX("3b9c14"),	-- Color of the badge
-	default_weight = 0.02,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05] eval print(G.GAME["joaf_family_mod"])
+	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05] eval print(G.GAME["joaf_family_mod"])
 	pools = {
 		["Joker"] = true
 	},

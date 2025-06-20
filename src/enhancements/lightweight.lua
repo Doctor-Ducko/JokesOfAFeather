@@ -4,7 +4,7 @@ SMODS.Enhancement{
 	loc_txt = {
         name = "Lightweight Card",
         text ={
-            "{C:chips}+30{} chips",
+            "{C:chips}+20{} chips",
             "{C:attention}Always scores"
         },
 	},
@@ -13,6 +13,6 @@ SMODS.Enhancement{
 	pos = {x = 6, y = 0},
     always_scores = true,
 	config = {
-		bonus = 30,
+		bonus = 20,
 	}
 }

@@ -47,7 +47,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				chips = card.ability.extra.chips
+				chips = card.ability.extra.chips -- +40
 			}
 		end
 		if context.end_of_round and context.cardarea == G.jokers then

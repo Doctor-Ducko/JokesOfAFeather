@@ -2,7 +2,7 @@ SMODS.Joker {
 	key = "hardware_fault",			-- Object ID, acessed with j_joaf_[key]
 	atlas = "JOAFJokers",		-- Spritesheet to use, initalized in main script
 	pos = {x = 6, y = 4},		-- works on a +1 increment, not based off of pixels
-	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	rarity = 1,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 6,					-- shop price
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
@@ -16,7 +16,7 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Hardware Fault",
 		text = {
-			"Gives between {X:attention,C:white}X#1#{} and {X:attention,C:white}X#2#{}",
+			"Scores between {X:attention,C:white}X#1#{} and {X:attention,C:white}X#2#{}",
 			"{C:chips}Chips{} or {C:mult}Mult{}"
 		}
 	},

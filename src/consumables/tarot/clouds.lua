@@ -22,7 +22,7 @@ SMODS.Consumable {
     effect = "Enhance",
     config = {
         mod_conv = 'm_joaf_lightweight',
-        max_highlighted = 3
+        max_highlighted = 2
     },
 
     loc_vars = function(self, info_queue, card)

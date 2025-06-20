@@ -12,6 +12,8 @@ SMODS.Joker {
 			"Scores {X:mult,C:white}X#1#{} Mult",
 			"for every {C:joaf_family}Family Guy{C:attention} Joker",
 			"you have",
+			"Increases to {X:dark_edition,C:white}+^#2#{} Mult per",
+			"if you have {C:attention}#3#{} copies of this Joker",
 			"{C:inactive}(Including this Joker)",
 			"{C:inactive,s:0.9}(It seems today)",
 		},
@@ -20,6 +22,8 @@ SMODS.Joker {
 	config = {
 		extra = {
 			x_mult = 3,
+			e_mult = 0.05,
+			copies_needed = 23
 		}
 	},
 
@@ -27,15 +31,23 @@ SMODS.Joker {
 		return {
 			vars = {
 				card.ability.extra.x_mult,
+				card.ability.extra.e_mult,
+				card.ability.extra.copies_needed,
 			}
 		}
 	end,
 
 	calculate = function(self, card, context)
 		if context.joker_main then
-			return {
-				x_mult = card.ability.extra.x_mult * JOAF.count_jokers_of_rarity("joaf_family"),
-			}
+			if #SMODS.find_card("j_joaf_peter_griffin") >= card.ability.extra.copies_needed then
+				return {
+					e_mult = 1 + (card.ability.extra.e_mult * JOAF.count_jokers_of_rarity("joaf_family")),
+				}			
+			else
+				return {
+					x_mult = card.ability.extra.x_mult * JOAF.count_jokers_of_rarity("joaf_family"),
+				}
+			end
 		end
 	end
 }

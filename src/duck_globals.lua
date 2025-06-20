@@ -84,6 +84,12 @@ JOAF.dev_table = {
     kawabae         = {"Kawabae",       HEX('fc83fa'), G.C.WHITE},
 }
 
+--[[
+These add badges to cards that have refrences
+or need credits to the people that made them
+
+theres also the unused exprimental badge im not getting rid of it
+]]
 JOAF.credit_badge = function(card, badges, key)
     local data = JOAF.dev_table[key]
     badges[#badges+1] = create_badge("Idea: "..data[1], data[2],data[3], 0.9)
@@ -98,6 +104,7 @@ JOAF.experimental_badge = function(card, badges)
     badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.9)
 end
 
+-- Returns the number of Jokers owned that have the requested rarity
 JOAF.count_jokers_of_rarity = function(rarity)
     local x = 0
     for i = 1, #G.jokers.cards do
@@ -108,6 +115,7 @@ JOAF.count_jokers_of_rarity = function(rarity)
     return x
 end
 
+-- Returns the value of a certain poker hand stat, to be expanded later
 JOAF.get_poker_hand_stat = function(hand, stat)
     if hand ~= nil then
         stat = string.lower(stat)
@@ -146,6 +154,7 @@ JOAF.get_chip_value = function(id, enhancement)
     return chip_value
 end
 
+-- Returns a table of all visible poker hands
 JOAF.get_valid_poker_hands = function(current_hand)
     local valid_hands = {}
     for hand, stats in pairs(G.GAME.hands) do
@@ -157,6 +166,33 @@ JOAF.get_valid_poker_hands = function(current_hand)
     return valid_hands
 end
 
+-- Sets blind requirement to the inputted percent of current chips
+JOAF.change_blind_requirement = function(percent_of)
+	G.GAME.blind.chips = G.GAME.blind.chips * (percent_of / 100)
+	G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+end
+
+-- Changes the sprite of a card, cannot change atlas
+JOAF.change_sprite = function(card, x, y)
+	G.E_MANAGER:add_event(Event({
+		func = function()
+			card:flip()
+        	G.E_MANAGER:add_event(Event({
+                trigger = "after", 
+                delay = 1,
+                func = function()
+                    card.config.center.pos.x = x
+                    card.config.center.pos.y = y
+                    card:flip()
+                    return true
+                end
+            }))
+			return true
+		end
+	}))
+end
+
+-- Copy & Paste of the plasma balance effect used in the Plasma Deck
 JOAF.plasma_balance = function()
     local tot = hand_chips + mult
 

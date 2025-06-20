@@ -44,12 +44,16 @@ SMODS.Joker {
 
 	calculate = function(self, card, context)
 		if context.discard and not context.blueprint then
-			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_increase
-			return {
-				message = 'Upgraded!',
-				colour = G.C.MULT,
-				card = card
-			}
+			card.ability.extra.cards_left = card.ability.extra.cards_left - 1
+			if card.ability.extra.cards_left == 0 then
+				card.ability.extra.cards_left = card.ability.extra.cards_required
+				card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_increase
+				return {
+					message = 'Upgraded!',
+					colour = G.C.MULT,
+					card = card
+				}
+			end
 		end
 		if context.joker_main then
 			return {

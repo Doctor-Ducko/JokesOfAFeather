@@ -10,8 +10,8 @@ SMODS.Voucher {
     loc_txt = {
 		name = 'Trash Bin',
 		text = {
-			"Discard up to {C:attention}6{}",
-            "cards at a time",
+			"Discard {C:attention}1{}",
+            "extra card",
 		}
 	},
 
