@@ -10,12 +10,10 @@ with programming based war crimes.
 SMODS = SMODS
 G = G
 JOAF = SMODS.current_mod
-
---[[COMPATABILITY VARS]]--
-JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
+--[[CROSSOVER VARS]]--
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
-JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
-JOAF.has_joaf_bp		= next(SMODS.find_mod("JokesOfAFeatherBoosterPak"))
+
+
 
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
@@ -61,6 +59,7 @@ JOAF.load_jokers = {
 	"precious_joker",
 	"photographer",
 	"comedian",
+	"jokerjoker",
 	"evil_joker",
 	"house_like_carpet",
 	"mia_joker",
@@ -159,7 +158,9 @@ JOAF.load_boosters = {
 }
 
 JOAF.load_sleeves = {
-	-- Again, just planned
+	"hikers",
+	"family",
+	"iconic"
 }
 
 --[[KEYBINDS]]--
@@ -169,7 +170,7 @@ SMODS.Keybind {
 	action = function(self)
 		SMODS.restart_game()
 	end,
-	held_keys = {"lalt"},
+	held_keys = {"lctrl"},
 	event = "released"
 }
 
@@ -223,6 +224,14 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+if JOAF.has_cardsleeves then
+	SMODS.Atlas {
+		key = "JOAFSleeves",
+		path = "DuckSleeves.png",
+		px = 73,
+		py = 95
+	}
+end
 
 --[[CONSUMABLES & RARITIES]]--
 SMODS.ConsumableType {
@@ -266,8 +275,17 @@ SMODS.Sound {
 	}
 }
 
+--[[UI FLARE]]
+JOAF.ui_config = {
+    colour 				= G.C.ORANGE, -- Main UI box
+    back_colour 		= G.C.RED, -- Back button
+    tab_button_colour 	= G.C.RED, -- Tabs buttons
+    author_colour 		= G.C.YELLOW, -- Author text
+}
+
 --[[LOADING SECTION]]--
 assert(SMODS.load_file("./src/duck_globals.lua"))()
+assert(SMODS.load_file("./src/config_tab.lua"))()
 assert(SMODS.load_file("./src/credits_tab.lua"))()
 
 for i,v in pairs(JOAF.load_jokers) do
@@ -304,6 +322,12 @@ end
 
 for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
+end
+
+if JOAF.has_cardsleeves then
+	for i,v in ipairs(JOAF.load_sleeves) do
+		assert(SMODS.load_file("./src/sleeves/" .. v .. ".lua"))()
+	end
 end
 
 --[[HOOKS]]--
@@ -343,47 +367,3 @@ function SMODS.current_mod.reset_game_globals(run_start)
 		G.GAME.current_round.colorful_joker.suit = colorful_joker.base.suit
 	end
 end
-
--- secret !!
-if JOAF.has_cryptid then
-	SMODS.Joker {
-		key = 'catastrophic_joker',
-		atlas = 'JOAFJokers',
-		pos = { x = 0, y = 0 }, -- works on a +1 increment, not based off of pixels
-		rarity = "cry_exotic", -- 1: common, 2: uncommon, 3: rare, 4: legendary
-		cost = 3,
-		blueprint_compat = true,
-
-		loc_txt = {
-			name = 'Catastrophic Joker',
-			text = {
-				"{X:dark_edition,C:white,s:2}^^^^^#1#{} Mult",
-				"{C:inactive,s:0.9}(A Cryptid Exclusive!)"
-			}
-		},
-
-		config = {
-			extra = {
-				hyper_mult = {5,2}
-			}
-		},
-
-		loc_vars = function(self, info_queue, card)
-			return {
-				vars = {
-					card.ability.extra.hyper_mult[2]
-				}
-			}
-		end,
-
-		calculate = function(self, card, context)
-			if context.joker_main then
-				return {
-					hyper_mult = card.ability.extra.hyper_mult,
-					card = card
-				}
-			end
-		end
-	}
-end
-

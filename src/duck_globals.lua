@@ -60,6 +60,12 @@ JOAF.P_NUMBER_CARDS = {
     G.P_CARDS.S_A,
 }
 
+JOAF.joaf_legendaries = {
+    "emperor",
+    "flug",
+    "money_smart"
+}
+
 --[[IN TEXT COLORS ARE IN THE "misc_functions.toml" file]]
 -- New Colors
 G.C.PINK                = HEX("EB6ABD")
@@ -100,8 +106,32 @@ JOAF.reference_badge = function(card, badges, key)
     badges[#badges+1] = create_badge("Refrence: "..data[1], data[2],data[3], 0.9)
 end
 
-JOAF.experimental_badge = function(card, badges)
-    badges[#badges+1] = create_badge("EXPERIMENTAL", G.C.RED, G.C.WHITE, 0.9)
+JOAF.experimental_badge = function(badges)
+    badges[#badges+1] = create_badge("!EXPERIMENTAL!", G.C.RED, G.C.WHITE, 1)
+    badges[#badges+1] = create_badge("!May behave unexpectedly!", G.C.RED, G.C.WHITE, 1)
+end
+
+-- Factorial function -> !
+JOAF.factorial = function(n)
+    if n < 0 then
+        return 0
+    elseif n == 0 or n == 1 then
+        return 1
+    else
+        return n * JOAF.factorial(n-1)
+    end
+end
+
+-- Removes the first value matching the requested value from a table
+-- i fucking hate the shit outta lua
+JOAF.remove_from_table = function(table, value)
+    local new_table = {}
+    for i, v in ipairs(table) do
+        if not v == value then
+            new_table[#new_table+1] = v
+        end
+    end
+    return new_table
 end
 
 -- Returns the number of Jokers owned that have the requested rarity

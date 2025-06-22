@@ -24,7 +24,7 @@ SMODS.Enhancement{
 		return {
 			vars = {
 				self.config.x_mult,
-				card.dyna_turns,
+				card.dyna_turns or 3,
 			}
 		}
 	end,
