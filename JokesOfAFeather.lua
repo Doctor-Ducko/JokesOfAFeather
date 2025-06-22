@@ -48,6 +48,7 @@ JOAF.load_jokers = {
 	"lil_joker",
 	"joker_face",
 	"jimbo_jpg",
+	"untextured_joker",
 	"dr_pepper",
 	"darker_candy",
 	"straight_line",
@@ -64,7 +65,7 @@ JOAF.load_jokers = {
 	"house_like_carpet",
 	"mia_joker",
 	"jramp",
-	"blueprint_rotated",
+	"redprint",
 	"joker_energy",
 	"57_leaf_clover",
 	"uno_cards",
@@ -91,6 +92,7 @@ JOAF.load_enhancements = {
 	"stained",
 	"dynamite",
 	"lightweight",
+	"untextured",
 	"swap",
 }
 

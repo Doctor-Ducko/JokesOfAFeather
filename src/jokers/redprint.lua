@@ -1,5 +1,5 @@
 SMODS.Joker {
-	key = "blueprint_rotated",			-- Object ID, acessed with j_joaf_[key]
+	key = "redprint",			-- Object ID, acessed with j_joaf_[key]
 	atlas = "JOAFJokers",		-- Spritesheet to use, initalized in main script
 	pos = {x = 2, y = 4},		-- works on a +1 increment, not based off of pixels
 	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
@@ -14,7 +14,7 @@ SMODS.Joker {
 
 	-- Display text
 	loc_txt = {
-		name = "It's just Blueprint but I rotated it 180 degrees",
+		name = "Redprint",
 		text = {
 			"Copies the ability of the",
 			"{C:attention}Joker{} to the left"

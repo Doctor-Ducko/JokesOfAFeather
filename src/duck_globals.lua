@@ -166,6 +166,19 @@ JOAF.get_valid_poker_hands = function(current_hand)
     return valid_hands
 end
 
+-- counts the amount of cards in your deck with the specified enhancement
+JOAF.count_cards_of_enhancement = function(key)
+    local count = 0
+    if G.playing_cards then
+        for i, card in ipairs(G.playing_cards) do
+            if SMODS.has_enhancement(card, key) then
+                count = count + 1
+            end
+        end
+    end
+    return count
+end
+
 -- Sets blind requirement to the inputted percent of current chips
 JOAF.change_blind_requirement = function(percent_of)
 	G.GAME.blind.chips = G.GAME.blind.chips * (percent_of / 100)

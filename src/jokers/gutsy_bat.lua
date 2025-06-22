@@ -45,7 +45,7 @@ SMODS.Joker {
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.joker_main and pseudorandom('gutsy_bat') < G.GAME.probabilities.normal / card.ability.extra.odds then
+		if context.joker_main and pseudorandom('j_joaf_gutsy_bat') < G.GAME.probabilities.normal / card.ability.extra.odds then
 			return {
 				e_mult = card.ability.extra.e_mult
 			}

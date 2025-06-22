@@ -16,40 +16,53 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'jimbo.jpg',
 		text = {
-			"Scored cards lose {C:blue}#1#{} chip",
-			"and gain {C:mult}+#2#{} bonus Mult",
-			"when scored",
-			"{C:attention}NOTICE{}: Chips can go negative, be careful!"
+			"Scored cards in the",
+			"{C:attention}first{} hand of round",
+			"have a {C:green}#1# in #2#{} chance to",
+			"{C:attention}lose their textures{}",
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			perma_chips = -1,
-			perma_mult = 1,
+			odds = 5,
 		}
 	},
-	-- Variables to be used in the loc_txt area
+
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = G.P_CENTERS.m_joaf_untextured
 		return {
 			vars = {
-				card.ability.extra.perma_chips * -1,
-				card.ability.extra.perma_mult,
+				G.GAME.probabilities.normal,
+				card.ability.extra.odds,
 			}
 		}
 	end,
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.individual and context.cardarea == G.play then
-			context.other_card.ability.perma_bonus = context.other_card.ability.perma_bonus + card.ability.extra.perma_chips
-			context.other_card.ability.perma_mult = context.other_card.ability.perma_mult + card.ability.extra.perma_mult
-			return {
-				message = 'Trade-off',
-				colour = G.C.MULT,
-				card = card
-			}
+		if context.before and context.main_eval and not context.blueprint and G.GAME.current_round.hands_played == 0 then
+			local hit_cards = 0
+			for i, scored_card in ipairs(context.scoring_hand) do
+
+				if pseudorandom('j_joaf_jimbo_jpg') < G.GAME.probabilities.normal / card.ability.extra.odds then
+					hit_cards = hit_cards + 1
+					scored_card:set_ability('m_joaf_untextured', nil, true)
+					G.E_MANAGER:add_event(Event({
+						func = function()
+							scored_card:juice_up()
+							return true
+						end
+					}))
+				end
+
+			end
+			if hit_cards > 0 then
+				return {
+					message = "Textures, begone!"
+				}
+			end
 		end
 	end
 }
