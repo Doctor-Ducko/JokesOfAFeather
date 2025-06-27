@@ -1,3 +1,4 @@
 return {
-    ["experimental_content"] = false,
+    ["experimental_content"]    = false,
+    ["deltarune_spoilers"]      = false,
 }

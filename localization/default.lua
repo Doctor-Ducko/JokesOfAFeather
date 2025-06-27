@@ -36,7 +36,7 @@ return {
                 text = {
                     "Start with {C:attention,T:v_overstock_norm}Overstock{}, {C:attention,T:v_seed_money}Seed Money{},",
                     "and {C:attention,T:v_paint_brush}Paint Brush{}.",
-                    "{C:attention}+#1#{} Joker slot, {C:blue}+#1#{} hand, {C:red}+#1#{} discard.",
+                    "{C:attention}+#1#{} Joker slot, {C:blue}+#2#{} hand, {C:red}+#3#{} discard.",
                     "Winning Ante is {C:attention}#4#{}",
                 }
             },
@@ -44,8 +44,8 @@ return {
                 name = "Hiker's Sleeve",
                 text = {
                     "Start with {C:attention,T:v_overstock_plus}Overstock Plus{}, {C:attention,T:v_money_tree}Money Tree{},",
-                    "and {C:attention,T:v_palette}Palette{}.",
-                    "{C:attention}+#1#{} Joker slots, {C:blue}+#1#{} hands, {C:red}+#1#{} discards.",
+                    "{C:attention,T:v_palette}Palette{} and {C:attention,T:v_directors_cut}Director's Cut{}.",
+                    "{C:attention}+#1#{} Joker slots, {C:blue}+#2#{} hands, {C:red}+#3#{} discards.",
                     "Winning Ante is {C:attention}#4#{}",
                 }
             }

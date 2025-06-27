@@ -30,9 +30,10 @@ if JOAF.config.experimental_content then
 		-- Variables used in loc_vars and calculate
 		config = {
 			extra = {
-				current_ability = {description = "None"},
+				current_ability = 	{y = 4, x = 0, suit = "None",   rank = -1, ability = "none", value = 0},
+				default = 			{y = 4, x = 0, suit = "None",   rank = -1, ability = "none", value = 0},
 				data = {-- Xpos	  Ypos    Card Suit          Card ID    Effect        Value
-					-- Red -> Hearts
+				-- Red -> Hearts
 					R_1 = {y = 0, x = 0 , suit = "Hearts",   rank = 14, ability = "x_mult", value = 2},
 					R_2 = {y = 0, x = 1 , suit = "Hearts",   rank = 2,  ability = "x_mult", value = 2},
 					R_3 = {y = 0, x = 2 , suit = "Hearts",   rank = 3,  ability = "x_mult", value = 2},
@@ -98,7 +99,7 @@ if JOAF.config.experimental_content then
 		loc_vars = function(self, info_queue, card)
 			return {
 				vars = {
-					card.ability.extra.current_ability.description or "No description"
+					JOAF.generate_uno_description(card.ability.extra.current_ability)
 				}
 			}
 		end,
@@ -107,13 +108,17 @@ if JOAF.config.experimental_content then
 			JOAF.experimental_badge(badges)
 		end,
 
+		remove_from_deck = function(self, card, from_debuff)
+			JOAF.change_sprite(card, card.ability.extra.default.x, card.ability.extra.default.y)
+		end,
+
 		-- look at wiki for info i aint writing it down here
 		calculate = function(self, card, context)
 
 			-- Resets the Sprite
 			if context.end_of_round and context.cardarea == G.jokers then
-				card.ability.extra.current_ability = {description = "None"}
-				JOAF.change_sprite(card, 0, 4) -- default sprite
+				card.ability.extra.current_ability = card.ability.extra.default
+				JOAF.change_sprite(card, card.ability.extra.current_ability.x, card.ability.extra.current_ability.y)
 			end
 
 			-- Sets up the ability stuff

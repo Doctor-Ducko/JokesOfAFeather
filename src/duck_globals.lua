@@ -145,6 +145,19 @@ JOAF.count_jokers_of_rarity = function(rarity)
     return x
 end
 
+JOAF.is_showdown_blind = function(key)
+    local blind = G.P_BLINDS[key] or {}
+    if blind.boss then
+        if blind.boss.showdown then
+            return true
+        else
+            return false
+        end
+    else
+        return false
+    end
+end
+
 -- Returns the value of a certain poker hand stat, to be expanded later
 JOAF.get_poker_hand_stat = function(hand, stat)
     if hand ~= nil then
@@ -233,6 +246,34 @@ JOAF.change_sprite = function(card, x, y)
 			return true
 		end
 	}))
+end
+
+-- Generates the UNO card description, dont wanna put it into the joker file
+-- DOESNT EVEN FUCKING WORK
+JOAF.generate_uno_description = function(data)
+    local description = "None"
+    data.rank    = data.rank or -1
+    data.ability = data.ability or "none"
+    if data.rank == 14 then -- Convert Id to name
+        data.rank = "Ace"
+    end
+    -- fml
+    if data.ability == "x_mult" then
+        description = data.rank .. "s of" .. data.suit .. "score {X:mult,C:white}X" .. data.value .. "{} Mult"
+    elseif data.ability == "mult" then
+        description = data.rank .. "s of" .. data.suit .. "score {C:mult}+" .. data.value .. "{} Mult"
+    elseif data.ability == "chips" then
+        description = data.rank .. "s of" .. data.suit .. "score {C:chips}+" .. data.value .. "{} chips"
+    elseif data.ability == "dollars" then
+        description = data.rank .. "s of" .. data.suit .. "score {C:money}$" .. data.value
+    elseif data.ability == "suit_change" then
+        description = "All non-" .. data.suit .. " played are converted to " .. data.suit .. " when scored"
+    elseif data.ability == "blind_req" then
+        description = data.suit .. " lower {C:attention}Blind Requirement{} by {C:attention}" .. data.value .. "%{} when scored"
+    elseif data.ability == "retrigger" then
+        description = "All played " .. data.suit .. " are retriggered {C:attention}" .. data.value .. "{} times(s)"
+    end
+    return description
 end
 
 -- Copy & Paste of the plasma balance effect used in the Plasma Deck

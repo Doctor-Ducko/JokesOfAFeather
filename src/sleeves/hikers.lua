@@ -10,11 +10,12 @@ CardSleeves.Sleeve {
                 win_ante = 16,
                 hands = 1,
                 discards = 1,
-                joker_slot = 1,
+                joker_slot = 2,
                 vouchers = {
                     "v_overstock_plus",
                     "v_money_tree",
                     "v_palette",
+                    "v_directors_cut",
                 }
             }
         else

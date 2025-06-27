@@ -13,18 +13,14 @@ SMODS.Enhancement{
 	pos = {x = 5, y = 0},
 	config = {
 		x_mult = 2.5,
-		turns_left = 3,
+		turns_remaining = 3,
 	},
-
-	set_ability = function(self, card, initial, delay_sprites)
-		card.dyna_turns = self.config.turns_left
-	end,
 
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				self.config.x_mult,
-				card.dyna_turns or 3,
+				card.ability.x_mult,
+				card.ability.turns_remaining,
 			}
 		}
 	end,
@@ -37,10 +33,10 @@ SMODS.Enhancement{
 					message = "Safe!"
 				}
 			else
-				card.dyna_turns = card.dyna_turns - 1
+				card.ability.turns_remaining = card.ability.turns_remaining - 1
 			end
 
-			if card.dyna_turns == 0 then
+			if card.ability.turns_remaining == 0 then
 				card.exploding = true
 				G.E_MANAGER:add_event(Event({
 					trigger = 'immediate',

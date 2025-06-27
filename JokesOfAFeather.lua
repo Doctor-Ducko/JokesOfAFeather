@@ -67,6 +67,7 @@ JOAF.load_jokers = {
 	"redprint",
 	"joker_energy",
 	"57_leaf_clover",
+	"sword",
 	"uno_cards",
 	"card_belt",
 	"gutsy_bat",
@@ -107,6 +108,7 @@ JOAF.load_tarots = {
 	"legacy",
 	"explosion",
 	"clouds",
+	"misprint",
 	"flip",
 }
 
@@ -146,6 +148,8 @@ JOAF.load_vouchers = {
 	"trinket_tycoon",
 	"shopping_cart",
 	"delivery_truck",
+	"buddy_system",
+	"couch_co_op",
 	"trash_bin",
 	"dumpster",
 }
@@ -170,7 +174,7 @@ SMODS.Keybind {
 	action = function(self)
 		SMODS.restart_game()
 	end,
-	held_keys = {"lctrl"},
+	held_keys = {"lalt"},
 	event = "released"
 }
 

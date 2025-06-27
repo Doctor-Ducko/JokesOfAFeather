@@ -4,7 +4,9 @@ SMODS.Joker {
 	pos = {x = 10, y = 2},		-- works on a +1 increment, not based off of pixels
 	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 8,					-- shop price
-
+	pools = {
+		["Food"] = true
+	},
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = false,		-- Self Explanatory
 	perishable_compat = false,

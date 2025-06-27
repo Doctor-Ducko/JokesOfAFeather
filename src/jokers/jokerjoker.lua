@@ -17,7 +17,7 @@ SMODS.Joker {
 		name = "JokerJoker",
 		text = {
 			"Gives {C:mult}+Factorial{} Mult",
-			"for each {C:blue}Hand{} left",
+			"for each {C:red}Discard{} left",
 			"{C:inactive}(Currently {C:mult}+#1#!{C:inactive} Mult{}",
 			"{C:inactive}(\"!\" is the factorial function)",
 			"{C:inactive}(Ex: 5! = 5 * 4 * 3 * 2 * 1)",
@@ -27,7 +27,7 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				G.GAME.current_round.hands_left
+				G.GAME.current_round.discards_left
 			}
 		}
 	end,
@@ -36,7 +36,7 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				mult = JOAF.factorial(G.GAME.current_round.hands_left or 1)
+				mult = JOAF.factorial(G.GAME.current_round.discards_left or 1)
 			}
 		end
 	end

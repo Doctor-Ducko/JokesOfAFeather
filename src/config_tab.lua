@@ -22,6 +22,12 @@ JOAF.config_tab = function()
                 ref_table = JOAF.config,
                 ref_value = "experimental_content"
             }),
+            create_toggle({
+                label = "Enable Deltarune Spoilers:",
+                info = {"Incase you haven't played Chapters 3&4"},
+                ref_table = JOAF.config,
+                ref_value = "deltarune_spoilers"
+            }),s
         }
     }
 end
