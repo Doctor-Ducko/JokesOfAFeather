@@ -157,11 +157,16 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
+	"quack_normal_1",
+	"quack_normal_2",
+	"quack_jumbo_1",
+	"quack_mega_1",
 	"family_normal",
 }
 
 JOAF.load_tags = {
-	"family"
+	"feather",
+	"family",
 }
 
 JOAF.load_sleeves = {
