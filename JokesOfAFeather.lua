@@ -13,8 +13,6 @@ JOAF = SMODS.current_mod
 --[[CROSSOVER VARS]]--
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
 
-
-
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
 	-- Common
@@ -159,6 +157,11 @@ JOAF.load_boosters = {
 	"trinket_normal_2",
 	"trinket_jumbo_1",
 	"trinket_mega_1",
+	"family_normal",
+}
+
+JOAF.load_tags = {
+	"family"
 }
 
 JOAF.load_sleeves = {
@@ -228,6 +231,13 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+SMODS.Atlas {
+    key = "JOAFTags",
+    path = "DuckTags.png",
+    px = 34,
+    py = 34
+}
+
 if JOAF.has_cardsleeves then
 	SMODS.Atlas {
 		key = "JOAFSleeves",
@@ -271,6 +281,41 @@ SMODS.Rarity({
 	},
 })
 
+SMODS.Gradient {
+	key = "e_chips",
+	colours = {
+		G.C.DARK_EDITION,
+		G.C.CHIPS,
+	},
+	cycle = 5
+}
+
+SMODS.Gradient {
+	key = "e_mult",
+	colours = {
+		G.C.DARK_EDITION,
+		G.C.MULT,
+	},
+	cycle = 5
+}
+
+SMODS.Gradient {
+	key = "ee_mult",
+	colours = {
+		HEX("fab1ac"),
+		G.C.MULT,
+	},
+	cycle = 5
+}
+
+SMODS.Gradient {
+	key = "ee_chips",
+	colours = {
+		HEX("a7dafa"),
+		G.C.CHIPS,
+	},
+	cycle = 5
+}
 
 SMODS.Sound {
 	key = "carpet",
@@ -281,7 +326,7 @@ SMODS.Sound {
 
 --[[UI FLARE]]
 JOAF.ui_config = {
-    colour 				= G.C.ORANGE, -- Main UI box
+    colour 				= HEX("F19B59"), -- Main UI box
     back_colour 		= G.C.RED, -- Back button
     tab_button_colour 	= G.C.RED, -- Tabs buttons
     author_colour 		= G.C.YELLOW, -- Author text
@@ -326,6 +371,10 @@ end
 
 for i,v in ipairs(JOAF.load_boosters) do
 	assert(SMODS.load_file("./src/boosters/" .. v .. ".lua"))()
+end
+
+for i,v in ipairs(JOAF.load_tags) do
+	assert(SMODS.load_file("./src/tags/" .. v .. ".lua"))()
 end
 
 if JOAF.has_cardsleeves then

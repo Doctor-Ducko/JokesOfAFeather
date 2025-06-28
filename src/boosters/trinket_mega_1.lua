@@ -12,7 +12,7 @@ SMODS.Booster {
 
     loc_txt = {
 		name = 'Mega Trinket Pack',
-        group_name = "Mega Trinket Pack",
+        group_name = "Trinket Pack",
 		text = {
             "Choose {C:attention}#1#{} of up to",
             "{C:attention}#2# Trinket{} cards to",

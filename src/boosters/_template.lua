@@ -2,7 +2,6 @@ SMODS.Booster {
     key = "_template",           -- Class prefix of p, for pack probably
     atlas = "JOAFBoosters",
     pos = {x=0,y=0},
-	discovered = true,
     kind = "template",      -- Used for multiple packs of the same variety
     
     select_card="consumeables",

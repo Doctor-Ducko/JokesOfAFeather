@@ -123,7 +123,8 @@ JOAF.factorial = function(n)
 end
 
 -- Removes the first value matching the requested value from a table
--- i fucking hate the shit outta lua
+-- i fucking hate the shit outta lua\
+-- First input is the Table, next is the Value
 JOAF.remove_from_table = function(table, value)
     local new_table = {}
     for i, v in ipairs(table) do
@@ -134,7 +135,30 @@ JOAF.remove_from_table = function(table, value)
     return new_table
 end
 
+-- Specifically returns if the rank of the card is odd. not if sa number is odd
+-- Input is a number
+JOAF.is_odd_rank = function(n)
+    if n == 14 then -- Aces
+        return true
+    elseif n > 10 and n < 14 then -- face cards
+        return false
+    else
+        return n % 2 == 1
+    end
+end
+
+-- Specifically returns if the rank of the card is even. not if a number is even
+-- Input is a number
+JOAF.is_even_rank = function(n)
+    if n > 10 and n <= 14 then
+        return false
+    else
+        return n % 2 == 0
+    end
+end
+
 -- Returns the number of Jokers owned that have the requested rarity
+-- input is the rarity, either number or string
 JOAF.count_jokers_of_rarity = function(rarity)
     local x = 0
     for i = 1, #G.jokers.cards do
@@ -145,6 +169,7 @@ JOAF.count_jokers_of_rarity = function(rarity)
     return x
 end
 
+-- Input a blind's key
 JOAF.is_showdown_blind = function(key)
     local blind = G.P_BLINDS[key] or {}
     if blind.boss then
@@ -159,6 +184,7 @@ JOAF.is_showdown_blind = function(key)
 end
 
 -- Returns the value of a certain poker hand stat, to be expanded later
+-- Input 1: Poker Hand, Input 2: stat to get
 JOAF.get_poker_hand_stat = function(hand, stat)
     if hand ~= nil then
         stat = string.lower(stat)
@@ -274,6 +300,11 @@ JOAF.generate_uno_description = function(data)
         description = "All played " .. data.suit .. " are retriggered {C:attention}" .. data.value .. "{} times(s)"
     end
     return description
+end
+
+JOAF.debug_function = function()
+    G.jokers.config.card_limit = 9999
+    G.consumeables.config.card_limit = 9999
 end
 
 -- Copy & Paste of the plasma balance effect used in the Plasma Deck

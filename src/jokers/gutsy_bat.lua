@@ -17,7 +17,7 @@ SMODS.Joker {
 		name = "Gutsy Bat",
 		text = {
 			"{C:green}#1# in #2#{} chance to",
-			"score {X:dark_edition,C:white}^#3#{} Mult",
+			"score {X:joaf_e_mult,C:white}^#3#{} Mult",
 		}
 	},
 

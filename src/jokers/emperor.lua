@@ -16,9 +16,9 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Emperor',
 		text = {
-			"Gives {X:dark_edition,C:white}^#1#{} Mult",
+			"Gives {X:joaf_e_mult,C:white}^#1#{} Mult",
 			"for each {C:attention}round{} played",
-			"{C:inactive}(Currently {X:dark_edition,C:white}^#2#{}{C:inactive} Mult)",
+			"{C:inactive}(Currently {X:joaf_e_mult,C:white}^#2#{}{C:inactive} Mult)",
 		}
 	},
 

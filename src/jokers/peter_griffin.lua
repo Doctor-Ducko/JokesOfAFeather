@@ -12,7 +12,7 @@ SMODS.Joker {
 			"Scores {X:mult,C:white}X#1#{} Mult",
 			"for every {C:joaf_family}Family Guy{C:attention} Joker",
 			"you have",
-			"Increases to {X:dark_edition,C:white}+^#2#{} Mult per",
+			"Increases to {X:joaf_e_mult,C:white}+^#2#{} Mult per",
 			"if you have {C:attention}#3#{} copies of this Joker",
 			"{C:inactive}(Including this Joker)",
 			"{C:inactive,s:0.9}(It seems today)",
