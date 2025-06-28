@@ -5,6 +5,9 @@ SMODS.Joker {
 	rarity = 2,
 	cost = 7,
 	blueprint_compat = true,
+	pools = {
+		["JOAFJokers"] = true
+	},
 
 	loc_txt = {
 		name = "Straight Line",

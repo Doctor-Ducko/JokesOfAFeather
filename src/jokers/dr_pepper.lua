@@ -5,6 +5,7 @@ SMODS.Joker {
 	rarity = 2, -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 7,
 	pools = {
+		["JOAFJokers"] = true,
 		["Food"] = true
 	},
 	blueprint_compat = true,

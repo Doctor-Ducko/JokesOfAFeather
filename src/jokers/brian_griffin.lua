@@ -4,6 +4,9 @@ SMODS.Joker {
 	pos = { x = 0, y = 1 }, -- works on a +1 increment, not based off of pixels
 	rarity = "joaf_family", -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 20,
+	pools = {
+		["JOAFJokers"] = true
+	},
 
 	loc_txt = {
 		name = 'Brian Griffin',

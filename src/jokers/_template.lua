@@ -5,6 +5,7 @@ SMODS.Joker {
 	rarity = 1,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
 	cost = 1,					-- shop price
 	pools = {
+		["JOAFJokers"] = true
 	},
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory

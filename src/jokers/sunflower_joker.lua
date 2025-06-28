@@ -5,6 +5,9 @@ SMODS.Joker {
 	rarity = 1, -- 1: common, 2: uncommon, 3: rare, 4: legendary
 	cost = 5,
 	blueprint_compat = false,
+	pools = {
+		["JOAFJokers"] = true
+	},
 
 	loc_txt = {
 		name = 'Sunflower Joker',

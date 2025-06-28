@@ -3,7 +3,10 @@ SMODS.Joker {
 	atlas = "JOAFJokers",		-- Spritesheet to use, initalized in main script
 	pos = {x = 4, y = 1},		-- works on a +1 increment, not based off of pixels
 	rarity = 2,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 8,					-- shop price
+	cost = 6,					-- shop price
+	pools = {
+		["JOAFJokers"] = true
+	},
 
 	blueprint_compat = true,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory

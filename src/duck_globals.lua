@@ -302,7 +302,7 @@ JOAF.generate_uno_description = function(data)
     return description
 end
 
-JOAF.debug_function = function()
+JOAF.cheat = function()
     G.jokers.config.card_limit = 9999
     G.consumeables.config.card_limit = 9999
 end

@@ -4,6 +4,9 @@ SMODS.Joker {
 	pos = { x = 1, y = 1 },
 	rarity = 3,
 	cost = 7,
+	pools = {
+		["JOAFJokers"] = true
+	},
 	blueprint_compat = true,
 
 	loc_txt = {

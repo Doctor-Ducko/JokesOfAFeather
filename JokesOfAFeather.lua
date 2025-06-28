@@ -324,6 +324,20 @@ SMODS.Sound {
 	}
 }
 
+SMODS.ObjectType {
+	key = "JOAFJokers",
+	default = "j_joaf_frug",
+	cards = {},
+	rarities = {
+		{key = "Common"},
+		{key = "Uncommon"},
+		{key = "Rare"},
+		{key = "Legendary"},
+		{key = "joaf_family"},
+	},
+}
+-- eval SMODS.add_card({set = "JOAFJokers", area = G.jokers})
+
 --[[UI FLARE]]
 JOAF.ui_config = {
     colour 				= HEX("F19B59"), -- Main UI box
