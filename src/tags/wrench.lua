@@ -1,17 +1,17 @@
 SMODS.Tag {
-    key = "feather",
+    key = "wrench",
     loc_txt = {
-        name = "Feather Tag",
+        name = "Wrench Tag",
         text = {
             "Gives a free",
-            "{C:attention}Mega Quack Pack{}"
+            "{C:attention}Mega Trinket Pack{}"
         }
     },
     atlas = "JOAFTags",
-    pos = { x = 0, y = 0},
+    pos = { x = 2, y = 0},
     min_ante = 2,
     loc_vars = function(self, info_queue, tag)
-        info_queue[#info_queue + 1] = G.P_CENTERS.p_joaf_quack_mega_1
+        info_queue[#info_queue + 1] = G.P_CENTERS.p_joaf_trinket_mega_1
     end,
     -- fank you vanilla remade
     apply = function(self, tag, context)
@@ -19,7 +19,7 @@ SMODS.Tag {
             local lock = tag.ID
             G.CONTROLLER.locks[lock] = true
             tag:yep('+', G.C.SECONDARY_SET.Spectral, function()
-                local booster = SMODS.create_card { key = 'p_joaf_quack_mega_1', area = G.play }
+                local booster = SMODS.create_card { key = 'p_joaf_trinket_mega_1', area = G.play }
                 booster.T.x = G.play.T.x + G.play.T.w / 2 - G.CARD_W * 1.27 / 2
                 booster.T.y = G.play.T.y + G.play.T.h / 2 - G.CARD_H * 1.27 / 2
                 booster.T.w = G.CARD_W * 1.27

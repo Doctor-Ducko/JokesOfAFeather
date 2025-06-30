@@ -33,6 +33,11 @@ if JOAF.config.deltarune_spoilers then
 				x_mult_gain = 0.25,
 			}
 		},
+
+		set_badges = function(self, card, badges)
+			JOAF.reference_badge(card, badges, "deltarune")
+		end,
+		
 		-- Variables to be used in the loc_txt area
 		loc_vars = function(self, info_queue, card)
 			return {

@@ -79,6 +79,7 @@ JOAF.reference_table = {
     deltarune       = {"deltarune",     HEX("11c1f7"), G.C.WHITE},
     tf2             = {"TF2",           HEX("d8762b"), G.C.WHITE},
     ror2            = {"Risk of Rain 2",HEX("0c5e49"), G.C.WHITE},
+    scams           = {"Discord Scams", HEX("5662f6"), G.C.WHITE}
 }
 
 JOAF.dev_table = {

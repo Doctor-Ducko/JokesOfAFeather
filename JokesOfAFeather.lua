@@ -23,10 +23,13 @@ JOAF.load_jokers = {
 	"simple_joker",
 	"sunflower_joker",
 	"ace_face",
-	"hardware_fault",
 	"frug",
 	"dark_candy",
+	"usb_hub",
+	"hardware_fault",
 	"recycling_bin",
+	"hand_bag",
+	"green_card",
 	"long_fuse",
 	"picture_frame",
 	"scissors",
@@ -38,6 +41,8 @@ JOAF.load_jokers = {
 	"brainless_joker",
 	"colorful_joker",
 	"lunar_joker",
+	"cloudy_joker",
+	"boosting_joker",
 	"irritating_joker",
 	"the_witness",
 	"jokr",
@@ -58,6 +63,7 @@ JOAF.load_jokers = {
 	"photographer",
 	"comedian",
 	"jokerjoker",
+	"negative_nancy",
 	"evil_joker",
 	"house_like_carpet",
 	"mia_joker",
@@ -83,6 +89,9 @@ JOAF.load_jokers = {
 	"stewie_griffin",
 	"brian_griffin",
 	"glenn_quagmire",
+
+	-- Mostly Negative
+	"freda"
 }
 
 JOAF.load_enhancements = {
@@ -166,7 +175,9 @@ JOAF.load_boosters = {
 
 JOAF.load_tags = {
 	"feather",
+	"wrench",
 	"family",
+	"gambling",
 }
 
 JOAF.load_sleeves = {
@@ -281,6 +292,18 @@ SMODS.Rarity({
 	},
 	badge_colour = HEX("3b9c14"),	-- Color of the badge
 	default_weight = 0.01,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05] eval print(G.GAME["joaf_family_mod"])
+	pools = {
+		["Joker"] = true
+	},
+})
+
+SMODS.Rarity({
+	key = "mostly_negative",					-- ID, indexed with joaf_[key]
+	loc_txt = {
+		name = "Mostly Negative"
+	},
+	badge_colour = HEX("c35c2c"),	-- Color of the badge
+	default_weight = 0,			-- Percent chance to find in shops [Common, 0.7 | Uncommon, 0.25 | Rare, 0.05] eval print(G.GAME["joaf_family_mod"])
 	pools = {
 		["Joker"] = true
 	},

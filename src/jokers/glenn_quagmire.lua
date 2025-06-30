@@ -19,16 +19,16 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Glenn Quagmire",
 		text = {
-			"Play {C:blue}#1#{} extra card",
-			"Discard {C:red}#2#{} extra card",
+			"Play {C:blue}#1#{} extra cards",
+			"Discard {C:red}#2#{} extra cards",
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			play_limit = 1,
-			discard_limit = 1,
+			play_limit = 3,
+			discard_limit = 3,
 		}
 	},
 	-- Variables to be used in the loc_txt area

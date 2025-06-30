@@ -27,7 +27,7 @@ return {
                 name = "Iconic Sleeve",
                 text = {
                     "Start with another random",
-			        "{C:legendary,E:1}Legendary {C:attention}J.O.A.F. Jokers",
+			        "{C:legendary,E:1}Legendary {C:attention}J.O.A.F. Joker",
                     "{C:inactive}(Duplicates can appear)"
                 }
             },
