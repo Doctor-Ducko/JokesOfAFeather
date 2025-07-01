@@ -12,10 +12,7 @@ G = G
 JOAF = SMODS.current_mod
 
 --[[COMPATABILITY VARS]]--
-JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
-JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
 JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
-JOAF.has_joaf_bp		= next(SMODS.find_mod("JokesOfAFeatherBoosterPak"))
 
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {

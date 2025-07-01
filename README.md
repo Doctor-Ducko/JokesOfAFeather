@@ -2,7 +2,7 @@
 
 ## A Balatro Mod adding a whole buncha stuffs
 
-## Overview
+# Overview
 Jokes of a Feather adds new Jokers, Decks, Enhancements, Seals, and a whole new Consumable type (Trinkets) to Balatro!
 
 <img src="art/github/jokers_1.png" alt="The first 15 Jokers" width="50%" />
@@ -26,6 +26,10 @@ Currently added:
 * 4 Seals
 * 4 Booster Packs
 
+# Requirements
+* [Steammodded](https://github.com/Steamodded/smods)
+* [Talisman](https://github.com/SpectralPack/Talisman)
+
 # Credits
 ## Doctor Ducko
 * Programmer, Artist
@@ -34,5 +38,5 @@ Currently added:
 ## Hydrop0x
 * Ideas
 ## The Several Public Resources for code refrences
-* Example mods from the wiki
-* Vanilla Remade by nh6574 and the-Astra on github
+* [Example mods from the wiki](https://github.com/Steamodded/examples/tree/master/Mods)
+* [Vanilla Remade by nh6574](https://github.com/nh6574/VanillaRemade)
