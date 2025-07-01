@@ -17,7 +17,7 @@ Currently added:
     * 8 Rare
     * 3 Legendary
     * 6 Family Guy
-* 4 Decks
+* 5 Decks
 * 5 Tarot Cards
 * 5 Spectral Cards
 * 12 Trinket Cards
