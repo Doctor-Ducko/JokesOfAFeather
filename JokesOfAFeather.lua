@@ -24,6 +24,8 @@ JOAF.load_jokers = {
 	"sunflower_joker",
 	"ace_face",
 	"frug",
+	"ice_pop_r",
+	"ice_pop_b",
 	"dark_candy",
 	"usb_hub",
 	"hardware_fault",
@@ -51,6 +53,8 @@ JOAF.load_jokers = {
 	"jimbo_jpg",
 	"untextured_joker",
 	"dr_pepper",
+	"ice_pop_g",
+	"ice_pop_y",
 	"darker_candy",
 	"straight_line",
 	"square_roots",
@@ -76,6 +80,9 @@ JOAF.load_jokers = {
 	"card_belt",
 	"gutsy_bat",
 
+	-- Mostly Negative
+	"freda",
+
 	-- Legendary
 	"emperor",
 	"money_smart",
@@ -90,8 +97,6 @@ JOAF.load_jokers = {
 	"brian_griffin",
 	"glenn_quagmire",
 
-	-- Mostly Negative
-	"freda"
 }
 
 JOAF.load_enhancements = {
@@ -345,6 +350,17 @@ SMODS.Gradient {
 	cycle = 5
 }
 
+SMODS.Gradient {
+	key = "eee_mult",
+	colours = {
+		HEX("fab1ac"),
+		G.C.MULT,
+		G.C.DARK_EDITION,
+	},
+	cycle = 2.5,
+	interpolation = "linear"
+}
+
 SMODS.Sound {
 	key = "carpet",
 	path = {
@@ -362,6 +378,7 @@ SMODS.ObjectType {
 		{key = "Rare"},
 		{key = "Legendary"},
 		{key = "joaf_family"},
+		{key = "joaf_mostly_negative"},
 	},
 }
 -- eval SMODS.add_card({set = "JOAFJokers", area = G.jokers})

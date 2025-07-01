@@ -73,22 +73,21 @@ G.C.NAVY                = HEX("3849CF")
 G.C.DARK_GREEN          = HEX("21AA11")
 
 JOAF.reference_table = {
-                    --Name,             Color,        Text Color
-    earthbound      = {"EarthBound",    HEX('6b4eed'), G.C.WHITE},
-    toby_fox        = {"Toby Fox",      G.C.WHITE,     HEX("000000")},
-    deltarune       = {"deltarune",     HEX("11c1f7"), G.C.WHITE},
-    tf2             = {"TF2",           HEX("d8762b"), G.C.WHITE},
-    ror2            = {"Risk of Rain 2",HEX("0c5e49"), G.C.WHITE},
-    scams           = {"Discord Scams", HEX("5662f6"), G.C.WHITE}
+    earthbound      = {"EarthBound",        HEX('6b4eed')},
+    toby_fox        = {"Toby Fox",          G.C.WHITE, HEX("000000")},
+    deltarune       = {"deltarune",         HEX("11c1f7")},
+    tf2             = {"Team Fortess 2",    HEX("d8762b")},
+    ror2            = {"Risk of Rain 2",    HEX("0c5e49")},
+    pvz             = {"Plants vs. Zombies",HEX("6fd639")},
+    scams           = {"Discord Scams",     HEX("5662f6")}
 }
 
 JOAF.dev_table = {
-                    --Name,             Color,        Text Color
-    doctor_ducko    = {"Doctor Ducko",  HEX('F5A742'), G.C.WHITE},
-    chilli          = {"Chilli",        HEX('E02D2D'), G.C.WHITE},
-    altf4           = {"AltF4",         HEX('0DBD1C'), G.C.WHITE},
-    alpine488       = {"Alpine488",     HEX('923EE6'), G.C.WHITE},
-    kawabae         = {"Kawabae",       HEX('fc83fa'), G.C.WHITE},
+    doctor_ducko    = {"Doctor Ducko",  HEX('F5A742')},
+    chilli          = {"Chilli",        HEX('E02D2D')},
+    altf4           = {"AltF4",         HEX('0DBD1C')},
+    alpine488       = {"Alpine488",     HEX('923EE6')},
+    kawabae         = {"Kawabae",       HEX('fc83fa')},
 }
 
 --[[
@@ -99,17 +98,22 @@ theres also the unused exprimental badge im not getting rid of it
 ]]
 JOAF.credit_badge = function(card, badges, key)
     local data = JOAF.dev_table[key]
-    badges[#badges+1] = create_badge("Idea: "..data[1], data[2],data[3], 0.9)
+    badges[#badges+1] = create_badge("Idea: ".. data[1], data[2] ,data[3] or G.C.WHITE, data[4] or 1)
 end
 
 JOAF.reference_badge = function(card, badges, key)
     local data = JOAF.reference_table[key]
-    badges[#badges+1] = create_badge("Refrence: "..data[1], data[2],data[3], 0.9)
+    badges[#badges+1] = create_badge("Refrence: ".. data[1], data[2] ,data[3] or G.C.WHITE, data[4] or 0.9)
 end
 
 JOAF.experimental_badge = function(badges)
     badges[#badges+1] = create_badge("!EXPERIMENTAL!", G.C.RED, G.C.WHITE, 1)
-    badges[#badges+1] = create_badge("!May behave unexpectedly!", G.C.RED, G.C.WHITE, 1)
+    badges[#badges+1] = create_badge("!May behave unexpectedly!", G.C.RED, G.C.WHITE, 0.8)
+end
+
+JOAF.indev_badge = function(badges)
+    badges[#badges+1] = create_badge("W.I.P.", G.C.ORANGE, G.C.WHITE, 1)
+    badges[#badges+1] = create_badge("Missing some functionality", G.C.ORANGE, G.C.WHITE, 0.8)
 end
 
 -- Factorial function -> !
@@ -273,34 +277,6 @@ JOAF.change_sprite = function(card, x, y)
 			return true
 		end
 	}))
-end
-
--- Generates the UNO card description, dont wanna put it into the joker file
--- DOESNT EVEN FUCKING WORK
-JOAF.generate_uno_description = function(data)
-    local description = "None"
-    data.rank    = data.rank or -1
-    data.ability = data.ability or "none"
-    if data.rank == 14 then -- Convert Id to name
-        data.rank = "Ace"
-    end
-    -- fml
-    if data.ability == "x_mult" then
-        description = data.rank .. "s of" .. data.suit .. "score {X:mult,C:white}X" .. data.value .. "{} Mult"
-    elseif data.ability == "mult" then
-        description = data.rank .. "s of" .. data.suit .. "score {C:mult}+" .. data.value .. "{} Mult"
-    elseif data.ability == "chips" then
-        description = data.rank .. "s of" .. data.suit .. "score {C:chips}+" .. data.value .. "{} chips"
-    elseif data.ability == "dollars" then
-        description = data.rank .. "s of" .. data.suit .. "score {C:money}$" .. data.value
-    elseif data.ability == "suit_change" then
-        description = "All non-" .. data.suit .. " played are converted to " .. data.suit .. " when scored"
-    elseif data.ability == "blind_req" then
-        description = data.suit .. " lower {C:attention}Blind Requirement{} by {C:attention}" .. data.value .. "%{} when scored"
-    elseif data.ability == "retrigger" then
-        description = "All played " .. data.suit .. " are retriggered {C:attention}" .. data.value .. "{} times(s)"
-    end
-    return description
 end
 
 JOAF.cheat = function()

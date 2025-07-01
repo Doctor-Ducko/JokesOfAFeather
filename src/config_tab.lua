@@ -17,7 +17,7 @@ JOAF.config_tab = function()
                 {n=G.UIT.O, config={object = DynaText({string = "(Reload game to apply changes)", colours = {G.C.WHITE}, shadow = true, scale = 0.4})}},
             }},
             create_toggle({
-                label = "Enable Experimental Content:",
+                label = "Enable Experimental/W.I.P. Content:",
                 info = {"Used for unfinished/buggy content"},
                 ref_table = JOAF.config,
                 ref_value = "experimental_content"

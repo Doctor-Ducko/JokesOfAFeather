@@ -27,7 +27,7 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			gain = 5,
+			gain = 3,
 			chips = 0
 		}
 	},
@@ -53,7 +53,7 @@ SMODS.Joker {
 				chips = card.ability.extra.chips
 			}
 		end
-		if context.end_of_round and context.cardarea == G.jokers then
+		if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
 			card.ability.extra.chips = card.ability.extra.chips + (G.GAME.current_round.hands_left * card.ability.extra.gain)
 			return {
 				message = "Upgraded!",

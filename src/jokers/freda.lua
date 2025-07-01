@@ -40,6 +40,7 @@ SMODS.Joker {
 	
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = { key = "common_sense", set = "Other" }
 		return {
 			vars = {
 				G.GAME.probabilities.normal,

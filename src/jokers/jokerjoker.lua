@@ -22,12 +22,11 @@ SMODS.Joker {
 			"Gives {C:mult}+Factorial{} Mult",
 			"for each {C:red}Discard{} left",
 			"{C:inactive}(Currently {C:mult}+#1#!{C:inactive} Mult{}",
-			"{C:inactive}(\"!\" is the factorial function)",
-			"{C:inactive}(Ex: 5! = 5 * 4 * 3 * 2 * 1)",
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
+		info_queue[#info_queue+1] = { key = "factorial", set = "Other" }
 		return {
 			vars = {
 				G.GAME.current_round.discards_left

@@ -29,6 +29,10 @@ SMODS.Joker {
 		}
 	},
 
+	set_badges = function(self, card, badges)
+		JOAF.reference_badge(card, badges, "pvz")
+	end,
+
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {

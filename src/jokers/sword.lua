@@ -64,6 +64,11 @@ if JOAF.config.deltarune_spoilers then
 					return { message = "Upgrade!" }
 				end
 			end
+			if context.joker_main then
+				return {
+					x_mult = card.ability.extra.x_mult
+				}
+			end
 		end
 	}
 end

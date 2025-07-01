@@ -49,6 +49,406 @@ return {
                     "Winning Ante is {C:attention}#4#{}",
                 }
             }
+        },
+        Other = {
+            factorial = {
+                name = "Factorial",
+                text = {
+                    "Example:",
+			        "5! = 5 * 4 * 3 * 2 * 1",
+                }
+            },
+            common_sense = {
+                name = "Notice",
+                text = {
+                    "Don't go out of your",
+                    "way to harass this",
+                    "person, {C:red}this is mean enough"
+                }
+            },
+            -- 1 is rank
+            -- 2 is suit
+            -- 3 is value
+            uno_missing = {
+                name = "MISSING",
+                text = {
+                    "oops something went wrong"
+                }
+            },
+            uno_inactive = {
+                name = "Inactive",
+                text = {
+                    "No card drawn"
+                }
+            },
+
+            uno_red_0 = {
+                name = "Red 0",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_1 = {
+                name = "Red 1",
+                text = {
+                    "{C:attention}Aces{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_2 = {
+                name = "Red 2",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_3 = {
+                name = "Red 3",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_4 = {
+                name = "Red 4",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_5 = {
+                name = "Red 5",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_6 = {
+                name = "Red 6",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_7 = {
+                name = "Red 7",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_8 = {
+                name = "Red 8",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_9 = {
+                name = "Red 9",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {X:mult,C:white}X#3#{} Mult"
+                },
+            },
+            uno_red_rev = {
+                name = "Red Reverse",
+                text = {
+                    "Non-{V:1}#2#{} are converted to",
+                    "{V:1}#2#{} when scored"
+                }
+            },
+            uno_red_skip = {
+                name = "Red Skip",
+                text = {
+                    "{V:1}#2#{} lower {C:attention}Blind Requirement{}",
+                    "to {C:attention}#3#%{} when scored"
+                }
+            },
+            uno_red_draw = {
+                name = "Red Draw 2",
+                text = {
+                    "{V:1}#2#{} are {C:attention}retriggered",
+                    "{C:attention}#3#{} times"
+                }
+            },
+
+            uno_blue_0 = {
+                name = "Blue 0",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_1 = {
+                name = "Blue 1",
+                text = {
+                    "{C:attention}Aces{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_2 = {
+                name = "Blue 2",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_3 = {
+                name = "Blue 3",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_4 = {
+                name = "Blue 4",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_5 = {
+                name = "Blue 5",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_6 = {
+                name = "Blue 6",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_7 = {
+                name = "Blue 7",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_8 = {
+                name = "Blue 8",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_9 = {
+                name = "Blue 9",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:mult}+#3#{} Mult"
+                },
+            },
+            uno_blue_rev = {
+                name = "Blue Reverse",
+                text = {
+                    "Non-{V:1}#2#{} are converted to",
+                    "{V:1}#2#{} when scored"
+                }
+            },
+            uno_blue_skip = {
+                name = "Blue Skip",
+                text = {
+                    "{V:1}#2#{} lower {C:attention}Blind Requirement{}",
+                    "to {C:attention}#3#%{} when scored"
+                }
+            },
+            uno_blue_draw = {
+                name = "Blue Draw 2",
+                text = {
+                    "{V:1}#2#{} are {C:attention}retriggered",
+                    "{C:attention}#3#{} times"
+                }
+            },
+
+            uno_yellow_0 = {
+                name = "Yellow 0",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_1 = {
+                name = "Yellow 1",
+                text = {
+                    "{C:attention}Aces{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_2 = {
+                name = "Yellow 2",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_3 = {
+                name = "Yellow 3",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_4 = {
+                name = "Yellow 4",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_5 = {
+                name = "Yellow 5",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_6 = {
+                name = "Yellow 6",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_7 = {
+                name = "Yellow 7",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_8 = {
+                name = "Yellow 8",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_9 = {
+                name = "Yellow 9",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:money}$#3#{}"
+                },
+            },
+            uno_yellow_rev = {
+                name = "Yellow Reverse",
+                text = {
+                    "Non-{V:1}#2#{} are converted to",
+                    "{V:1}#2#{} when scored"
+                }
+            },
+            uno_yellow_skip = {
+                name = "Yellow Skip",
+                text = {
+                    "{V:1}#2#{} lower {C:attention}Blind Requirement{}",
+                    "to {C:attention}#3#%{} when scored"
+                }
+            },
+            uno_yellow_draw = {
+                name = "Yellow Draw 2",
+                text = {
+                    "{V:1}#2#{} are {C:attention}retriggered",
+                    "{C:attention}#3#{} times"
+                }
+            },
+    
+            uno_green_0 = {
+                name = "Green 0",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_1 = {
+                name = "Green 1",
+                text = {
+                    "{C:attention}Aces{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_2 = {
+                name = "Green 2",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_3 = {
+                name = "Green 3",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_4 = {
+                name = "Green 4",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_5 = {
+                name = "Green 5",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_6 = {
+                name = "Green 6",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_7 = {
+                name = "Green 7",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_8 = {
+                name = "Green 8",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_9 = {
+                name = "Green 9",
+                text = {
+                    "{C:attention}#1#s{} of {V:1}#2#{}",
+                    "score {C:chips}+#3#{} Chips"
+                },
+            },
+            uno_green_rev = {
+                name = "Green Reverse",
+                text = {
+                    "Non-{V:1}#2#{} are converted to",
+                    "{V:1}#2#{} when scored"
+                }
+            },
+            uno_green_skip = {
+                name = "Green Skip",
+                text = {
+                    "{V:1}#2#{} lower {C:attention}Blind Requirement{}",
+                    "to {C:attention}#3#%{} when scored"
+                }
+            },
+            uno_green_draw = {
+                name = "Green Draw 2",
+                text = {
+                    "{V:1}#2#{} are {C:attention}retriggered",
+                    "{C:attention}#3#{} times"
+                }
+            },
         }
     }
 }
