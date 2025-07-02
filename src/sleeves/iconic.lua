@@ -11,7 +11,7 @@ CardSleeves.Sleeve {
         end
         return { key = key, vars = vars }
     end,
-	apply = function(self, back)
+	apply = function(self, sleeve)
         delay(0.4)
         G.E_MANAGER:add_event(Event({
             func = function()

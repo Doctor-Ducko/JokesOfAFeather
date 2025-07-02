@@ -20,10 +20,9 @@ SMODS.Joker {
 	loc_txt = {
 		name = 'Flug',
 		text = {
-			"{X:chips,C:white}+X0.5{} chips and {X:mult,C:white}+X1{} Mult per Ante",
-			"Gain {C:red}#3#{} discards and set",
-			"hands to {C:blue}#4#{} when Blind is selected",
-			"{C:inactive}(Updates after leaving the shop)",
+			"{X:mult,C:white}X#4#{} Mult and {X:chips,C:white}X#3#{} chips per Ante",
+			"Gain {C:red}#5#{} discards and set",
+			"hands to {C:blue}#6#{} when Blind is selected",
 			"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult and {X:chips,C:white}X#1#{C:inactive} chips)",
 		}
 	},
@@ -32,35 +31,24 @@ SMODS.Joker {
 		JOAF.credit_badge(card, badges, "altf4")
 	end,
 
-	calculate_x_mult = function()
-		local ante = G.GAME.round_resets.ante
-		return ante + 1
+	calculate_x_mult = function(self, card)
+		return 1 + (G.GAME.round_resets.ante * card.ability.extra.x_mult_per)
 	end,
 
-	calculate_x_chips = function ()
-		local ante = G.GAME.round_resets.ante
-		return (ante/2) + 1
+	calculate_x_chips = function(self, card)
+		return 1 + (G.GAME.round_resets.ante * card.ability.extra.x_chips_per)
 	end,
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			x_chips = 1.5,
-			x_mult = 2,
+			x_chips_per = 0.5,
+			x_mult_per = 1,
 			
 			discards = 2,
 			set_hands = 1,
-
-			previous_x_chips = 1,
-			previous_x_mult = 1,
 		}
 	},
-
-	add_to_deck = function(self, card, from_debuff)
-		card.ability.extra.x_mult = self.calculate_x_mult()
-		card.ability.extra.x_chips = self.calculate_x_chips()
-		card.ability.extra.previous_x_mult = self.calculate_x_mult()
-	end,
 
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
@@ -68,6 +56,8 @@ SMODS.Joker {
 			vars = {
 				card.ability.extra.x_chips,
 				card.ability.extra.x_mult,
+				self.calculate_x_chips(self, card),
+				self.calculate_x_mult(self, card),
 				card.ability.extra.discards,
 				card.ability.extra.set_hands,
 			}
@@ -93,20 +83,11 @@ SMODS.Joker {
 			}
 		end
 
-		if context.ending_shop and not context.blueprint then
-			-- we only need to check for 1 because they get upgraded at the same time
-			card.ability.extra.x_mult = self.calculate_x_mult()
-			card.ability.extra.x_chips = self.calculate_x_chips()
-			if card.ability.extra.x_mult ~= card.ability.extra.previous_x_mult then
-				card.ability.extra.previous_x_mult = card.ability.extra.x_mult
-				return {
-					message = 'Upgraded!',
-					colour = G.C.XMULT,
-					card = card
-				}
-			else
-				return {}
-			end
+		if context.end_of_round and context.cardarea == G.jokers and context.blind.boss then
+			return {
+				message = 'Upgraded!',
+				colour = G.C.XMULT,
+			}
 		end
 	end
 }

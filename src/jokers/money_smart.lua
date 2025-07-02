@@ -22,7 +22,6 @@ SMODS.Joker {
 		text = {
 			"Gives {X:mult,C:white}X#1#{} Mult",
 			"for each {C:money}$#3#{} owned",
-			"{C:inactive}(Updates before Jokers get scored)",
 			"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
 		}
 	},
@@ -35,21 +34,16 @@ SMODS.Joker {
 	config = {
 		extra = {
 			x_mult_increase = 0.25,
-			x_mult = 1,
 			dollars_needed = 5,
 		}
 	},
-
-	add_to_deck = function(self, card, from_debuff)
-		card.ability.extra.x_mult = (math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
-	end,
 
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
 				card.ability.extra.x_mult_increase,
-				card.ability.extra.x_mult,
+				(math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1,
 				card.ability.extra.dollars_needed,
 			}
 		}
@@ -58,11 +52,8 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if context.joker_main then
 			return {
-				x_mult = card.ability.extra.x_mult
+				x_mult = (math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 			}
-		end
-		if context.pre_joker and not context.blueprint then
-			card.ability.extra.x_mult = (math.floor(to_number(G.GAME.dollars)/card.ability.extra.dollars_needed) * card.ability.extra.x_mult_increase) + 1
 		end
 	end
 }

@@ -1,0 +1,22 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.can_select_card = function(e)"
+position = "after"
+payload = '''
+	if type(e.config.ref_table.ability.extra) == "table" then
+		if (e.config.ref_table.ability.extra.joker_slots ~= nil) then
+			if e.config.ref_table.ability.extra.joker_slots >= 1 then
+				e.config.colour = G.C.GREEN
+				e.config.button = 'use_card'
+				return
+			end
+		end
+	end
+'''
+match_indent = true

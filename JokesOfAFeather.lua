@@ -150,6 +150,7 @@ JOAF.load_trinkets = {
 JOAF.load_decks = {
 	"tinkerers",
 	"glimmering",
+	"polydactyls",
 	"hikers",
 	"family",
 	"iconic",
@@ -187,6 +188,7 @@ JOAF.load_tags = {
 
 JOAF.load_sleeves = {
 	"hikers",
+	"polydactyls",
 	"family",
 	"iconic"
 }

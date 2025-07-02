@@ -48,7 +48,23 @@ return {
                     "{C:attention}+#1#{} Joker slots, {C:blue}+#2#{} hands, {C:red}+#3#{} discards.",
                     "Winning Ante is {C:attention}#4#{}",
                 }
-            }
+            },
+            sleeve_joaf_polydactyls = {
+                name = "Polydactyl's Sleeve",
+                text = {
+                    "{C:attention}+#1#{} Card Selection limit",
+                    "{C:attention}+#2#{} hand size",
+                    "{C:red}#3#X{} base Blind size"
+                }
+            },
+            sleeve_joaf_polydactyls_alt = {
+                name = "Polydactyl's Sleeve",
+                text = {
+                    "{C:attention}+#1#{} more Card Selection limit",
+                    "{C:attention}+#2#{} more hand size",
+                    "{C:red}#3#X{} base Blind size"
+                }
+            },
         },
         Other = {
             factorial = {

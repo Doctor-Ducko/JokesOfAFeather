@@ -3,7 +3,6 @@ version = "1.0.0"
 dump_lua = true
 priority = 0
 
-# another thank you to the smart people over buffoonery for being smart
 [[patches]]
 [patches.pattern]
 target = "functions/misc_functions.lua"

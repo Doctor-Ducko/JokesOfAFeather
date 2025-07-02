@@ -3,7 +3,7 @@ SMODS.Tag {
     loc_txt = {
         name = "GAMBLING Tag",
         text = {
-            "{C:green}#1# in 5{} chance for a random {C:legendary,E:1}Legendary {C:attention}J.O.A.F. Joker",
+            "{C:green}#1# in 5{} chance for a random {C:legendary,E:1}Legendary",
             "{C:green}#1# in 15{} chance for an {C:joaf_mostly_negative,E:1}Eternal Freda",
             "{C:legendary,E:1}Legendary{} has priority over {C:joaf_mostly_negative,E:1}Freda{}"
         }
@@ -33,7 +33,7 @@ SMODS.Tag {
         if pseudorandom('tag_joaf_gambling_1') < G.GAME.probabilities.normal / 5 then
             card = {
                 set = "Joker",
-                key = "j_joaf_" .. pseudorandom_element(JOAF.joaf_legendaries, "tag_joaf_gambling"),
+                rarity = "Legendary"
             }
         end
         tag.ability["card"] = card

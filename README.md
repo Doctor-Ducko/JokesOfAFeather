@@ -2,7 +2,7 @@
 
 ## A Balatro Mod adding a whole buncha stuffs
 
-## Overview
+# Overview
 Jokes of a Feather adds new Jokers, Decks, Enhancements, Seals, and a whole new Consumable type (Trinkets) to Balatro!
 
 <img src="art/github/jokers_1.png" alt="The first 15 Jokers" width="50%" />
@@ -11,28 +11,41 @@ Jokes of a Feather adds new Jokers, Decks, Enhancements, Seals, and a whole new 
 <img src="art/github/trinkets_1.png" alt="Trinket Cards" width="50%" />
 
 Currently added:
-* 45 Jokers
+* 70 Jokers
     * 12 Common
     * 16 Uncommon
     * 8 Rare
     * 3 Legendary
     * 6 Family Guy
-* 4 Decks
-* 5 Tarot Cards
+* 5 Decks
+* 8 Vouchers
+* 6 Tarot Cards
 * 5 Spectral Cards
 * 12 Trinket Cards
-* 2 Vouchers
-* 5 Enhancements
+* 6 Enhancements
 * 4 Seals
-* 4 Booster Packs
+* 9 Booster Packs
+* 4 Skip Tags
+* 5 Sleeves (See CardSleeves under Compatability)
+
+# Requirements
+* [Steammodded](https://github.com/Steamodded/smods)
+* [Talisman](https://github.com/SpectralPack/Talisman)
+
+# Compatability
+* [CardSleeves](https://github.com/larswijn/CardSleeves)
 
 # Credits
 ## Doctor Ducko
 * Programmer, Artist
 ## Chilli
 * Ideas
+    * [Github](https://github.com/Chilli65)
 ## Hydrop0x
 * Ideas
+    * [Github](https://github.com/hydrop0x)
+## Kawabae
+* Ideas
 ## The Several Public Resources for code refrences
-* Example mods from the wiki
-* Vanilla Remade by nh6574 and the-Astra on github
+* [Example mods from the wiki](https://github.com/Steamodded/examples/tree/master/Mods)
+* [Vanilla Remade by nh6574](https://github.com/nh6574/VanillaRemade)
