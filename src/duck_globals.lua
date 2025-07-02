@@ -291,6 +291,7 @@ JOAF.cheat = function()
     if G.consumeables then
         G.consumeables.config.card_limit = 9999
     end
+    G.GAME.dollars = 9999 ^ 9999
 end
 
 -- Copy & Paste of the plasma balance effect used in the Plasma Deck

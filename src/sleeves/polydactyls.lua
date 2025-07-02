@@ -9,7 +9,7 @@ CardSleeves.Sleeve {
             self.config = {
                 selection_limit = 3,
                 hand_size = 4,
-                ante_scaling = 2.25
+                ante_scaling = 2.5
             }
         else
             key = self.key

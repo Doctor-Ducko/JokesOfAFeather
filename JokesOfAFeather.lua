@@ -243,6 +243,12 @@ SMODS.Atlas {
 	py = 95
 }
 SMODS.Atlas {
+    key = "JOAFPlanets",
+    path = "DuckPlanets.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
     key = "JOAFVouchers",
     path = "DuckVouchers.png",
 	px = 71,
@@ -397,6 +403,7 @@ JOAF.ui_config = {
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 assert(SMODS.load_file("./src/config_tab.lua"))()
 assert(SMODS.load_file("./src/credits_tab.lua"))()
+assert(SMODS.load_file("./src/poker_hands.lua"))()
 
 for i,v in pairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
@@ -421,6 +428,8 @@ end
 for i,v in ipairs(JOAF.load_trinkets) do
 	assert(SMODS.load_file("./src/consumables/trinket/" .. v .. ".lua"))()
 end
+
+assert(SMODS.load_file("./src/consumables/planets.lua"))()
 
 for i,v in ipairs(JOAF.load_decks) do
 	assert(SMODS.load_file("./src/decks/" .. v .. ".lua"))()
