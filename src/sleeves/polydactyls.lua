@@ -7,9 +7,9 @@ CardSleeves.Sleeve {
         if self.get_current_deck_key() == "b_joaf_polydactyls" then
             key = self.key .. "_alt"
             self.config = {
-                selection_limit = 3,
-                hand_size = 4,
-                ante_scaling = 2.5
+                selection_limit = 1,
+                hand_size = 3,
+                ante_scaling = 3
             }
         else
             key = self.key

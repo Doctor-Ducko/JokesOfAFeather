@@ -50,7 +50,7 @@ return {
                 }
             },
             sleeve_joaf_polydactyls = {
-                name = "Polydactyl's Sleeve",
+                name = "Poly-deck-tyl Sleeve",
                 text = {
                     "{C:attention}+#1#{} Card Selection limit",
                     "{C:attention}+#2#{} hand size",
@@ -58,7 +58,7 @@ return {
                 }
             },
             sleeve_joaf_polydactyls_alt = {
-                name = "Polydactyl's Sleeve",
+                name = "Poly-deck-tyl Sleeve",
                 text = {
                     "{C:attention}+#1#{} more Card Selection limit",
                     "{C:attention}+#2#{} more hand size",

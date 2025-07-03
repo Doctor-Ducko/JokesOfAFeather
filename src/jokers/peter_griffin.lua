@@ -15,8 +15,8 @@ SMODS.Joker {
 			"Scores {X:mult,C:white}X#1#{} Mult",
 			"for every {C:joaf_family}Family Guy{C:attention} Joker",
 			"you have",
-			"Increases to {X:joaf_e_mult,C:white}+^#2#{} Mult per",
-			"if you have {C:attention}#3#{} copies of this Joker",
+			"if you have {C:attention}#3#{} copies of this Joker,", 
+			"Give {X:joaf_e_mult,C:white}+^#2#{} Mult per {C:attention}copy{}",
 			"{C:inactive}(Including this Joker)",
 			"{C:inactive,s:0.9}(It seems today)",
 		},
@@ -25,7 +25,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			x_mult = 3,
-			e_mult = 0.05,
+			e_mult = 0.01,
 			copies_needed = 23
 		}
 	},

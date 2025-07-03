@@ -54,10 +54,10 @@ SMODS.Joker {
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.x_chips,
-				card.ability.extra.x_mult,
 				self.calculate_x_chips(self, card),
 				self.calculate_x_mult(self, card),
+				card.ability.extra.x_chips_per,
+				card.ability.extra.x_mult_per,
 				card.ability.extra.discards,
 				card.ability.extra.set_hands,
 			}
@@ -78,8 +78,8 @@ SMODS.Joker {
 
 		if context.joker_main then
 			return {
-				x_chips = card.ability.extra.x_chips,
-				x_mult = card.ability.extra.x_mult,
+				x_chips = self.calculate_x_chips(self, card),
+				x_mult  = self.calculate_x_mult(self, card),
 			}
 		end
 

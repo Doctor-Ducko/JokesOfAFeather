@@ -9,12 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - 25 Jokers
+- 4 Poker Hands
+- 1 Deck
 - 6 Vouchers
 - 1 Tarot
+- 4 Planets
 - 1 Enhancement
 - 5 Booster Packs
 - 4 Skip Tags
-- 5 Sleeves
+- 6 Sleeves
 - Reference Badges to certain Jokers
 - New rarity for Jokers, "Mostly Negative"
 

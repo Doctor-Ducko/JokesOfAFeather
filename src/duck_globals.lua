@@ -284,6 +284,9 @@ JOAF.change_sprite = function(card, x, y)
 	}))
 end
 
+-- Debug Function
+-- 9999 joker slots and consumable slots
+-- a fuck ton of money
 JOAF.cheat = function()
     if G.jokers then
         G.jokers.config.card_limit = 9999
@@ -292,6 +295,14 @@ JOAF.cheat = function()
         G.consumeables.config.card_limit = 9999
     end
     G.GAME.dollars = 9999 ^ 9999
+end
+
+-- Sets all hands to visible
+JOAF.discover_all_hands = function()
+    for i, hand in ipairs(G.GAME.hands) do
+        print(hand)
+        hand.visible = true
+    end
 end
 
 -- Copy & Paste of the plasma balance effect used in the Plasma Deck

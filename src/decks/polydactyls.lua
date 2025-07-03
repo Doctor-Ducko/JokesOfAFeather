@@ -4,7 +4,7 @@ SMODS.Back{
     pos = {x = 0, y = 1},               -- pos on atlas
     
     loc_txt = {
-        name = "Polydactyl's Deck",
+        name = "Poly-deck-tyl",
         text ={
             "{C:attention}+#1#{} Card Selection limit",
             "{C:attention}+#2#{} hand size",
