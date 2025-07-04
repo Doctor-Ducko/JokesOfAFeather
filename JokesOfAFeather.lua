@@ -13,6 +13,7 @@ JOAF = SMODS.current_mod
 
 --[[COMPATABILITY VARS]]--
 JOAF.has_cryptid 		= next(SMODS.find_mod("Cryptid"))
+JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
 
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
@@ -236,6 +237,7 @@ SMODS.Rarity({
 assert(SMODS.load_file("./src/duck_globals.lua"))()
 assert(SMODS.load_file("./src/credits_tab.lua"))()
 
+
 for i,v in pairs(JOAF.load_jokers) do
 	assert(SMODS.load_file("./src/jokers/" .. v .. ".lua"))()
 end
@@ -274,6 +276,7 @@ end
 
 --[[HOOKS]]--
 to_big = to_big or function(x) return x end
+to_number = to_number or function(x) return x end
 
 local igo = Game.init_game_object
 function Game:init_game_object()
