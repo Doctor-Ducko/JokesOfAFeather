@@ -19,35 +19,31 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Glenn Quagmire",
 		text = {
-			"Play {C:blue}#1#{} extra cards",
-			"Discard {C:red}#2#{} extra cards",
+			"{C:attention}+#1#{} Card Selection limit"
 		}
 	},
 
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			play_limit = 3,
-			discard_limit = 3,
+			selection_limit = 3,
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.play_limit,
-				card.ability.extra.discard_limit,
+				card.ability.extra.selection_limit,
 			}
 		}
 	end,
 
 	add_to_deck = function(self, card, from_debuff)
-        SMODS.change_play_limit(card.ability.extra.play_limit)
-        SMODS.change_discard_limit(card.ability.extra.discard_limit)
+        SMODS.change_play_limit(card.ability.extra.selection_limit)
+        SMODS.change_discard_limit(card.ability.extra.selection_limit)
 	end,
-	-- Inverse of above function.
 	remove_from_deck = function(self, card, from_debuff)
-        SMODS.change_play_limit(-card.ability.extra.play_limit)
-        SMODS.change_discard_limit(-card.ability.extra.discard_limit)
+        SMODS.change_play_limit(-card.ability.extra.selection_limit)
+        SMODS.change_discard_limit(-card.ability.extra.selection_limit)
 	end
 }

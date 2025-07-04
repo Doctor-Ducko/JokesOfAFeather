@@ -1,7 +1,7 @@
 SMODS.PokerHand {
     key = "Three Pair",
     chips = 50,
-    mult = 5,
+    mult = 6,
     l_mult = 3,
     l_chips = 25,
     visible = false,
@@ -27,10 +27,10 @@ SMODS.PokerHand {
 
 SMODS.PokerHand {
     key = "Double Threes",
-    chips = 100,
-    mult = 10,
-    l_mult = 4,
-    l_chips = 50,
+    chips = 80,
+    mult = 7,
+    l_mult = 3,
+    l_chips = 40,
     visible = false,
     loc_txt = {
         name = "Double Threes",

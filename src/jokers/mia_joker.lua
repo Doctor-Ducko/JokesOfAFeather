@@ -1,14 +1,12 @@
-
-
 SMODS.Joker {
 	key = 'mia_joker',			-- Object ID, acessed with j_joaf_[key]
 	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
 	pos = {x = 0, y = 0},		-- works on a +1 increment, not based off of pixels
-	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-	cost = 7,					-- shop price
 	pools = {
 		["JOAFJokers"] = true
 	},
+	rarity = 3,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	cost = 7,					-- shop price
 
 	blueprint_compat = false,	-- Cosmetic only, define in calculate function
 	eternal_compat = true,		-- Self Explanatory
@@ -31,7 +29,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			joker_slots = 1,
-			random_events = 7,
+			random_events = 6,
 			current_event = 1
 		}
 	},
@@ -55,35 +53,47 @@ SMODS.Joker {
 	calculate = function(self, card, context)
 		if not context.blueprint then
 			if context.ending_shop then
-				card.ability.extra.current_event = pseudorandom("j_joaf_mia_joker_random_event", 1, card.ability.extra.random_events)
+				card.ability.extra.current_event = pseudorandom("j_joaf_mia_joker_random_event", 1, card.ability.extra.random_events + 1)
 			end
 			if context.joker_main then
 				local event = card.ability.extra.current_event
 				if event == 1 then
 					return {
-						chips = 200
+						chips = 300
 					}
 				elseif event == 2 then
 					return {
-						mult = 25
+						mult = 100
 					}
 				elseif event == 3 then
 					return {
-						x_mult = 2.5
+						x_mult = 8
 					}
 				elseif event == 4 then
 					return {
-						x_chips = 3
+						x_chips = 6
 					}
 				elseif event == 5 then
-					return {
-						e_mult = 1.1
-					}
+					if JOAF.has_talisman then
+						return {
+							e_mult = 1.25
+						}
+					else
+						return {
+							x_mult = 32
+						}
+					end
 				elseif event == 6 then
-					return {
-						e_chips = 1.2
-					}
-				elseif event == 7 then
+					if JOAF.has_talisman then
+						return {
+							e_chips = 1.25
+						}
+					else
+						return {
+							x_chips = 24
+						}
+					end
+				else
 					return {
 						message = "Nothing?!"
 					}

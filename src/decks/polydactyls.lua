@@ -14,7 +14,7 @@ SMODS.Back{
 
     config = {
         selection_limit = 2,
-        hand_size = 2,
+        hand_size = 1,
         ante_scaling = 1.5
     },
 

@@ -12,6 +12,7 @@ G = G
 JOAF = SMODS.current_mod
 --[[CROSSOVER VARS]]--
 JOAF.has_cardsleeves 	= next(SMODS.find_mod("CardSleeves"))
+JOAF.has_talisman 		= next(SMODS.find_mod("Talisman"))
 
 --[[LOAD LISTS]]--
 JOAF.load_jokers = {
@@ -68,6 +69,7 @@ JOAF.load_jokers = {
 	"comedian",
 	"jokerjoker",
 	"negative_nancy",
+	"three_legged_race",
 	"evil_joker",
 	"house_like_carpet",
 	"mia_joker",
