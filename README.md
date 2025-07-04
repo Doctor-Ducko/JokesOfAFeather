@@ -28,6 +28,7 @@ Currently added:
 
 # Requirements
 * [Steammodded](https://github.com/Steamodded/smods)
+# Compatibility
 * [Talisman](https://github.com/SpectralPack/Talisman)
 
 # Credits
