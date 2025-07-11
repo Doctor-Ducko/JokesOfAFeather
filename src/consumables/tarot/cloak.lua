@@ -1,7 +1,7 @@
 SMODS.Consumable {
-    key = "flip",          -- Object ID, acessed with c_joaf_[key]
+    key = "cloak",          -- Object ID, acessed with c_joaf_[key]
     atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=10, y=1},           -- works on a +1 increment per sprite, not based off of pixels
+    pos = {x=1, y=2},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Tarot",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 3,                   -- shop price
 
@@ -9,11 +9,11 @@ SMODS.Consumable {
 	discovered = false,
 
     loc_txt = {
-        name = 'The Flip',
+        name = 'The Cloak',
         text = {
             "Enhances {C:attention}#1#{} selected",
-            "card into a",
-            "{C:attention}Swap Card",
+            "cards into",
+            "{C:attention}Shy Cards",
         }
     },
 
@@ -21,8 +21,8 @@ SMODS.Consumable {
     -- but like it works
     effect = "Enhance",
     config = {
-        mod_conv = 'm_joaf_swap',
-        max_highlighted = 1
+        mod_conv = 'm_joaf_shy',
+        max_highlighted = 2
     },
 
     loc_vars = function(self, info_queue, card)
@@ -32,5 +32,5 @@ SMODS.Consumable {
                 card.ability.max_highlighted,
             }
         }
-    end
+    end,
 }

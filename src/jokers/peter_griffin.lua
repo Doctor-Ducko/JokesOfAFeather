@@ -9,19 +9,6 @@ SMODS.Joker {
 	},
 	blueprint_compat = true,
 
-	loc_txt = {
-		name = 'Peter Griffin',
-		text={
-			"Scores {X:mult,C:white}X#1#{} Mult",
-			"for every {C:joaf_family}Family Guy{C:attention} Joker",
-			"you have",
-			"if you have {C:attention}#3#{} copies of this Joker,", 
-			"Give {X:joaf_e_mult,C:white}+^#2#{} Mult per {C:attention}copy{}",
-			"{C:inactive}(Including this Joker)",
-			"{C:inactive,s:0.9}(It seems today)",
-		},
-	},
-
 	config = {
 		extra = {
 			x_mult = 3,
@@ -31,18 +18,27 @@ SMODS.Joker {
 	},
 
 	loc_vars = function(self, info_queue, card)
+		local key = self.key
+		if not JOAF.has_talisman then
+			key = key .. "_no_talisman"
+		elseif #SMODS.find_card("j_joaf_peter_griffin") >= card.ability.extra.copies_needed then
+			key = key .. "_alt"
+		end
 		return {
 			vars = {
 				card.ability.extra.x_mult,
 				card.ability.extra.e_mult,
 				card.ability.extra.copies_needed,
-			}
+				card.ability.extra.x_mult * JOAF.count_jokers_of_rarity("joaf_family"),
+				1 + (card.ability.extra.e_mult * JOAF.count_jokers_of_rarity("joaf_family"))
+			},
+			key = key
 		}
 	end,
 
 	calculate = function(self, card, context)
 		if context.joker_main then
-			if #SMODS.find_card("j_joaf_peter_griffin") >= card.ability.extra.copies_needed then
+			if #SMODS.find_card("j_joaf_peter_griffin") >= card.ability.extra.copies_needed and JOAF.has_talisman then
 				return {
 					e_mult = 1 + (card.ability.extra.e_mult * JOAF.count_jokers_of_rarity("joaf_family")),
 				}			

@@ -167,12 +167,16 @@ end
 -- input is the rarity, either number or string
 JOAF.count_jokers_of_rarity = function(rarity)
     local x = 0
-    for i = 1, #G.jokers.cards do
-        if G.jokers.cards[i].ability.set == 'Joker' and G.jokers.cards[i].config.center.rarity == rarity then
-            x = x + 1
+    if G.jokers then
+        for i = 1, #G.jokers.cards do
+            if G.jokers.cards[i].ability.set == 'Joker' and G.jokers.cards[i].config.center.rarity == rarity then
+                x = x + 1
+            end
         end
+        return x
+    else
+        return 0
     end
-    return x
 end
 
 -- Input a blind's key
@@ -209,6 +213,53 @@ JOAF.get_poker_hand_stat = function(hand, stat)
         return hand_stats.visible
     else
         return -1
+    end
+end
+
+-- Takes a card object/table as input
+-- use nil first and then a number to use that instead
+-- Returns either a number from 2 to 9, or a T, J, Q, K, or A
+JOAF.id_to_prefix = function(card, id)
+    if card then
+        id = card:get_id()
+    end
+    
+    if id == 10 then
+        return "T"
+    elseif id == 11 then
+        return "J"
+    elseif id == 12 then
+        return "Q"
+    elseif id == 13 then
+        return "K"
+    elseif id == 14 then
+        return "A"
+    elseif id < 0 then
+        return nil
+    else
+        return tostring(id)
+    end
+end
+
+-- Takes a card object/table as input.
+-- Use nil first and then a number to use that instead
+JOAF.id_to_key = function(card, id)
+    if card then
+        id = card:get_id()
+    end
+    
+    if id == 11 then
+        return "Jack"
+    elseif id == 12 then
+        return "Queen"
+    elseif id == 13 then
+        return "King"
+    elseif id == 14 then
+        return "Ace"
+    elseif id < 0 then
+        return nil
+    else
+        return tostring(id)
     end
 end
 

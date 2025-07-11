@@ -30,7 +30,7 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			rerolls = 10,
+			rerolls = 8,
 			decrease = 1,
 			dec_inc = 1
 		}

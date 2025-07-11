@@ -9,7 +9,7 @@ SMODS.Consumable {
 	discovered = false,
 
     loc_txt = {
-        name = 'The Balance',
+        name = 'Balance',
         text = {
             "Enhances {C:attention}#1#{} selected",
             "cards into",
@@ -33,12 +33,4 @@ SMODS.Consumable {
             }
         }
     end,
-
-    -- Determines where the consumable can be used, default for Trinket cards
-	can_use = function(self, card)
-		if G.hand and (#G.hand.highlighted >= 1) and (#G.hand.highlighted <= card.ability.max_highlighted) then
-			return true
-		end
-		return false
-	end,
 }

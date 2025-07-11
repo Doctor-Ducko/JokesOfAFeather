@@ -22,7 +22,7 @@ SMODS.Joker {
 			"Scores {C:mult}+#1#{} Mult for",
 			"every {C:uncommon}Uncommon{C:attention} Joker",
 			"you have",
-			"{C:inactive}(Including this Joker)"
+			"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
 		}
 	},
 
@@ -30,7 +30,6 @@ SMODS.Joker {
 	config = {
 		extra = {
 			mult_per = 7,
-			mult = 7,
 		}
 	},
 	-- Variables to be used in the loc_txt area
@@ -38,18 +37,16 @@ SMODS.Joker {
 		return {
 			vars = {
 				card.ability.extra.mult_per,
+				JOAF.count_jokers_of_rarity(2) * card.ability.extra.mult_per
 			}
 		}
 	end,
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.pre_joker then
-			card.ability.extra.mult = JOAF.count_jokers_of_rarity(2) * card.ability.extra.mult_per
-		end
 		if context.joker_main then
 			return	{
-				mult = card.ability.extra.mult
+				mult = JOAF.count_jokers_of_rarity(2) * card.ability.extra.mult_per
 			}
 		end
 	end

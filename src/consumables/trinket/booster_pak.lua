@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = "booster_pak",          -- Object ID, acessed with c_joaf_[key]
-    atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=7, y=0},           -- works on a +1 increment per sprite, not based off of pixels
+    atlas = "JOAFTrinkets",        -- Spritesheet to use, initalized in main script
+    pos = {x=2, y=0},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 4,                   -- shop price
 
@@ -38,8 +38,6 @@ SMODS.Consumable {
     end,
 
     use = function(self, card, area)
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
-            G.FUNCS.draw_from_deck_to_hand(self.config.draw_count)
-        return true end }))
+        SMODS.draw_cards(self.config.draw_count)
     end
 }

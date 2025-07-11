@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = "specter",          -- Object ID, acessed with c_joaf_[key]
-    atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=0, y=1},           -- works on a +1 increment per sprite, not based off of pixels
+    atlas = "JOAFTrinkets",        -- Spritesheet to use, initalized in main script
+    pos = {x=1, y=1},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 4,                   -- shop price
 
@@ -18,7 +18,7 @@ SMODS.Consumable {
 
     -- Determines where the consumable can be used, default for Trinket cards
     can_use = function(self, card)
-        return G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit + 1
+        return G.consumeables.config.card_limit > #G.consumeables.cards
     end,
 
     use = function(self, card, area)

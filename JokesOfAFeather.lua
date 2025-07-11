@@ -59,6 +59,7 @@ JOAF.load_jokers = {
 	"darker_candy",
 	"straight_line",
 	"square_roots",
+	"sword",
 	"hands_of_steel",
 	"slot_machine",
 	"really_misplaced",
@@ -67,7 +68,7 @@ JOAF.load_jokers = {
 	"precious_joker",
 	"photographer",
 	"comedian",
-	"jokerjoker",
+	--"jokerjoker",
 	"negative_nancy",
 	"three_legged_race",
 	"evil_joker",
@@ -77,7 +78,7 @@ JOAF.load_jokers = {
 	"redprint",
 	"joker_energy",
 	"57_leaf_clover",
-	"sword",
+	"loot_box",
 	"uno_cards",
 	"card_belt",
 	"gutsy_bat",
@@ -106,6 +107,7 @@ JOAF.load_enhancements = {
 	"stained",
 	"dynamite",
 	"lightweight",
+	"shy",
 	"untextured",
 	"swap",
 }
@@ -118,10 +120,12 @@ JOAF.load_seals = {
 }
 
 JOAF.load_tarots = {
+	"recession",
 	"balance",
 	"legacy",
 	"explosion",
 	"clouds",
+	"cloak",
 	"misprint",
 	"flip",
 }
@@ -147,6 +151,13 @@ JOAF.load_trinkets = {
 	"potato_chips",
 	"math_book",
 	"golden_ring",
+	"level",
+	"tuxedo",
+	"dice",
+	"coupon",
+	"alternative_menu",
+	"stocks",
+	"eviction_notice",
 }
 
 JOAF.load_decks = {
@@ -186,6 +197,8 @@ JOAF.load_tags = {
 	"wrench",
 	"family",
 	"gambling",
+	"mini_investment",
+	"mini_coupon",
 }
 
 JOAF.load_sleeves = {
@@ -226,21 +239,38 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+
 SMODS.Atlas {
-    key = "JOAFDecks",
+	key = "JOAFDecks",
     path = "DuckDecks.png",
 	px = 71,
 	py = 95
 }
+if JOAF.has_cardsleeves then
+	SMODS.Atlas {
+		key = "JOAFSleeves",
+		path = "DuckSleeves.png",
+		px = 73,
+		py = 95
+	}
+end
+
 SMODS.Atlas {
     key = "JOAFEnhance",
     path = "DuckEnhancements.png",
 	px = 71,
 	py = 95
 }
+
 SMODS.Atlas {
     key = "JOAFItems",
     path = "DuckItems.png",
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
+    key = "JOAFTrinkets",
+    path = "DuckTrinkets.png",
 	px = 71,
 	py = 95
 }
@@ -250,6 +280,7 @@ SMODS.Atlas {
 	px = 71,
 	py = 95
 }
+
 SMODS.Atlas {
     key = "JOAFVouchers",
     path = "DuckVouchers.png",
@@ -269,14 +300,6 @@ SMODS.Atlas {
     py = 34
 }
 
-if JOAF.has_cardsleeves then
-	SMODS.Atlas {
-		key = "JOAFSleeves",
-		path = "DuckSleeves.png",
-		px = 73,
-		py = 95
-	}
-end
 
 --[[CONSUMABLES & RARITIES]]--
 SMODS.ConsumableType {
@@ -457,6 +480,7 @@ end
 
 --[[HOOKS]]--
 to_big = to_big or function(x) return x end
+to_number = to_number or function(x) return x end
 
 local igo = Game.init_game_object
 function Game:init_game_object()

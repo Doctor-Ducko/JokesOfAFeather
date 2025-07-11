@@ -1,5 +1,109 @@
 return {
     descriptions = {
+        Joker = {
+            j_joaf_sword_1 = {
+                name = "SWORD",
+                text = {
+                    "{X:black,C:white,s:1.2}#1#{} EXP: {C:attention}#2#{}/{C:attention,s:1.1}#3#{}",
+                    "Gains {C:attention}EXP{} after defeating {C:attention}Blinds{}",
+                    "{C:mult}+#4#{} Mult",
+                    "{C:inactive}(Next Ability: {X:mult,C:white}X#5#{C:inactive} Mult)"
+                }
+            },
+            j_joaf_sword_2 = {
+                name = "SWORD",
+                text = {
+                    "{X:black,C:white,s:1.2}#1#{} EXP: {C:attention}#2#{}/{C:attention,s:1.1}#3#{}",
+                    "Gains {C:attention}EXP{} after defeating {C:attention}Blinds{}",
+                    "{X:mult,C:white}X#4#{} Mult",
+                    "{C:inactive}(Next Ability: {X:mult,C:white}X#5#{C:inactive} Mult)"
+                }
+            },
+            j_joaf_sword_3 = {
+                name = "SWORD",
+                text = {
+                    "{X:black,C:white,s:1.2}#1#{} EXP: {C:attention}#2#{}/{C:attention,s:1.1}#3#{}",
+                    "Gains {C:attention}EXP{} after defeating {C:attention}Blinds{}",
+                    "{X:mult,C:white}X#4#{} Mult",
+                    "{C:inactive}(Next Ability: {X:joaf_e_mult,C:white}^#5#{C:inactive} Mult)"
+                }
+            },
+            j_joaf_sword_4 = {
+                name = "SWORD",
+                text = {
+                    "{X:black,C:white,s:1.2}#1#{} EXP: {C:attention}#2#{}/{C:attention,s:1.1}#3#{}",
+                    "Gains {C:attention}EXP{} after defeating {C:attention}Blinds{}",
+                    "{X:joaf_e_mult,C:white}^#4#{} Mult",
+                }
+            },
+            j_joaf_gutsy_bat = {
+                name = "Gutsy Bat",
+                text = {
+                    "{C:green}#1# in #2#{} chance to",
+                    "score {X:joaf_e_mult,C:white}^#3#{} Mult",
+                }
+            },
+            j_joaf_gutsy_bat_no_talisman = {
+                name = "Gutsy Bat",
+                text = {
+                    "{C:green}#1# in #2#{} chance to",
+                    "score {X:mult,C:white}X#4#{} Mult",
+                }
+            },
+
+            j_joaf_emperor = {
+                name = 'Emperor',
+                text = {
+                    "Gives {X:joaf_e_mult,C:white}^#1#{} Mult",
+                    "for each {C:attention}round{} played",
+                    "{C:inactive}(Currently {X:joaf_e_mult,C:white}^#2#{}{C:inactive} Mult)",
+                }
+            },
+
+            j_joaf_emperor_no_talisman = {
+                name = 'Emperor',
+                text = {
+                    "Gives {X:mult,C:white}X#3#{} Mult",
+                    "for each {C:attention}round{} played",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{}{C:inactive} Mult)",
+                }
+            },
+
+            j_joaf_peter_griffin = {
+                name = 'Peter Griffin',
+                text={
+                    "Scores {X:mult,C:white}X#1#{} Mult",
+                    "for every {C:joaf_family}Family Guy{C:attention} Joker",
+                    "you have",
+                    "if you have {C:attention}#3#{} copies of this Joker,", 
+                    "Give {X:joaf_e_mult,C:white}+^#2#{} Mult per {C:joaf_family}Family Guy{C:attention} Joker",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
+                    "{C:inactive,s:0.9}(It seems today)",
+                },
+            },
+            j_joaf_peter_griffin_alt = {
+                name = 'Peter Griffin',
+                text={
+                    "Scores {X:mult,C:white}X#1#{} Mult",
+                    "for every {C:joaf_family}Family Guy{C:attention} Joker",
+                    "you have",
+                    "if you have {C:attention}#3#{} copies of this Joker,", 
+                    "Give {X:joaf_e_mult,C:white}+^#2#{} Mult per {C:joaf_family}Family Guy{C:attention} Joker",
+                    "{C:inactive}(Currently {X:joaf_e_mult,C:white}^#5#{C:inactive} Mult)",
+                    "{C:inactive,s:0.9}(It seems today)",
+                },
+            },
+            j_joaf_peter_griffin_no_talisman = {
+                name = 'Peter Griffin',
+                text={
+                    "Scores {X:mult,C:white}X#1#{} Mult",
+                    "for every {C:joaf_family}Family Guy{C:attention} Joker",
+                    "you have",
+                    "{C:inactive}(Currently {X:mult,C:white}X#4#{C:inactive} Mult)",
+                    "{C:inactive,s:0.9}(It seems today)",
+                },
+            },
+        },
         Sleeve = {
             sleeve_joaf_family = {
                 name = "Family Sleeve",
@@ -67,6 +171,14 @@ return {
             },
         },
         Other = {
+            upgradable_stats = {
+                name = "Upgradable Stats",
+                text = {
+                    "Joker slots, hands, discards",
+                    "hand size, card selection limit,",
+                    "and consumable slots"
+                }
+            },
             factorial = {
                 name = "Factorial",
                 text = {
@@ -80,6 +192,15 @@ return {
                     "Don't go out of your",
                     "way to harass this",
                     "person, {C:red}this is mean enough"
+                }
+            },
+            leveling_up = {
+                name = "Leveling Up",
+                text = {
+                    "Small:     1 EXP",
+                    "Big:       2 EXP",
+                    "Boss:      5 EXP",
+                    "Showdown: 10 EXP",
                 }
             },
             -- 1 is rank
@@ -465,6 +586,23 @@ return {
                     "{C:attention}#3#{} times"
                 }
             },
-        }
+        },
+        Tag = {
+            tag_joaf_mini_investment = {
+                name = "Mini Investment Tag",
+                text = {
+                    "After defeating",
+                    "the Boss Blind,",
+                    "gain {C:money}$10{}" -- keeping it as this until i fix the local variables not working
+                }
+            },
+            tag_joaf_mini_coupon = {
+                name = "Mini Coupon Tag",
+                text = {
+                    "Inital cards in next",
+                    "shop are free",
+                }
+            },
+        },
     }
 }

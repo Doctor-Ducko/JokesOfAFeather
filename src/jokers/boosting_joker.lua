@@ -30,7 +30,7 @@ SMODS.Joker {
 	config = {
 		extra = {
 			gain = 0.2,
-			loss = 0.1,
+			loss = 0.3,
 			x_mult = 1
 		}
 	},
@@ -64,8 +64,11 @@ SMODS.Joker {
 				colour = G.C.MULT
 			}
 		end
-		if context.skipping_booster and not card.ability.extra.x_mult - card.ability.extra.loss < 1 then
+		if context.skipping_booster then
 			card.ability.extra.x_mult = card.ability.extra.x_mult - card.ability.extra.loss
+			if card.ability.extra.x_mult < 1 then
+				card.ability.extra.x_mult = 1
+			end
 			return {
 				message = "Downgraded. :(",
 				colour = G.C.MULT

@@ -1,134 +1,65 @@
-if JOAF.has_talisman then
-	SMODS.Joker {
-		key = 'emperor',			-- Object ID, acessed with j_joaf_[key]
-		atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
-		pos = {x = 5, y = 2},		-- works on a +1 increment, not based off of pixels
-		soul_pos = { x = 5, y = 3 },
-		pools = {
-			["JOAFJokers"] = true
-		},
-		rarity = 4,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-		cost = 20,					-- shop price
+SMODS.Joker {
+	key = 'emperor',			-- Object ID, acessed with j_joaf_[key]
+	atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
+	pos = {x = 5, y = 2},		-- works on a +1 increment, not based off of pixels
+	soul_pos = { x = 5, y = 3 },
+	pools = {
+		["JOAFJokers"] = true
+	},
+	rarity = 4,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
+	cost = 20,					-- shop price
 
-		blueprint_compat = true,	-- Cosmetic only, define in calculate function
-		eternal_compat = true,		-- Self Explanatory
-		perishable_compat = true,
+	blueprint_compat = true,	-- Cosmetic only, define in calculate function
+	eternal_compat = true,		-- Self Explanatory
+	perishable_compat = true,
 
-		unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-		discovered = false,
-		-- Display text
-		loc_txt = {
-			name = 'Emperor',
-			text = {
-				"Gives {X:joaf_e_mult,C:white}^#1#{} Mult",
-				"for each {C:attention}round{} played",
-				"{C:inactive}(Currently {X:joaf_e_mult,C:white}^#2#{}{C:inactive} Mult)",
-			}
-		},
+	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
+	discovered = false,
 
-		-- Variables used in loc_vars and calculate
-		config = {
-			extra = {
-				e_mult_increase = 0.01,
-				e_mult = 1,
-			}
-		},
+	-- Variables used in loc_vars and calculate
+	config = {
+		extra = {
+			e_mult_increase = 0.01,
+			x_mult_increase = 0.5
+		}
+	},
 
-		add_to_deck = function(self, card, from_debuff)
-			card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
-		end,
 
-		-- Variables to be used in the loc_txt area
-		loc_vars = function(self, info_queue, card)
-			return {
-				vars = {
-					card.ability.extra.e_mult_increase,
-					card.ability.extra.e_mult,
-				}
-			}
-		end,
+	-- Variables to be used in the loc_txt area
+	loc_vars = function(self, info_queue, card)
+		local key = self.key
+		if not JOAF.has_talisman then
+			key = key .. "_no_talisman"
+		end
+		return {
+			vars = {
+				card.ability.extra.e_mult_increase,
+				(G.GAME.round * card.ability.extra.e_mult_increase) + 1,
+				card.ability.extra.x_mult_increase,
+				(G.GAME.round * card.ability.extra.x_mult_increase) + 1,
+			},
+			key = key
+		}
+	end,
 
-		-- look at wiki for info i aint writing it down here
-		calculate = function(self, card, context)
-			if context.joker_main then
+	-- look at wiki for info i aint writing it down here
+	calculate = function(self, card, context)
+		if context.joker_main then
+			if JOAF.has_talisman then
 				return {
-					e_mult = card.ability.extra.e_mult
+					e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
 				}
-			end
-			if context.setting_blind and not context.blueprint then
-				card.ability.extra.e_mult = (G.GAME.round * card.ability.extra.e_mult_increase) + 1
+			else
 				return {
-					message = "Upgrade!",
-					colour = G.C.MULT
+					x_mult = (G.GAME.round * card.ability.extra.x_mult_increase) + 1
 				}
 			end
 		end
-	}
-else
-	SMODS.Joker {
-		key = 'emperor',			-- Object ID, acessed with j_joaf_[key]
-		atlas = 'JOAFJokers',		-- Spritesheet to use, initalized in main script
-		pos = {x = 5, y = 2},		-- works on a +1 increment, not based off of pixels
-		soul_pos = { x = 5, y = 3 },
-		pools = {
-			["JOAFJokers"] = true
-		},
-		rarity = 4,					-- 1-Common | 2-Uncommon | 3-Rare | 4-Legendary, string id for modded rarities, found in main script
-		cost = 20,					-- shop price
-
-		blueprint_compat = true,	-- Cosmetic only, define in calculate function
-		eternal_compat = true,		-- Self Explanatory
-		perishable_compat = true,
-
-		unlocked = true,			-- Do not change these, they make the jokers visible on mod download
-		discovered = false,
-		-- Display text
-		loc_txt = {
-			name = 'Emperor',
-			text = {
-				"Gives {X:mult,C:white}X#1#{} Mult",
-				"for each {C:attention}round{} played",
-				"{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)",
-				"{C:inactive,s:0.75}(Enable Talisman (if possible) for a different effect)"
-			}
-		},
-
-		-- Variables used in loc_vars and calculate
-		config = {
-			extra = {
-				x_mult_increase = 0.5,
-				x_mult = 1,
-			}
-		},
-
-		add_to_deck = function(self, card, from_debuff)
-			card.ability.extra.x_mult = (G.GAME.round * card.ability.extra.x_mult_increase) + 1
-		end,
-
-		-- Variables to be used in the loc_txt area
-		loc_vars = function(self, info_queue, card)
+		if context.setting_blind and not context.blueprint then
 			return {
-				vars = {
-					card.ability.extra.x_mult_increase,
-					card.ability.extra.x_mult,
-				}
+				message = "Upgrade!",
+				colour = G.C.MULT
 			}
-		end,
-
-		-- look at wiki for info i aint writing it down here
-		calculate = function(self, card, context)
-			if context.joker_main then
-				return {
-					x_mult = card.ability.extra.x_mult
-				}
-			end
-			if context.setting_blind and not context.blueprint then
-				card.ability.extra.x_mult = (G.GAME.round * card.ability.extra.x_mult_increase) + 1
-				return {
-					message = "Upgrade!",
-					colour = G.C.MULT
-				}
-			end
 		end
-	}
-end
+	end
+}

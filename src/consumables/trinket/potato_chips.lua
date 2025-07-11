@@ -1,7 +1,7 @@
 SMODS.Consumable {
     key = "potato_chips",       -- Object ID, acessed with c_joaf_[key]
-    atlas = "JOAFItems",        -- Spritesheet to use, initalized in main script
-    pos = {x=2, y=1},           -- works on a +1 increment per sprite, not based off of pixels
+    atlas = "JOAFTrinkets",        -- Spritesheet to use, initalized in main script
+    pos = {x=3, y=1},           -- works on a +1 increment per sprite, not based off of pixels
     set = "Trinkets",           -- Which consumable group to put it in | "Tarot" "Planet" "Spectral" are vanilla, modded sets do not use mod prefix
     cost = 4,                   -- shop price
 
@@ -29,14 +29,6 @@ SMODS.Consumable {
                 self.config.max_highlighted,
             }
         }
-    end,
-
-    can_use = function(self, card)
-        if (#G.hand.highlighted > 0 and #G.hand.highlighted <= card.ability.max_highlighted) then
-            return true
-        else 
-            return false
-        end
     end,
 
     use = function(self, card, area, copier)

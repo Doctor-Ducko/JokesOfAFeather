@@ -22,7 +22,7 @@ SMODS.Joker {
 			"Scores {C:chips}+#1#{} chips for",
 			"every {C:common}Common{C:attention} Joker",
 			"you have",
-			"{C:inactive}(Including this Joker)"
+			"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
 		}
 	},
 
@@ -30,7 +30,6 @@ SMODS.Joker {
 	config = {
 		extra = {
 			chips_per = 40,
-			chips = 40,
 		}
 	},
 	-- Variables to be used in the loc_txt area
@@ -38,18 +37,16 @@ SMODS.Joker {
 		return {
 			vars = {
 				card.ability.extra.chips_per,
+				JOAF.count_jokers_of_rarity(1) * card.ability.extra.chips_per
 			}
 		}
 	end,
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
-		if context.pre_joker then
-			card.ability.extra.chips = JOAF.count_jokers_of_rarity(1) * card.ability.extra.chips_per
-		end
 		if context.joker_main then
 			return	{
-				chips = card.ability.extra.chips
+				chips = JOAF.count_jokers_of_rarity(1) * card.ability.extra.chips_per
 			}
 		end
 	end

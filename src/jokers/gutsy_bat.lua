@@ -15,15 +15,6 @@ SMODS.Joker {
 	unlocked = true,			-- Do not change these, they make the jokers visible on mod download
 	discovered = false,
 
-	-- Display text
-	loc_txt = {
-		name = "Gutsy Bat",
-		text = {
-			"{C:green}#1# in #2#{} chance to",
-			"score {X:joaf_e_mult,C:white}^#3#{} Mult",
-		}
-	},
-
 	set_badges = function(self, card, badges)
 		JOAF.reference_badge(card, badges, "earthbound")
 	end,
@@ -33,25 +24,38 @@ SMODS.Joker {
 		extra = {
 			odds = 20,
 			e_mult = 1.5,
+			x_mult = 50,
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
+		local key = self.key
+		if not JOAF.has_talisman then
+			key = key .. "_no_talisman"
+		end
 		return {
 			vars = {
 				G.GAME.probabilities.normal,
 				card.ability.extra.odds,
 				card.ability.extra.e_mult,
-			}
+				card.ability.extra.x_mult,
+			},
+			key = key,
 		}
 	end,
 
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
 		if context.joker_main and pseudorandom('j_joaf_gutsy_bat') < G.GAME.probabilities.normal / card.ability.extra.odds then
-			return {
-				e_mult = card.ability.extra.e_mult
-			}
+			if JOAF.has_talisman then
+				return {
+					e_mult = card.ability.extra.e_mult
+				}
+			else
+				return {
+					x_mult = card.ability.extra.x_mult
+				}
+			end
 		end
 	end
 }
