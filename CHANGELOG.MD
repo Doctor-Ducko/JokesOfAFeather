@@ -22,12 +22,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New rarity for Jokers, "Mostly Negative"
 
 ### Changed
-- Reworked internal credit system
-- Hydrop0x now referred to as AltF4
-- Adjusted collection ordering
+- General Changes
+    - Reworked internal credit system
+    - Hydrop0x now referred to as AltF4
+    - Adjusted collection ordering
+    
+- Art Changes
+    - Updated "Joker?"'s color pallete
+    - Added a hyphen in Irritating Joker's sprite
+    
 
 - Balance Changes
-    - Family Guy rarity rate nerfed from 2% -> 1%
+    - Family Guy rarity rate nerfed from 2% -> 0.5%
     - Adjusted Family Deck rate from X10 -> X20 to compensate for above change
     - Clouds Tarot nerfed from 3 -> 2
     - Irritating Joker rartity changed from Common -> Uncommon
@@ -35,12 +41,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - Misplaced now evolves into Really Misplaced
     - Irritating Joker now gives +0.9 bonus Mult
 
-## Fixed
+### Fixed
 - Being unable to select Jokers with bonus Joker slots in booster packs without free space
 - Unnacounted Unranked enhancements sending chips into the deep negatives with Jokerekoj
 
-## Removed
+### Removed
 - Chilli & AltF4 from Mod Menu Credits (Only in credits tab)
+
+## [1.1.1] - 2025-08-14
+
+### Fixed
+- Talisman being in the JSON as a dependency
+
+## [1.1.0] - 2025-08-04
+
+### Fixed
+- Talisman being required to load the mod
 
 ## [1.0.0] - 2025-07-01
 

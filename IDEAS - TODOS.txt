@@ -1,0 +1,58 @@
+FEATURES:
+    JOKER - Frustratingly Loud Feline
+        Lowers boss blind amount by 10% for 5 rounds
+    JOKER - Jack Daniel's
+        Jacks score X1.75 Mult, 1 in 8 chance to destroy the card in a drunk driving accident
+
+BALANCES:
+    REWORK (J) - Long Fuse
+        should only spawn after obtaining a dynamite card
+    REWORK (J) - Joker Face
+        Reset after each round, maybe make rare?
+
+
+BUGFIXES:
+    CRASH - New Poker Hand Planets
+        they break on use
+    TRINKET - Card Spawners
+        dont work when in the inventory and inventory is full
+    ENHANCEMENT - Dynamite Cards
+        they just vanish when out of plays
+
+ART:
+    DRAW - Handbag
+        blue obv
+    DRAW - Scissors
+        Paper mario sticker star???
+    DRAW - Lootbox
+        TBD
+    DRAW - Three-Legged Race
+        TBD
+
+
+    REDRAW - USB Hub
+        it was a square but i fink i lost that file
+    REDRAW - Evil Joker
+        something more sonic.exe like, maybe like holding a bloody knife or smth
+    REDRAW - Frug
+        i need to ask ari what the actual design was cause i honestly cheaped out on the current one
+    REDRAW - The Witness
+        Make it more unique, maybe a blacked out face in a courtroom esc. area
+    REDRAW - Long Fuse
+        Redo Shading
+    REDRAW - Colorful Joker
+        Fix weird offset mistakes that ive known about since i made it
+    REDRAW - M.I.A. Joker
+        UTY type missing person poster?
+    REDRAW - 57-Leaf Clover
+        its fugly
+    REDRAW - Card Belt
+        cleaner lines
+    REDRAW - Gutsy Bat
+        maybe make it not suck
+
+MUSIC:
+
+OTHER:
+    REWRITE - Three-Legged Race
+        flavor text is gay (negative (i am gay))

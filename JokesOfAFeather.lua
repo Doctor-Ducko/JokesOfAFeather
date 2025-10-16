@@ -73,6 +73,7 @@ JOAF.load_jokers = {
 	"three_legged_race",
 	"evil_joker",
 	"house_like_carpet",
+	"jokerkind",
 	"mia_joker",
 	"jramp",
 	"redprint",
@@ -98,8 +99,6 @@ JOAF.load_jokers = {
 	"meg_griffin",
 	"stewie_griffin",
 	"brian_griffin",
-	"glenn_quagmire",
-
 }
 
 JOAF.load_enhancements = {

@@ -29,7 +29,7 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-			chips_per = 40,
+			chips_per = 30,
 		}
 	},
 	-- Variables to be used in the loc_txt area

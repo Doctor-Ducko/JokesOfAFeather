@@ -19,10 +19,10 @@ SMODS.Joker {
 	loc_txt = {
 		name = "Frug",
 		text = {
-			"{C:attention}+#1#{} Joker Slot and {C:mult}+#5#{} Mult",
-            "{C:mult}+#2#{} Mult per copy",
+            "{C:mult}+#1#{} Mult per copy",
+			"{C:attention}+#2#{} Joker Slot",
             "{X:mult,C:white}+X#3#{} Mult per #4# copies",
-            "Multiple copies can {C:attention}appear in the shop{}"
+            "Multiple copies can {C:attention}appear{} during the run"
 		}
 	},
 
@@ -33,22 +33,20 @@ SMODS.Joker {
 	-- Variables used in loc_vars and calculate
 	config = {
 		extra = {
-            joker_slots = 1,
             mult_per = 1,
+            joker_slots = 1,
             xmult_per = 0.5,
 			xmult_req = 5,
-			base_mult = 5,
 		}
 	},
 	-- Variables to be used in the loc_txt area
 	loc_vars = function(self, info_queue, card)
 		return {
 			vars = {
-				card.ability.extra.joker_slots,
 				card.ability.extra.mult_per,
+				card.ability.extra.joker_slots,
 				card.ability.extra.xmult_per,
 				card.ability.extra.xmult_req,
-				card.ability.extra.base_mult,
 			}
 		}
 	end,
@@ -67,9 +65,10 @@ SMODS.Joker {
 	-- look at wiki for info i aint writing it down here
 	calculate = function(self, card, context)
 		if context.joker_main then
+			local frug_count = #SMODS.find_card("j_joaf_frug", true)
 			return {
-				mult = card.ability.extra.base_mult + ((card.ability.extra.mult_per * #SMODS.find_card("j_joaf_frug", true)) - 1),
-                x_mult = (card.ability.extra.xmult_per * math.floor(#SMODS.find_card("j_joaf_frug", true) / card.ability.extra.xmult_req)) + 1,
+				mult = card.ability.extra.mult_per * frug_count,
+                x_mult = (card.ability.extra.xmult_per * math.floor(frug_count / card.ability.extra.xmult_req)) + 1,
 			}
 		end
 	end

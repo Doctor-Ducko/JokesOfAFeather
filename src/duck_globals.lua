@@ -80,6 +80,7 @@ JOAF.reference_table = {
     ror2            = {"Risk of Rain 2",    HEX("0c5e49")},
     pvz             = {"Plants vs. Zombies",HEX("6fd639")},
     paper_mario     = {"Paper Mario",       HEX("ff2b00")},
+    homestuck       = {"Homestuck",         HEX("4dde51")},
     scams           = {"Discord Scams",     HEX("5662f6")},
 }
 
@@ -104,7 +105,7 @@ end
 
 JOAF.reference_badge = function(card, badges, key)
     local data = JOAF.reference_table[key]
-    badges[#badges+1] = create_badge("Refrence: ".. data[1], data[2] ,data[3] or G.C.WHITE, data[4] or 0.9)
+    badges[#badges+1] = create_badge("Reference: ".. data[1], data[2] ,data[3] or G.C.WHITE, data[4] or 0.9)
 end
 
 JOAF.experimental_badge = function(badges)
